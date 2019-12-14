@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/card.css" />
+</head>
+<style>
+    .header-section {
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+    }
+    
+    .driver-select-section {
+        margin: 30px 110px 10px 110px;
+    }
+    
+    .ui-input-search {
+        margin-top: 25px !important;
+    }
+    
+    .header-section h2 {
+        text-align: center;
+    }
+    /* .ui-radio .ui-btn.ui-radio-on:after+label {
+        background-color: red !important;
+    } */
+    
+    .ui-radio label.ui-radio-off {
+        background: white !important;
+    }
+    
+    .ui-radio label.ui-radio-on {
+        border: 2px solid #E94677 !important;
+    }
+    
+    .driver-details {
+        margin-left: 150px;
+        width: 100%;
+    }
+    
+    .driver-details h3 {
+        margin-bottom: 0px;
+    }
+    
+    .driver-details p {
+        margin-top: 5px;
+        color: #707070;
+    }
+    
+    .ui-radio label {
+        display: flex !important;
+    }
+    
+    .ui-radio img {
+        border-radius: 50%;
+    }
+    
+    .ui-btn-icon-left:after {
+        content: none !important;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $(".ui-input-search input").focus(function() {
+            $(this).parent().removeClass("ui-focus")
+        });
+    });
+    $(function() {
+        $("#includedContent").load("sidemenu.html");
+    });
+</script>
+
+<body>
+    <div data-role="page">
+        <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
+        <div id="includedContent"></div>
+        <div class="driver-select-section">
+            <div class="ui-grid-solo header-section">
+                <h2>Delivery Tracker</h2>
+            </div>
+            <div class="ui-grid-solo">
+                <input type="search" name="tracker" id="search" value="" placeholder="Search">
+            </div>
+            <div class="ui-grid-solo">
+                <div>
+                    <label for="d">
+                        <img src="../../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
+                        <div class="driver-details">
+                            <h3>Vihanga Dehigaspitiya</h3>
+                            <p><small>Order Completed</small></p>
+                        </div>
+                    </label>
+                    <input type="radio" name="abc" id="d">
+                    <label for="v">
+                            <img src="../../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
+                            <div class="driver-details">
+                                <h3>Vihanga Dehigaspitiya</h3>
+                                <p><small>Order Completed</small></p>
+                            </div>
+                        </label>
+                    <input type="radio" name="abc" id="v">
+                    <label for="b">
+                            <img src="../../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
+                            <div class="driver-details">
+                                <h3>Vihanga Dehigaspitiya</h3>
+                                <p><small>Order Completed</small></p>
+                            </div>
+                        </label>
+                    <input type="radio" name="abc" id="b">
+                    <label for="a">
+                            <img src="../../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
+                            <div class="driver-details">
+                                <h3>Vihanga Dehigaspitiya</h3>
+                                <p><small>Order Completed</small></p>
+                            </div>
+                        </label>
+                    <input type="radio" name="abc" id="a">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

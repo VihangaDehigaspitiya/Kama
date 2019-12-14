@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 
-app.use('/app', express.static('app'))
+app.use('/app', express.static('kama'))
 
 
 app.listen(3000, () => {
