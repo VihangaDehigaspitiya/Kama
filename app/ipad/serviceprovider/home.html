@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../../../libraries/Chart.js-2.9.3/dist/Chart.js"></script>
+    <script src="../../../libraries/Chart.js-2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/card.css" />
+
+    <style>
+        .indicate-card-section {
+            margin: 18px;
+        }
+        
+        .indicate-card {
+            background: linear-gradient(180deg, rgba(255, 159, 64, 0.28) 0%, rgba(230, 12, 165, 0.28) 100%);
+        }
+        
+        .indicate-card-section .ui-block-a,
+        .indicate-card-section .ui-block-b,
+        .indicate-card-section .ui-block-c {
+            padding-right: 15px;
+        }
+        
+        .indicate-card-section p {
+            text-align: center;
+            margin: 0;
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .indicate-card-section h1 {
+            font-weight: 800;
+            font-size: 70px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        
+        .weekly-income-section,
+        .daily-income-section {
+            padding: 20px;
+        }
+        
+        .weekly-income-card,
+        .daily-income-card {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div data-role="page">
+        <div class="ui-grid-a">
+            <img src="../../../assets/images/sp_home.jpg" alt="">
+        </div>
+        <div class="ui-grid-c indicate-card-section">
+            <div class="ui-block-a">
+                <div class="card indicate-card">
+                    <h1>100</h1>
+                    <p>Orders</p>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div class="card indicate-card">
+                    <h1>$1200</h1>
+                    <p>Income</p>
+                </div>
+            </div>
+            <div class="ui-block-c">
+                <div class="card indicate-card">
+                    <h1>89</h1>
+                    <p>Daily Avg</p>
+                </div>
+            </div>
+            <div class="ui-block-d">
+                <div class="card indicate-card">
+                    <h1>100</h1>
+                    <p>Likes</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a weekly-income-section">
+            <div class="card weekly-income-card">
+                <h3>Weekly Income</h3>
+                <canvas id="weekly-income"></canvas>
+            </div>
+        </div>
+        <div class="ui-grid-a daily-income-section">
+            <div class="card daily-income-card">
+                <h3>Daily Income</h3>
+                <canvas id="daily-income"></canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var weekly_ctx = document.getElementById('weekly-income').getContext('2d');
+    var weekly_gradient = weekly_ctx.createLinearGradient(0, 0, 0, 380);
+    weekly_gradient.addColorStop(0, "rgba(255, 159, 64, 0.2)");
+    weekly_gradient.addColorStop(1, "rgba(230, 12, 165, 0.2)");
+    // var fillPattern = weekly_ctx.createPattern(img, 'stretch');
+    var weekly_chart = new Chart(weekly_ctx, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: weekly_gradient,
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }]
+            }
+        }
+    });
+
+
+    var daily_ctx = document.getElementById('daily-income');
+    var daily_gradient = weekly_ctx.createLinearGradient(0, 0, 0, 380);
+    daily_gradient.addColorStop(0, "rgba(255, 159, 64, 0.6)");
+    daily_gradient.addColorStop(1, "rgba(230, 12, 165, 0.6)");
+    var daily_chart = new Chart(daily_ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: daily_gradient,
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }]
+            }
+        }
+    });
+</script>

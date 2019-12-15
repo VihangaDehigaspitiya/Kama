@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/card.css" />
+</head>
+<style>
+    .discover-restaurant-section {
+        background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        text-shadow: none;
+        color: white;
+    }
+    
+    .discover-restaurant-info {
+        padding: 28px 10px 60px 28px;
+        width: 19%;
+    }
+    
+    .discover-restaurant-info h1 {
+        margin: 0;
+        border-bottom: 1px solid white;
+    }
+    
+    .discover-restaurant-info p {
+        margin-top: 8px
+    }
+    
+    .search-resto-area {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        margin-top: -27px;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $(".ui-input-text input").focus(function() {
+            $(this).parent().removeClass("ui-focus")
+        });
+    });
+</script>
+
+<body>
+    <div data-role="page">
+        <div class="ui-grid-solo discover-restaurant-section">
+            <div class="discover-restaurant-info">
+                <h1>Discover Restaurants</h1>
+                <p>Discover new retaurants</p>
+            </div>
+        </div>
+        <div class="ui-grid-a" class="search-resto-area">
+            <div class="ui-block-a">
+                <input type="text" name="text-basic" id="text-basic" value="">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

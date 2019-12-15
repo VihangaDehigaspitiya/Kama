@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/card.css" />
+
+    <style>
+        .loading-container {
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        }
+        
+        .progress2 {
+            padding: 6px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.25);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        }
+        
+        .progress-bar2 {
+            height: 18px;
+            border-radius: 30px;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            transition: 0.4s linear;
+            transition-property: width, background-color;
+        }
+        
+        .progress-moved .progress-bar2 {
+            width: 100%;
+            background-color: red;
+            animation: progressAnimation 6s;
+        }
+        
+        @keyframes progressAnimation {
+            0% {
+                width: 5%;
+                background-color: red;
+            }
+            100% {
+                width: 100%;
+                background-color: red;
+            }
+        }
+        
+        .logo-container {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            /* flex-direction: column;*/
+        }
+        
+        @media (min-height: 1024px) {
+            .logo-container {
+                margin-top: 40% !important;
+            }
+        }
+        
+        @media (min-height: 768px) {
+            .logo-container {
+                margin-top: 12%;
+            }
+        }
+        
+        .progress-bar-container {
+            margin: auto;
+            width: 80%;
+        }
+        /* .w3-round-xlarge {
+            border-radius: 16px
+        }
+        
+        .w3-container:after,
+        .w3-container:before {
+            content: "";
+            display: table;
+            clear: both
+        }
+        
+        .w3-light-grey {
+            color: #000!important;
+            background-color: #f1f1f1!important
+        }
+        
+        .w3-blue {
+            background-color: blue;
+        }
+        
+        .w3-container,
+        .w3-panel {
+            padding: 0.01em 16px
+        } */
+    </style>
+</head>
+
+<body>
+    <div data-role="page" class="loading-container">
+        <div class="logo-container">
+            <img src="../../assets/images/kaama_df@2x.png" style="margin: auto;" alt="" width="60%">
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress2 progress-moved">
+                <div class="progress-bar2">
+                </div>
+            </div>
+        </div>
+
+</body>
+
+
+</html>

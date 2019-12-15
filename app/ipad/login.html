@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/card.css" />
+
+
+    <style>
+        .login-card .ui-block-a {
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            height: 500px !important;
+        }
+        
+        .login-card {
+            width: 65%;
+            border-radius: 30px;
+            overflow: hidden !important;
+        }
+        
+        .login-card .ui-block-b {
+            padding: 20px;
+        }
+        
+        .login-btn:focus {
+            box-shadow: none !important;
+        }
+        
+        .login-btn {
+            /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 25px !important;
+            margin-top: 25px !important;
+            width: 30% !important;
+            display: flex !important;
+            justify-content: center !important;
+            color: white !important;
+            font-family: Helvetica;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-size: 16px !important;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+        }
+        
+        .login-container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+        }
+        
+        .ui-input-text {
+            border-color: red !important;
+            border-radius: 20px;
+            width: 50%;
+            font-size: small;
+        }
+        
+        .ui-input-text input {
+            margin-left: 8px;
+        }
+        
+        .ui-block-b {
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: column;
+        }
+        
+        .ui-block-a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .icon-container svg {
+            margin-right: 20px !important;
+            color: salmon;
+            /* background: -webkit-gradient(linear, left top, right top, color-stop(.5, blue), color-stop(1, orange)); */
+            /* background: gradient(linear, left top, right top, color-stop(0.5, blue), color-stop(1, orange)) !important; */
+            /* fill: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            /* color: transparent !important; */
+            /* color: #3c8e25; */
+        }
+        
+        .ui-block-b p {
+            /* margin: 0; */
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            color: rgba(167, 167, 167, 1);
+            letter-spacing: 0.5px;
+        }
+        
+        .ui-block-b p a {
+            cursor: pointer;
+            color: #E85E52;
+            font: caption;
+        }
+        
+        .ui-block-b p a:hover {
+            color: red;
+        }
+        /* .ui-block-b .dd {
+            justify-content: center !important;
+        } */
+        /* .login-btn-container {
+            display: flex !important;
+            justify-content: center !important;
+        } */
+        /* /* ::placeholder {
+            margin-left: 12px !important;
+            opacity: 1;
+            
+    } */
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $(".ui-input-text input").focus(function() {
+                $(this).parent().removeClass("ui-focus")
+            });
+            // $(".ui-btn").focus(function() {
+            //     $(this).addClass("login-btn-focus");
+            //     console.log('THis has been focused')
+            // });
+        });
+    </script>
+
+    <!-- <script src="../../libraries/jquery.mobile-1.4.5/jqu"></script> -->
+</head>
+
+<body>
+    <div data-role="page" class="login-container">
+        <!-- <div data-role="content"> -->
+        <div class="card login-card">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img src="../../assets/images/kaama_df@2x.png" width="60%">
+                </div>
+                <div class="ui-block-b">
+                    <input type="text" name="" id="" placeholder="Username">
+                    <input type="text" name="" id="" placeholder="Password">
+                    <button class="login-btn">LOGIN</button>
+                    <p>Or Sign up with</p>
+                    <div class="icon-container">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <p>Don't have an account? <a>Sign up</a></p>
+
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+</body>
+
+</html>
