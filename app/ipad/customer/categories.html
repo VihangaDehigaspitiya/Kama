@@ -35,11 +35,21 @@
         $(".ui-input-search input").focus(function() {
             $(this).parent().removeClass("ui-focus")
         });
+
+        $(function() {
+            $("#header-area").load("header.html");
+            $("#hh").load("../sidemenu.html");
+        });
     });
 </script>
 
 <body>
+    <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
     <div data-role="page">
+
+        <div data-role="header" id="header-area">
+        </div>
+        <div data-role="panel" id="hh" data-display="overlay"></div>
         <div class="ui-grid-a search-section">
             <input type="search" name="catogaries" id="search" value="" placeholder="Search">
             <h2>Top Categories</h2>

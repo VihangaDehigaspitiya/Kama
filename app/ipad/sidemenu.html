@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" /> -->
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <!-- <script src="../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
     <script src="../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../assets/css/card.css" />
+    <link rel="stylesheet" href="../../assets/css/card.css" /> -->
 
     <style>
-        img {
+        .user-info-section img {
             border-radius: 50%;
         }
         
@@ -62,18 +62,18 @@
 </head>
 
 <body>
-
-    <div data-role="panel" id="mypanel" data-display="overlay">
+    <!-- <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a> -->
+    <div class="ui-panel-inner">
         <div class="ui-grid-solo user-info-section">
-            <img src="../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
+            <img src="../../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
             <h1>Vihanga</h1>
             <p>Sri Lanka, Colombo</p>
         </div>
-        <ul data-role="listview">
-            <li><i class="fas fa-receipt"></i> User Policy</li>
-            <li><i class="fas fa-info-circle"></i> About Us</li>
-            <li><i class="far fa-credit-card"></i> Payment</li>
-            <li><i class="fas fa-cog"></i> Settings</li>
+        <ul data-role="listview" class="ui-listview">
+            <li class="ui-li-static ui-body-inherit"><i class="fas fa-receipt"></i> User Policy</li>
+            <li class="ui-li-static ui-body-inherit"><i class="fas fa-info-circle"></i> About Us</li>
+            <li class="ui-li-static ui-body-inherit"><i class="far fa-credit-card"></i> Payment</li>
+            <li class="ui-li-static ui-body-inherit"><i class="fas fa-cog"></i> Settings</li>
             <!-- <li>Navbar</li> -->
 
         </ul>

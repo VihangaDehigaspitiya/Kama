@@ -12,6 +12,7 @@
     <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="../../../assets/css/card.css" />
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
 </head>
 <style>
     .header-section {
@@ -73,15 +74,19 @@
             $(this).parent().removeClass("ui-focus")
         });
     });
-    $(function() {
-        $("#includedContent").load("sidemenu.html");
-    });
+    // $(function() {
+    //     $("#includedContent").load("../sidemenu.html");
+    // });
 </script>
 
 <body>
     <div data-role="page">
-        <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
-        <div id="includedContent"></div>
+        <!-- 
+        <div w3-include-html="../sidemenu.html"></div>
+        <script>
+            w3IncludeHTML();
+        </script> -->
+
         <div class="driver-select-section">
             <div class="ui-grid-solo header-section">
                 <h2>Delivery Tracker</h2>
