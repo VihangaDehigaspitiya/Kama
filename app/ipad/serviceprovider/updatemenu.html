@@ -21,25 +21,25 @@
             left: 334px;
             width: 400px;
         }
-        
+
         .ui-content {
             padding-top: 3px !important;
         }
-        
+
         .ui-content input {
             border: 1px solid #E94677;
         }
-        
+
         .add-button-section {
             padding: 0 20px 0 20px;
         }
-        
+
         #popupDialog h3 {
             text-align: center;
             color: #E94677;
             margin-bottom: 1px;
         }
-        
+
         .food-save-btn {
             background: linear-gradient(90deg, #FF9F40 0%, #E60CA5 100%) !important;
             border-radius: 8px !important;
@@ -57,31 +57,49 @@
             /* height: 40px; */
             text-align: center;
         }
-        
+
         .food-save-btn:focus {
             box-shadow: none !important;
         }
-        
+
         .food-list-section {
             padding: 15px !important;
         }
-        
+
         .food-list-card {
             padding: 0 15px 0 15px;
         }
-        
+
         ul li p {
             display: inline-flex !important;
             width: 83.6% !important;
         }
-        
+
         ul li svg {
             margin-right: 15px !important;
         }
+
+        /* ipad portrait */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+            .ui-grid-a .ui-block-a,
+            .ui-grid-a .ui-block-b {
+                width: 100%;
+            }
+
+            ul li p {
+                display: inline-flex !important;
+                width: 84.6% !important;
+            }
+
+            .svg-inline--fa.fa-w-16 {
+                width: 3em;
+            }
+        }
     </style>
     <script>
-        $(document).ready(function() {
-            $(".ui-input-text input").focus(function() {
+        $(document).ready(function () {
+            $(".ui-input-text input").focus(function () {
                 $(this).parent().removeClass("ui-focus")
             });
             // $(".ui-btn").focus(function() {
@@ -98,7 +116,8 @@
             <img src="../../../assets/images/new-rating-street.jpg" width="100%" alt="">
         </div>
         <div class="ui-grid-a add-button-section">
-            <a role="button" class="food-save-btn" href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop">Add new Item</a>
+            <a role="button" class="food-save-btn" href="#popupDialog" data-rel="popup" data-position-to="window"
+                data-transition="pop">Add new Item</a>
         </div>
         <div class="ui-grid-a">
             <div class="ui-block-a food-list-section">
@@ -165,10 +184,12 @@
             </div>
         </div>
         <!-- <a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Delete page...</a> -->
-        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="max-width:400px;">
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
+            style="max-width:400px;">
             <div>
                 <h3>Food Details</h3>
-                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"
+                    data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
             </div>
             <div role="main" class="ui-content">
                 <!-- <h3 class="ui-title">Food Details</h3> -->
