@@ -17,26 +17,25 @@
     .category-section {
         padding: 0 15px 0 15px;
     }
-
+    
     .category-card {
         padding: 15px;
     }
-
+    
     .search-section {
         padding: 15px 30px 0px 30px;
     }
-
+    
     .search-section h2 {
         margin-bottom: 0;
     }
-
     /* First breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
+    
     @media (min-width: 48em) {
         .ui-content {
             padding: .5625em;
             /* 9px */
         }
-
         .ui-content .ui-listview li {
             float: left;
             width: 30.9333%;
@@ -45,7 +44,6 @@
             /* 232p */
             margin: .5625em 1.2%;
         }
-
         .ui-content .ui-listview li>.ui-btn {
             -webkit-box-sizing: border-box;
             /* include padding and border in height so we can set it to 100% */
@@ -53,7 +51,6 @@
             box-sizing: border-box;
             height: 100%;
         }
-
         .ui-content .ui-listview li.ui-li-has-thumb .ui-li-thumb {
             align-self: auto;
             height: 100%;
@@ -61,7 +58,6 @@
             max-width: 100%;
             max-height: none;
         }
-
         /* Make all list items and anchors inherit the border-radius from the UL. */
         .ui-content .ui-listview li,
         .ui-content .ui-listview li .ui-btn,
@@ -69,12 +65,10 @@
             -webkit-border-radius: inherit;
             border-radius: inherit;
         }
-
         /* Hide the icon */
         .ui-content .ui-listview .ui-btn-icon-right:after {
             display: none;
         }
-
         /* Make text wrap. */
         .ui-content .ui-listview h2,
         .ui-content .ui-listview p {
@@ -84,7 +78,6 @@
             left: 0;
             right: 0;
         }
-
         /* Text position */
         .ui-content .ui-listview h2 {
             font-size: 1.25em;
@@ -92,7 +85,6 @@
             padding: .125em 1em;
             bottom: 50%;
         }
-
         .ui-content .ui-listview p {
             font-size: 1em;
             margin: 0;
@@ -100,22 +92,18 @@
             min-height: 50%;
             bottom: 0;
         }
-
         /* Semi transparent background and different position if there is a thumb. The button has overflow hidden so we don't need to set border-radius. */
         .ui-listview .ui-li-has-thumb h2,
         .ui-listview .ui-li-has-thumb p {
             background: #111;
             background: rgba(0, 0, 0, .8);
         }
-
         .ui-listview .ui-li-has-thumb h2 {
             bottom: 35%;
         }
-
         .ui-listview .ui-li-has-thumb p {
             min-height: 35%;
         }
-
         /* ui-li-aside has class .ui-li-desc as well so we have to override some things. */
         .ui-content .ui-listview .ui-li-aside {
             padding: .125em .625em;
@@ -134,21 +122,18 @@
             -webkit-border-bottom-right-radius: 0;
             border-bottom-right-radius: 0;
         }
-
         /* If you want to add shadow, don't kill the focus style. */
         .ui-content .ui-listview li {
             -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         }
-
         /* Images mask the hover bg color so we give desktop users feedback by applying the focus style on hover as well. */
         /* .ui-content .ui-listview li>.ui-btn:hover {
             -moz-box-shadow: 0px 0px 12px #33ccff;
             -webkit-box-shadow: 0px 0px 12px #33ccff;
             box-shadow: 0px 0px 12px #33ccff;
         } */
-
         /* Animate focus and hover style, and resizing. */
         .ui-content .ui-listview li,
         .ui-content .ui-listview {
@@ -159,14 +144,13 @@
             transition: all 500ms ease;
         }
     }
-
     /* Second breakpoint is 63.75em (1020px). 4 column layout. Tiles will be 250x250 pixels incl. margin again at the breakpoint. */
+    
     @media (min-width: 63.75em) {
         .ui-content .ui-content {
             padding: .625em;
             /* 10px */
         }
-
         /* Set a max-width for the last breakpoint to prevent too much stretching on large screens.
     By setting the max-width equal to the breakpoint width minus padding we keep square tiles. */
         .ui-content .ui-listview {
@@ -174,7 +158,6 @@
             /* 1000px */
             margin: 0 auto;
         }
-
         /* Because of the 1000px max-width the width will always be 230px (and margin left/right 10px),
     but we stick to percentage values for demo purposes. */
         .ui-content .ui-listview li {
@@ -185,25 +168,24 @@
     }
 </style>
 <script>
-    $(document).ready(function () {
-        $(".ui-input-search input").focus(function () {
+    $(document).ready(function() {
+        $(".ui-input-search input").focus(function() {
             $(this).parent().removeClass("ui-focus")
         });
 
-        $(function () {
-            $("#header-area").load("header.html");
-            $("#hh").load("../sidemenu.html");
+        $(function() {
+            $("#header-area").load("../header.html");
+            $("#side-panel").load("../sidemenu.html");
         });
     });
 </script>
 
 <body>
-    <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
     <div data-role="page" class="category-page">
 
         <div data-role="header" id="header-area">
         </div>
-        <div data-role="panel" id="hh" data-display="overlay"></div>
+        <div data-role="panel" id="side-panel" data-display="overlay"></div>
         <div class="ui-grid-a search-section">
             <input type="search" name="catogaries" id="search" value="" placeholder="Search">
             <h2>Top Categories</h2>
@@ -211,51 +193,81 @@
 
         <div role="main" class="ui-content category-section">
             <ul data-role="listview" data-inset="true">
-                <li><a href="#">
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -264,51 +276,81 @@
         </div>
         <div role="main" class="ui-content category-section">
             <ul data-role="listview" data-inset="true">
-                <li><a href="#">
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
-                <li><a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <img src="../../../assets/images/indian.png" class="ui-li-thumb">
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
