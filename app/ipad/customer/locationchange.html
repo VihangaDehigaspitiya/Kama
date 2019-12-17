@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        /* html,
+        body,
+        .change-location-area,
+        #map-canvas {
+            height: 100%;
+        }
+         */
+        
+        .change-location-area {
+            margin: 30px 110px 10px 110px;
+        }
+        
+        .change-location-area .location-settings {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="change-location-area">
+        <div class="ui-grid-solo location-settings">
+            <h2>Location Settings</h2>
+        </div>
+        <div class="ui-grid-solo map-area">
+
+            <label for="">Address: <input id="map-search" class="controls" type="text" placeholder="Search Box" size="104"></label><br>
+            <label for="">Lat: <input type="text" class="latitude"></label>
+            <label for="">Long: <input type="text" class="longitude"></label>
+            <label for="">City <input type="text" class="reg-input-city" placeholder="City"></label>
+
+
+
+
+        </div>
+        <div class="ui-grid-solo">
+            <div id="map-canvas" style="width:100%;height:400px;"></div>
+        </div>
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>
+<script src="/assets/js/google-map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIB2Z2ujLR7Wg8qGUETZ8Ekv2Rtco4yQ&libraries=places&callback=initialize"></script>
