@@ -3,10 +3,10 @@ function initialize() {
     var mapOptions, map, marker, searchBox, city,
         infoWindow = '',
         addressEl = document.querySelector('#map-search'),
-        latEl = document.querySelector('.latitude'),
-        longEl = document.querySelector('.longitude'),
+        // latEl = document.querySelector('.latitude'),
+        // longEl = document.querySelector('.longitude'),
         element = document.getElementById('map-canvas');
-    city = document.querySelector('.reg-input-city');
+    // city = document.querySelector('.reg-input-city');
 
     mapOptions = {
         // How far the maps zooms in.
@@ -70,8 +70,8 @@ function initialize() {
 
         lat = marker.getPosition().lat();
         long = marker.getPosition().lng();
-        latEl.value = lat;
-        longEl.value = long;
+        // latEl.value = lat;
+        // longEl.value = long;
 
         resultArray = places[0].address_components;
 
@@ -79,7 +79,7 @@ function initialize() {
         for (var i = 0; i < resultArray.length; i++) {
             if (resultArray[i].types[0] && 'administrative_area_level_2' === resultArray[i].types[0]) {
                 citi = resultArray[i].long_name;
-                city.value = citi;
+                // city.value = citi;
             }
         }
 
@@ -119,12 +119,12 @@ function initialize() {
                     if (resultArray[i].types[0] && 'administrative_area_level_2' === resultArray[i].types[0]) {
                         citi = resultArray[i].long_name;
                         console.log(citi);
-                        city.value = citi;
+                        // city.value = citi;
                     }
                 }
                 addressEl.value = address;
-                latEl.value = lat;
-                longEl.value = long;
+                // latEl.value = lat;
+                // longEl.value = long;
 
             } else {
                 console.log('Geocode was not successful for the following reason: ' + status);
