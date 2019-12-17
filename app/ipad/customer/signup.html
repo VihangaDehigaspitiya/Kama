@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <title>Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../../assets/css/card.css" />
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
 
 
     <style>
@@ -21,7 +21,7 @@
             justify-content: center !important;
             flex-direction: column !important;
         }
-
+        
         .ui-input-text {
             border-color: red !important;
             border-radius: 5px;
@@ -29,36 +29,37 @@
             font-size: small;
             font-size: medium;
         }
-
+        
         .ui-input-text input {
             margin-left: 8px;
         }
-
+        
         .ui-grid-solo .ui-block-a .form-topic-container {
             width: 80%;
             text-align: left;
         }
-
+        
         .ui-block-a .ui-grid-solo {
             /* align-items: flex-start; */
             width: 80%;
         }
-
+        
         .ui-block-a .ui-grid-solo p {
             margin-left: 50px;
         }
-
+        
         .ui-block-a .ui-grid-solo input {
             margin-top: 8px;
         }
-
+        
         .form-container {
             margin-top: 50px;
         }
-
+        
         .header-container {
             margin: 15px;
         }
+        
         .complete-btn {
             /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
@@ -79,8 +80,8 @@
     </style>
 
     <script>
-        $(document).ready(function () {
-            $(".ui-input-text input").focus(function () {
+        $(document).ready(function() {
+            $(".ui-input-text input").focus(function() {
                 $(this).parent().removeClass("ui-focus")
             });
         });
