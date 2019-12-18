@@ -12,6 +12,7 @@
     <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="/assets/css/card.css" />
+
 </head>
 <style>
     .resto-info-section {
@@ -19,44 +20,146 @@
         padding-bottom: 10px;
         border-bottom: 2px solid rgba(112, 112, 112, 0.5);
     }
-    
+
     .menu-section {
         margin: 10px 110px 10px 110px;
     }
-    
+
     .menu-section h2 {
         text-align: center;
     }
-    
+
     .ui-page-theme-a,
     .ui-body-inherit {
         background-color: #f9f9f9 !important;
     }
-    
+
     .resto-info-1 p,
     .resto-info-2 p {
         margin: 0 !important;
     }
-    
+
     .resto-info-1 p small,
     .resto-info-2 p small {
         font-size: 12px !important;
         color: #707070 !important;
     }
-    
+
     .resto-info-1 h2,
     .resto-info-2 h2 {
         margin: 6px 0 6px 0;
     }
-    
+
     .fa-star {
         color: gold;
     }
-    
+
     .fa-check-square {
         color: green;
     }
+
+    .menu-section .ui-btn-icon-right:after {
+        content: none !important;
+    }
+
+    .menu-section a {
+        background: #f9f9f9 !important;
+    }
+
+    .menu-section .ui-btn:focus,
+    #quatityDialog .ui-btn.ui-btn-b:focus {
+        box-shadow: none !important;
+    }
+
+    .menu-section a:focus {
+        box-shadow: none !important;
+        border: none !important;
+        color: black !important;
+    }
+
+    #quatityDialog .quantity-info-section img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
+    #quatityDialog .quantity-info-section h2 {
+        margin: 8px 0 5px 0;
+    }
+
+    #quatityDialog .quantity-info-section p {
+        margin: 0 0 5px 0;
+    }
+
+
+    #quatityDialog .quantity-info-section {
+        text-align: center;
+    }
+
+    #quatityDialog .quantity-info-section .quantity {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+    }
+
+    #quatityDialog .quantity-info-section .quantity .ui-icon-minus {
+        margin: 13px 20px 0 0;
+    }
+
+    #quatityDialog .quantity-info-section .quantity h1 {
+        margin: 10px 0 0 0;
+    }
+
+    #quatityDialog .quantity-info-section .quantity .ui-icon-plus {
+        margin: 13px 0 0 20px;
+    }
+
+    .add-to-cart-btn {
+        padding: 0 !important;
+        border: none !important;
+        background: white !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        color: #FF825D !important;
+        font-size: 20px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 4px !important;
+    }
+
+    #quatityDialog {
+        border-radius: 20px;
+    }
+
+    #quatityDialog-popup {
+        width: 350px !important;
+    }
 </style>
+<script>
+    $(document).ready(function () {
+
+        var i = 1;
+        var price =$("#food-price").attr('value');
+
+        $(".ui-icon-plus").click(function () {
+            
+            console.log(price)
+            i = i + 1;
+            var total = price * i;
+            $("#numQuantity").text(i);
+            $("#food-price").text(`Rs.${total}`);
+        });
+
+        $(".ui-icon-minus").click(function () {
+            console.log("working minus")
+            i == 1 ? i = 1 : i = i - 1;
+            var total = price * i;
+            $("#numQuantity").text(i);
+            $("#food-price").text(`Rs.${total}`);
+        })
+
+    });
+</script>
 
 <body>
     <div data-role="page">
@@ -69,13 +172,13 @@
                     <h2>Street Burger</h2>
                     <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
                     <p><small><i class="far fa-clock"></i> 25-35 Min</small></p>
-                    <p><small><i class="fas fa-check-square"></i>  Halal</small></p>
+                    <p><small><i class="fas fa-check-square"></i> Halal</small></p>
                 </div>
             </div>
             <div class="ui-block-b">
                 <div class="resto-info-2">
                     <h2>Restaurent Info</h2>
-                    <p><small><i class="fab fa-facebook-square"></i>  www.facebook.com/streetburger</small></p>
+                    <p><small><i class="fab fa-facebook-square"></i> www.facebook.com/streetburger</small></p>
                     <p><small><i class="fas fa-map-marker-alt"></i> 97 Galle Rd, Colombo, Sri Lanka</small></p>
                     <p><small><i class="fas fa-phone-square-alt"></i> 0775654123</small></p>
                 </div>
@@ -85,8 +188,10 @@
             <h2>Menu</h2>
             <ul data-role="listview">
                 <li>
-                    <p>Chicke Cheese Koththu</p>
-                    <p>Rs.650</p>
+                    <a href="#quatityDialog" id="ttt" data-rel="popup" data-position-to="window" data-transition="pop">
+                        <p>Chicke Cheese Koththu</p>
+                        <p>Rs.650</p>
+                    </a>
                 </li>
                 <li>
                     <p>Chicke Cheese Koththu</p>
@@ -101,6 +206,33 @@
                     <p>Rs.650</p>
                 </li>
             </ul>
+        </div>
+        <div data-role="popup" id="quatityDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
+            style="max-width:400px;">
+            <div>
+                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"
+                    data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+            </div>
+            <div role="main" class="ui-content">
+                <div class="quantity-info-section">
+                    <img src="/assets/images/street-fav.png" alt="">
+                    <h2>Street Burger</h2>
+                    <p>Hot Charger</p>
+                    <p id="food-price" value="550">Rs.550</p>
+                    <div class="quantity">
+                        <a href="#"
+                            class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                        <h1 id="numQuantity">1</h1>
+                        <a href="#"
+                            class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                    </div>
+
+                </div>
+
+                <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
+                <button class="add-to-cart-btn">ADD TO CART</button>
+            </div>
         </div>
     </div>
 </body>
