@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        .profile-section {
+            margin: 30px 110px 10px 110px;
+        }
+
+        .profile-section .profile-section-header h1 {
+            text-align: center;
+        }
+
+        .profile-section .log-out-section {
+            margin-top: 35px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .profile-section .preference-section {
+            width: 70%;
+        }
+
+        .profile-section .preference-section .ui-slider {
+            border-radius: 50px !important;
+            width: 58px !important;
+        }
+
+        .profile-section .preference-section li{
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+
+        .profile-section .preference-section li p {
+            padding-top: 4px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .profile-section .preference-section,
+        .profile-section .log-out-section{
+            padding:20px
+        }
+
+        .profile-section .log-out-section img{
+            
+            border-radius: 50%;
+        }
+
+        .profile-section .preference-section .setting-card-header{
+            padding: 0 0 0 16px;
+        }
+
+        .profile-section .log-out-section .log-out-btn{
+            text-shadow: none !important;
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            letter-spacing: 2px !important;
+            color: white !important;
+            border-radius: 30px;
+        }
+        .profile-section .preference-section .ui-btn-active{
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        }
+        .profile-section .preference-section .ui-btn:focus,
+        .profile-section .log-out-section .log-out-btn:focus{
+            box-shadow: none !important;
+        }
+        .profile-section .ui-grid-a{
+            margin-top: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div data-role="page">
+        <div class="profile-section">
+            <div class="ui-grid-solo profile-section-header">
+                <h1>Your Profile</h1>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a log-out-section">
+                    <img src="/assets/images/IMG_7960.jpg" height="100px" width="100px" alt="">
+                    <button class="log-out-btn">LOGOUT</button>
+                </div>
+                <div class="ui-block-b preference-section">
+                    <div class="card">
+                        <p class="setting-card-header">Preference</p>
+                        <ul data-role="listview">
+                            <li>
+                                <p>Push Notification</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Allow access to My Contacts</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Allow location settings</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Show Advertiesements</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Help Topics</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
