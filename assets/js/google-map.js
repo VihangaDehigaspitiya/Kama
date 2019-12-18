@@ -1,18 +1,28 @@
 function initialize() {
 
+    var directionsRenderer = new google.maps.DirectionsRenderer;
+    var directionsService = new google.maps.DirectionsService;
+    var lat = 6.053519;
+    var long = 80.220978;
+
     var mapOptions, map, marker, searchBox, city,
         infoWindow = '',
+        resto_info = '',
         addressEl = document.querySelector('#map-search'),
         // latEl = document.querySelector('.latitude'),
         // longEl = document.querySelector('.longitude'),
         element = document.getElementById('map-canvas');
     // city = document.querySelector('.reg-input-city');
 
+  
+
+   
+
     mapOptions = {
         // How far the maps zooms in.
         zoom: 14,
         // Current Lat and Long position of the pin/
-        center: new google.maps.LatLng(6.889254590927385, 79.8543631684197),
+        center: new google.maps.LatLng(lat, long),
         // center : {
         // 	lat: -34.397,
         // 	lng: 150.644
@@ -41,9 +51,30 @@ function initialize() {
     marker = new google.maps.Marker({
         position: mapOptions.center,
         map: map,
-        // icon: 'http://pngimages.net/sites/default/files/google-maps-png-image-70164.png',
+        icon: "/assets/images/map-markers/home.png",
         draggable: true
     });
+
+    var resto_marker = new google.maps.Marker({
+        position: new google.maps.LatLng(6.889254590927385, 79.8543631684197),
+        map: map,
+        icon: "/assets/images/map-markers/resto.png",
+        draggable: false
+    }); 
+
+
+    resto_info = new google.maps.InfoWindow({
+        content: "Street burger"
+    });
+
+    resto_info.open(map, resto_marker);
+
+    directionsRenderer.setMap(map);
+    directionsRenderer.setOptions( { suppressMarkers: true } );
+
+    calculateAndDisplayRoute(directionsService, directionsRenderer, lat, long);
+
+
 
     /**
      * Creates a search box
@@ -95,6 +126,10 @@ function initialize() {
         });
 
         infoWindow.open(map, marker);
+
+
+
+        calculateAndDisplayRoute(directionsService, directionsRenderer, lat, long);
     });
 
 
@@ -144,7 +179,32 @@ function initialize() {
 
             infoWindow.open(map, marker);
         });
+
+
+        calculateAndDisplayRoute(directionsService, directionsRenderer, lat, long);
+
+        
     });
 
 
 }
+
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer, destLat, destLong) {
+    console.log("Working")
+    directionsService.route({
+      origin: {lat: 6.889254590927385, lng: 79.8543631684197},  // Haight.
+      destination: {lat: destLat, lng: destLong},  // Ocean Beach.
+      // Note that Javascript allows us to access the constant
+      // using square brackets and a string value as its
+      // "property."
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+        console.log(response)
+      if (status == 'OK') {
+        directionsRenderer.setDirections(response);
+      } else {
+        console.log('Directions request failed due to ');
+      }
+    });
+  }
