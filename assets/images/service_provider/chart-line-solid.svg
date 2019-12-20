@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28.027" height="24.186" viewBox="0 0 28.027 24.186">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff9f40"/>
+      <stop offset="0.203" stop-color="#ff8c49"/>
+      <stop offset="0.367" stop-color="#ff8a4a"/>
+      <stop offset="0.605" stop-color="#ff7256"/>
+      <stop offset="1" stop-color="#ff406e"/>
+    </linearGradient>
+  </defs>
+  <path id="chart-line-solid" d="M27.151,84.155H3.5V65.008A.949.949,0,0,0,2.628,64H.876A.949.949,0,0,0,0,65.008V86.171a1.9,1.9,0,0,0,1.752,2.016h25.4a.949.949,0,0,0,.876-1.008V85.163A.949.949,0,0,0,27.151,84.155ZM25.4,66.016H18.937a1.549,1.549,0,0,0-.929,2.58l1.774,2.041-4.016,4.622-4.016-4.621a1.594,1.594,0,0,0-2.477,0l-3.76,4.326a1.118,1.118,0,0,0,0,1.425L6.75,77.814a.8.8,0,0,0,1.239,0l2.521-2.9,4.016,4.621a1.594,1.594,0,0,0,2.477,0l5.255-6.047,1.774,2.041c.828.952,2.243.278,2.243-1.069V67.023A.948.948,0,0,0,25.4,66.016Z" transform="translate(0 -64)" fill="url(#linear-gradient)"/>
+</svg>

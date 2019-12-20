@@ -42,13 +42,22 @@
             font-size: small;
             font-size: medium;
         }
+        /* checkbox */
+        
+        .ui-checkbox {
+            width: 80%;
+        }
+        
+        .ui-checkbox-on:after {
+            background-color: red !important;
+        }
         
         .ui-input-text input {
             margin-left: 8px;
         }
-        /* next-btn */
+        /* complete-btn */
         
-        .next-btn {
+        .complete-btn {
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
             border-radius: 5px !important;
             margin-top: 25px !important;
@@ -74,7 +83,7 @@
             display: inline-block;
         }
         
-        #dot1 {
+        #dot2 {
             background-color: red;
         }
     </style>
@@ -101,20 +110,22 @@
         <div class="ui-grid-solo form-container">
             <div class="ui-block-a">
                 <div class="form-topic-container">
-                    <h3>Personal Details</h3>
+                    <h3>Card Details</h3>
                 </div>
-                <input type="text" name="fullName" id="fullName" placeholder="Full name">
-                <input type="text" name="email" id="email" placeholder="Email">
-                <input type="text" name="address" id="address" placeholder="Address">
-                <input type="date" name="" id="" placeholder="Birthday">
-                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="text" name="" id="" placeholder="Card Number">
+                <input type="text" name="" id="" placeholder="Name On Card">
+                <input type="text" name="" id="" placeholder="CVC">
+                <input type="password" name="" id="" placeholder="Card Expiry date">
+                <input type="checkbox" name="checkbox-savedetails" id="checkbox-savedetails" checked="">
+                <label for="checkbox-savedetails">Save my card details securely for faster payements. Terms and
+                    Conditions apply.</label>
 
                 <div class="ui-grid-a">
                     <span class="dot" id="dot1"></span>
                     <span class="dot" id="dot2"></span>
                 </div>
 
-                <button onclick="addUserDataToStorage()" class="next-btn"><i class="fas fa-arrow-right"></i></button>
+                <button onclick="registerUser()" class="complete-btn">COMPLETE</button>
             </div>
         </div>
     </div>
@@ -123,16 +134,29 @@
 </html>
 
 <script>
-    function addUserDataToStorage() {
-        var obj = {
-            "fullName": $("#fullName").val(),
-            "email": $("#email").val(),
-            "password": $("#password").val(),
-            "address": $("#address").val(),
-            "isRestaurant": false
-        };
+    function registerUser() {
+        var string_data = localStorage.getItem("UserObj");
+        var data = JSON.parse(string_data);
+        console.log("data", data)
 
-        localStorage.setItem("UserObj", JSON.stringify(obj));
-        window.location.href = "addcard.html";
+
+        $.ajax({
+            url: `http://localhost/TodoApplication/index.php/UserController/register`,
+            method: 'POST',
+            dataType: "json",
+            data: {
+                "fullName": data.fullName,
+                "email": data.email,
+                "password": data.password,
+                "address": data.address,
+                "isRestaurant": data.isRestaurant
+            },
+            // headers: {
+            //     'Access-Control-Allow-Origin': '*',
+            // }
+        }).done(function(data) {
+            console.log(data);
+
+        });
     }
 </script>
