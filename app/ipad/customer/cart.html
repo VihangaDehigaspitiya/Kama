@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+</head>
+<style>
+    .cart-area {
+        margin: 30px 110px 10px 110px;
+    }
+
+    .cart-header {
+        text-align: center;
+    }
+
+    .cart-header h2 {
+        margin: 0;
+    }
+
+    .cart-header p {
+        margin-top: 7px;
+    }
+
+    .cart-area .ui-grid-a {
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+    }
+
+    .cart-area .ui-grid-a .ui-block-a img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .cart-area .ui-grid-a .ui-block-a p {
+        margin-top: 3px;
+    }
+
+    .cart-area .ui-grid-a .ui-block-b p {
+        width: 61%;
+        line-height: 1.5;
+        margin: 0 0 0 25px;
+    }
+
+    .cart-area .ui-grid-a .ui-block-b h3 {
+        margin: 0 0 5px 25px;
+    }
+
+    .cart-area .item-section-header,
+    .cart-area .items,
+    .cart-area .price-section .prices,
+    .cart-area .payment-section .total,
+    .cart-area .payment-section .card-or-cash {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cart-area .item-section-header p {
+        color: green;
+        cursor: pointer;
+    }
+
+    .cart-area .item-section-header p,
+    .cart-area .item-section-header h4 {
+        margin-bottom: 12px;
+    }
+
+    .cart-area .items p,
+    .cart-area .price-section .prices p {
+        margin: 0 0 2px 0;
+    }
+
+    .cart-area .ordered-item-list,
+    .cart-area .price-section {
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+        padding-bottom: 20px;
+    }
+
+    .cart-area .payment-section .card-or-cash p {
+        margin-top: 0;
+    }
+
+    .cart-area .payment-section .card-or-cash svg {
+        font-size: 30px;
+        color: darkblue;
+    }
+
+    .cart-area .place-order-section button:focus {
+        box-shadow: none !important;
+    }
+
+    .cart-area .place-order-section button {
+        text-shadow: none !important;
+        display: flex;
+        justify-content: space-between;
+        background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        letter-spacing: 2px !important;
+    }
+
+    .cart-area .place-order-section button .btn-text {
+        width: 100%;
+        margin-left: 70px;
+        font-size: 25px;
+    }
+
+    .cart-area .place-order-section button .price-text {
+        font-size: 15px;
+        padding-top: 7px;
+        font-weight: 100;
+    }
+
+    .cart-area .place-order-section button p {
+        margin: 0;
+        color: white;
+    }
+
+    #paymentChaneDialog {
+        border-radius: 20px;
+    }
+
+    .payment-method-selection-section {
+        display: flex;
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+        ;
+        padding: 0px 30px 0 30px;
+    }
+
+    .payment-method-selection-section label {
+        background: white !important;
+        border: none;
+    }
+
+    .ui-radio .ui-btn.ui-radio-on:after {
+        background-image: none;
+        background-color: #fff;
+        width: 17px;
+        height: 17px;
+        border-width: 10px;
+        border-style: solid;
+        border-radius: 50%;
+        /* border-image: linear-gradient(90deg, #FF9F40 0%, #E60CA5 100%) !important; */
+    }
+
+    .ui-radio .ui-btn.ui-radio-off:after {
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+    }
+
+    .payment-method-selection-section label p {
+        margin-top: 49px;
+        margin-left: 22px;
+        font-size: 20px;
+        color: #FF825D;
+    }
+
+    .payment-change-btn {
+        padding: 0 !important;
+        border: none !important;
+        background: white !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        color: #FF825D !important;
+        font-size: 20px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .payment-section .card-or-cash a {
+        text-decoration: none;
+    }
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        .cart-area {
+            margin: 100px 110px 10px 110px;
+        }
+
+        .cart-header {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $(function () {
+            // $("#header-area").load("../header.html");
+            // $("#side-panel").load("../sidemenu.html");
+        });
+
+        $()
+    });
+
+    /* payment gateway */
+    jQuery(function ($) {
+        var $form = $('#frmBooking');
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+            token: function (token) {
+                if (token.id) {
+                    window.location.href = "../../shared/successpaymentloader.html"
+                }
+            }
+        })
+
+        $('#placeOrderBtn').on('click', function (e) {
+            e.preventDefault();
+            handler.open({
+                name: 'KAMA PAYMENTS',
+                currency: 'LKR',
+                // description: $('#item_name').val(),
+                amount: $('#total_amount').text() * 100
+            });
+
+            $(window).on('popstate', function () {
+                handler.close();
+            });
+        });
+    });
+</script>
+
+<body>
+    <div data-role="page">
+        <div data-role="header" id="header-area">
+        </div>
+        <div data-role="panel" id="side-panel" data-display="overlay"></div>
+        <div class="cart-area">
+            <div class="ui-grid-solo cart-header">
+                <h2>Street Burger- Colombo 05</h2>
+                <p>Delivering to your door</p>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a rel="external" href="/app/ipad/customer/locationchange.html"><img src="/assets/images/location-change.png" width="280px" alt=""></a>
+                    <p><small><i class="far fa-clock"></i> Delivery Time 25-30 Min</small></p>
+                </div>
+                <div class="ui-block-b">
+                    <h3>Longden Place Colombo 7</h3>
+                    <p>30/64,E,longdon Place, Colombo, Sri Lanka</p>
+                    <p>Deliver to door</p>
+                </div>
+            </div>
+
+            <div class="ui-grid-solo ordered-item-list">
+                <div class="item-section-header">
+                    <h4>Your Order</h4>
+                    <p><i class="fas fa-plus-circle"></i> Add Item</p>
+                </div>
+                <div class="items">
+                    <p>2 Chicken Biriyani (Large)</p>
+                    <p>LKR 900.00</p>
+                </div>
+                <div class="items">
+                    <p>1 Beef Biriyani (Large)</p>
+                    <p>LKR 400.00</p>
+                </div>
+            </div>
+            <div class="ui-grid-solo price-section">
+                <div class="promos">
+                    <p><small></small>Add Promo Code</p>
+                </div>
+                <div class="prices">
+                    <p>Subtotal</p>
+                    <p>LKR 1200.00</p>
+                </div>
+                <div class="prices">
+                    <p>Delivery Fee</p>
+                    <p>LKR 40.00</p>
+                </div>
+            </div>
+            <div class="ui-grid-solo payment-section">
+                <div class="total">
+                    <p><b>Total</b></p>
+                    <p><b>LKR <b id="total_amount">1240.00</b></b></p>
+                </div>
+                <div class="card-or-cash">
+                    <p><i class="fab fa-cc-visa"></i></p>
+                    <a href="#paymentChaneDialog" data-rel="popup" data-position-to="window" data-transition="pop">
+                        <p><b>Change</b></p>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-grid-solo place-order-section">
+                <form id="frmBooking" name="bookingForm" action="post" action="_self">
+                    <button id="placeOrderBtn">
+                        <p class="btn-text">Place Order</p>
+                        <p class="price-text">LKR 1240.00</p>
+                    </button>
+                </form>
+            </div>
+
+            <div data-role="popup" id="paymentChaneDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
+                style="max-width:400px;">
+                <div>
+                    <a role="button" href="#"
+                        class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"
+                        data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+                </div>
+                <div role="main" class="ui-content">
+                    <div class="payment-method-selection-section">
+                        <label for="cash">
+                            <p>Cash</p>
+                        </label>
+                        <input type="radio" name="payment" id="cash">
+                        <label for="card">
+                            <p>Card</p>
+                        </label>
+                        <input type="radio" name="payment" id="card">
+                    </div>
+
+
+                    <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
+                    <button class="payment-change-btn">CHANGE</button>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

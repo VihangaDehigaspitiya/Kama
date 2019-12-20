@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../assets/css/card.css" />
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
 
 
     <style>
@@ -19,21 +19,21 @@
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
             height: 500px !important;
         }
-
+        
         .login-card {
             width: 65%;
             border-radius: 30px;
             overflow: hidden !important;
         }
-
+        
         .login-card .ui-block-b {
             padding: 20px;
         }
-
+        
         .login-btn:focus {
             box-shadow: none !important;
         }
-
+        
         .login-btn {
             /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
@@ -51,25 +51,25 @@
             letter-spacing: 2px !important;
             text-shadow: none !important;
         }
-
+        
         .login-container {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             flex-direction: column !important;
         }
-
+        
         .ui-input-text {
             border-color: red !important;
             border-radius: 20px;
             width: 50%;
             font-size: small;
         }
-
+        
         .ui-input-text input {
             margin-left: 8px;
         }
-
+        
         .ui-block-b {
             margin-top: 100px;
             display: flex;
@@ -77,14 +77,14 @@
             /* justify-content: center; */
             flex-direction: column;
         }
-
+        
         .ui-block-a {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
-
+        
         .icon-container svg {
             margin-right: 20px !important;
             color: salmon;
@@ -94,7 +94,7 @@
             /* color: transparent !important; */
             /* color: #3c8e25; */
         }
-
+        
         .ui-block-b p {
             /* margin: 0; */
             font-family: Helvetica;
@@ -104,66 +104,37 @@
             color: rgba(167, 167, 167, 1);
             letter-spacing: 0.5px;
         }
-
+        
         .ui-block-b p a {
             cursor: pointer;
             color: #E85E52;
             font: caption;
         }
-
+        
         .ui-block-b p a:hover {
             color: red;
         }
-
         /** ipad potrait **/
-        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
             .login-card {
                 display: none !important;
             }
-
             .portrait-login-container {
                 display: block !important;
             }
-
         }
-
-
-        /* .ui-block-b .dd {
-            justify-content: center !important;
-        } */
-        /* .login-btn-container {
-            display: flex !important;
-            justify-content: center !important;
-        } */
-        /* /* ::placeholder {
-            margin-left: 12px !important;
-            opacity: 1;
-            
-    } */
     </style>
 
     <script>
-        $(document).ready(function () {
-            $(".ui-input-text input").focus(function () {
+        $(document).ready(function() {
+            $(".ui-input-text input").focus(function() {
                 $(this).parent().removeClass("ui-focus")
             });
-            // $(".ui-btn").focus(function() {
-            //     $(this).addClass("login-btn-focus");
-            //     console.log('THis has been focused')
-            // });
-            // $(window).resize(function () {
-            //     if ($(window).width() <= 768) {
-            //         console.log("Potrait");
-            //         $(".login-container").style.display = "none";
-            //     } else {
-            //         $(".login-container").style.display = "block";
-            //         console.log("Landscape");
-            //     }
-            // })
         });
     </script>
 
-    <!-- <script src="../../libraries/jquery.mobile-1.4.5/jqu"></script> -->
+    <!-- <script src="/libraries/jquery.mobile-1.4.5/jqu"></script> -->
 </head>
 
 <body>
@@ -172,7 +143,7 @@
         <div class="card login-card">
             <div class="ui-grid-a">
                 <div class="ui-block-a">
-                    <img src="../../assets/images/kaama_df@2x.png" width="60%">
+                    <img src="/assets/images/kaama_df@2x.png" width="60%">
                 </div>
                 <div class="ui-block-b">
                     <input type="text" name="" id="" placeholder="Username">
@@ -195,8 +166,8 @@
 
         <div class="ui-grid-solo">
             <div class="ui-block-a">
-                <img src="../../assets/images/login_header@2x.png" style="margin-top:-700px;">
-                <img src="../../assets/images/kaama_df@2x.png" width="50%" style="position: absolute;">
+                <img src="/assets/images/login_header@2x.png" style="margin-top:-700px;">
+                <img src="/assets/images/kaama_df@2x.png" width="50%" style="position: absolute;">
             </div>
         </div>
 
@@ -221,13 +192,13 @@
 
         <div class="ui-grid-solo">
             <div class="ui-block-a">
-                <img src="../../assets/images/login_footer.png">
+                <img src="/assets/images/login_footer.png">
             </div>
         </div>
 
         <!-- <div class="ui-grid-a">
             <div class="ui-block-a">
-                <img src="../../assets/images/kaama_df@2x.png" width="60%">
+                <img src="/assets/images/kaama_df@2x.png" width="60%">
             </div>
             <div class="ui-block-b">
                 <input type="text" name="" id="" placeholder="Username">

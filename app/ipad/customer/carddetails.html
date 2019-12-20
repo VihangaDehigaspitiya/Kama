@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        .card-details-section {
+            margin: 30px 110px 10px 110px;
+        }
+        
+        .card-details-section .card-setails-header {
+            text-align: center;
+        }
+        
+        .card-details-section .card-type img {
+            width: 9%;
+            padding-left: 13px;
+        }
+        
+        .card-details-section .card-type {
+            padding-bottom: 15px;
+        }
+        
+        .card-details-section .card-details button {
+            text-shadow: none !important;
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            letter-spacing: 2px !important;
+            color: white !important;
+            margin-top: 24px;
+        }
+        
+        .card-details-section .card-details button:focus {
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page">
+        <div class="card-details-section">
+            <div class="ui-grid-solo card-setails-header">
+                <h1>Card Details</h1>
+            </div>
+            <div class="ui-grid-solo card-type">
+                <div class="card">
+                    <img src="/assets/images/card-selection/visa.png" alt="">
+                </div>
+            </div>
+            <div class="ui-grid-solo card-details">
+                <div class="card">
+                    <ul data-role="listview">
+                        <li>CARDHOLDER NAME</li>
+                        <li>CARD NUMBER</li>
+                        <li>EXPIRE DATE</li>
+                        <li>CVV</li>
+                        <li>ADDRESS</li>
+                    </ul>
+                </div>
+                <button>SAVE CARD</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

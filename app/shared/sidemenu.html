@@ -28,7 +28,7 @@
 
         .user-info-section h1 {
             margin: 0;
-        }
+        }       
 
         .user-info-section {
             text-align: center;
@@ -36,6 +36,10 @@
             text-shadow: none;
             color: white;
             padding: 20px;
+        }
+
+        ul {
+            line-height: 300%;
         }
 
         ul li {
@@ -47,8 +51,11 @@
             padding-right: 10px !important;
         }
 
+        .user-info-section .ui-block-a {
+            margin: 12px 0 12px 0;
+        }
+
         .user-info-section p {
-            margin-top: 5px;
             padding-bottom: 6px;
             border-bottom: 1px solid;
             font-size: 15px;
@@ -65,16 +72,17 @@
     <!-- <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a> -->
     <div class="ui-panel-inner">
         <div class="ui-grid-solo user-info-section">
-            <img src="../../../assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
-            <h1>Vimukthi Gunarathna</h1>
-            <p>Sri Lanka, Colombo</p>
+            <div class="ui-block-a">
+                <img src="/assets/images/IMG_7960.jpg" width="90px" height="90px" alt="">
+                <h1>Vihanga</h1>
+                <p>Sri Lanka, Colombo</p>
+            </div>
         </div>
         <ul data-role="listview" class="ui-listview">
-            <li class="ui-li-static ui-body-inherit"><i class="fas fa-receipt"></i> User Policy</li>
-            <li class="ui-li-static ui-body-inherit"><i class="fas fa-info-circle"></i> About Us</li>
-            <li class="ui-li-static ui-body-inherit"><i class="far fa-credit-card"></i> Payment</li>
-            <li class="ui-li-static ui-body-inherit"><i class="fas fa-trophy"></i> Challenges</li>
-            <li class="ui-li-static ui-body-inherit"><i class="fas fa-cog"></i> Settings</li>
+            <li class="ui-li-static ui-body-inherit"><i class="fas fa-receipt"></i>User Policy</li>
+            <li class="ui-li-static ui-body-inherit"><i class="fas fa-info-circle"></i>About Us</li>
+            <li class="ui-li-static ui-body-inherit"><i class="far fa-credit-card"></i>Payment</li>
+            <li class="ui-li-static ui-body-inherit"><i class="fas fa-cog"></i>Settings</li>
             <!-- <li>Navbar</li> -->
 
         </ul>

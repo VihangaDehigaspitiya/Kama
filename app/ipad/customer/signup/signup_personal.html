@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <title>Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../../assets/css/card.css" />
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
 
 
     <style>
@@ -22,9 +22,22 @@
             flex-direction: column !important;
         }
 
+        .form-container {
+            margin-top: 50px;
+        }
+
+        .header-container {
+            margin: 15px;
+        }
+
+        .ui-grid-solo .ui-block-a .form-topic-container {
+            width: 80%;
+            text-align: left;
+        }
+
         .ui-input-text {
             border-color: red !important;
-            border-radius: 5px;
+            margin: 10px;
             width: 80%;
             font-size: small;
             font-size: medium;
@@ -34,33 +47,8 @@
             margin-left: 8px;
         }
 
-        .ui-grid-solo .ui-block-a .form-topic-container {
-            width: 80%;
-            text-align: left;
-        }
-
-        .ui-block-a .ui-grid-solo {
-            /* align-items: flex-start; */
-            width: 80%;
-        }
-
-        .ui-block-a .ui-grid-solo p {
-            margin-left: 50px;
-        }
-
-        .ui-block-a .ui-grid-solo input {
-            margin-top: 8px;
-        }
-
-        .form-container {
-            margin-top: 50px;
-        }
-
-        .header-container {
-            margin: 15px;
-        }
-        .complete-btn {
-            /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+        /* next-btn */
+        .next-btn {
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
             border-radius: 5px !important;
             margin-top: 25px !important;
@@ -76,6 +64,20 @@
             letter-spacing: 2px !important;
             text-shadow: none !important;
         }
+
+        /* dots */
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        #dot1 {
+            background-color: red;
+        }
+
     </style>
 
     <script>
@@ -100,17 +102,19 @@
         <div class="ui-grid-solo form-container">
             <div class="ui-block-a">
                 <div class="form-topic-container">
-                    <h3>Card Details</h3>
+                    <h3>Personal Details</h3>
                 </div>
-                <input type="text" name="" id="" placeholder="Card Number">
-                <input type="text" name="" id="" placeholder="Name On Card">
-                <input type="text" name="" id="" placeholder="CVC">
-                <input type="password" name="" id="" placeholder="Card Expiry date">
-                <div class="ui-grid-solo">
-                    <input type="checkbox" name="checkbox-0">
-                    <p>Save my card details securely for faster payements. Terms and Conditions apply.</p>
+                <input type="text" name="" id="" placeholder="Full name">
+                <input type="text" name="" id="" placeholder="Email">
+                <input type="date" name="" id="" placeholder="Birthday">
+                <input type="password" name="" id="" placeholder="Password">
+                
+                <div class="ui-grid-a">
+                        <span class="dot" id="dot1"></span>
+                        <span class="dot" id="dot2"></span>
                 </div>
-                <button class="complete-btn">COMPLETE</button>
+
+                <button class="next-btn"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
