@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../../assets/css/card.css" />
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
 
-    <link rel="stylesheet" href="../../../assets/css/carousel.css">
+    <link rel="stylesheet" href="/assets/css/carousel.css">
 
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <!-- <script src="../../../libraries/bootstrap/js/bootstrap.min.js"></script> -->
+    <!-- <script src="/libraries/bootstrap/js/bootstrap.min.js"></script> -->
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -222,6 +222,7 @@
     
     .recommended-section {
         padding: 0 15px 0 15px;
+        margin-bottom: 70px;
     }
     
     .recommended-card {
@@ -275,8 +276,9 @@
         });
 
         $(function() {
-            $("#header-area").load("header.html");
-            $("#hh").load("../sidemenu.html");
+            $("#header-area").load("../../shared/header.html");
+            $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
         });
 
         // $("#carouselFavourites").carousel();
@@ -290,7 +292,7 @@
     <div data-role="page">
         <div data-role="header" id="header-area">
         </div>
-        <div data-role="panel" id="hh" data-display="overlay"></div>
+        <div data-role="panel" id="side-panel" data-display="overlay"></div>
         <div class="ui-grid-solo discover-restaurant-section">
             <div class="discover-restaurant-info">
                 <h1>Discover Restaurants</h1>
@@ -342,8 +344,8 @@
                         <div class="ui-grid-d">
                             <div class="ui-block-a">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -361,8 +363,8 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -380,8 +382,8 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -399,8 +401,8 @@
                             </div>
                             <div class="ui-block-d">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -418,8 +420,8 @@
                             </div>
                             <div class="ui-block-e">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -441,8 +443,8 @@
                         <div class="ui-grid-d">
                             <div class="ui-block-a">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -460,8 +462,8 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -479,8 +481,8 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -498,8 +500,8 @@
                             </div>
                             <div class="ui-block-d">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -517,8 +519,8 @@
                             </div>
                             <div class="ui-block-e">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -540,8 +542,8 @@
                         <div class="ui-grid-d">
                             <div class="ui-block-a">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -559,8 +561,8 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -578,8 +580,8 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -597,8 +599,8 @@
                             </div>
                             <div class="ui-block-d">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -616,8 +618,8 @@
                             </div>
                             <div class="ui-block-e">
                                 <div class="card favourite-card">
-                                    <img src="../../../assets/images/street-fav.png" class="card-img-top" alt="">
-                                    <img src="../../../assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>Bilal</h3>
                                         <div class="ui-grid-b">
@@ -658,7 +660,7 @@
                         <div class="ui-grid-b top-pick-section">
                             <div class="ui-block-a">
                                 <div class="card">
-                                    <img src="../../../assets/images/street_top.png" alt="">
+                                    <img src="/assets/images/street_top.png" alt="">
                                     <div class="top-pick-section-text">
                                         <h2>Street Burger</h2>
                                         <p>Best Burgers</p>
@@ -667,7 +669,7 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card">
-                                    <img src="../../../assets/images/street_top.png" alt="">
+                                    <img src="/assets/images/street_top.png" alt="">
                                     <div class="top-pick-section-text">
                                         <h2>Street Burger</h2>
                                         <p>Best Burgers</p>
@@ -676,7 +678,7 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card">
-                                    <img src="../../../assets/images/street_top.png" alt="">
+                                    <img src="/assets/images/street_top.png" alt="">
                                     <div class="top-pick-section-text">
                                         <h2>Street Burger</h2>
                                         <p>Best Burgers</p>
@@ -689,7 +691,7 @@
                         <div class="ui-grid-b top-pick-section">
                             <div class="ui-block-a">
                                 <div class="card">
-                                    <img src="../../../assets/images/street_top.png" alt="">
+                                    <img src="/assets/images/street_top.png" alt="">
                                     <div class="top-pick-section-text">
                                         <h2>Street Burger</h2>
                                         <p>Best Burgers</p>
@@ -698,7 +700,7 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card">
-                                    <img src="../../../assets/images/street_top.png" alt="">
+                                    <img src="/assets/images/street_top.png" alt="">
                                     <div class="top-pick-section-text">
                                         <h2>Street Burger</h2>
                                         <p>Best Burgers</p>
@@ -707,7 +709,7 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card">
-                                    <img src="../../../assets/images/street_top.png" alt="">
+                                    <img src="/assets/images/street_top.png" alt="">
                                     <div class="top-pick-section-text">
                                         <h2>Street Burger</h2>
                                         <p>Best Burgers</p>
@@ -738,7 +740,7 @@
                         <div class="ui-grid-d">
                             <div class="ui-block-a">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -755,7 +757,7 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -772,7 +774,7 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -789,7 +791,7 @@
                             </div>
                             <div class="ui-block-d">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -806,7 +808,7 @@
                             </div>
                             <div class="ui-block-e">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -827,7 +829,7 @@
                         <div class="ui-grid-d">
                             <div class="ui-block-a">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -844,7 +846,7 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -861,7 +863,7 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -878,7 +880,7 @@
                             </div>
                             <div class="ui-block-d">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -895,7 +897,7 @@
                             </div>
                             <div class="ui-block-e">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -916,7 +918,7 @@
                         <div class="ui-grid-d">
                             <div class="ui-block-a">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -933,7 +935,7 @@
                             </div>
                             <div class="ui-block-b">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -950,7 +952,7 @@
                             </div>
                             <div class="ui-block-c">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -967,7 +969,7 @@
                             </div>
                             <div class="ui-block-d">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -984,7 +986,7 @@
                             </div>
                             <div class="ui-block-e">
                                 <div class="card recommended-card">
-                                    <img src="../../../assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
+                                    <img src="/assets/images/Chicken-Biryani.jpg" class="card-img-top" alt="">
                                     <div class="recommended-info-section">
                                         <h3>Chicken Biriyani</h3>
                                         <div class="ui-grid-b">
@@ -1012,6 +1014,8 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 
