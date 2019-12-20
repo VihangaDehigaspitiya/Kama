@@ -21,20 +21,20 @@
             justify-content: center !important;
             flex-direction: column !important;
         }
-        
+
         .form-container {
             margin-top: 50px;
         }
-        
+
         .header-container {
             margin: 15px;
         }
-        
+
         .ui-grid-solo .ui-block-a .form-topic-container {
             width: 80%;
             text-align: left;
         }
-        
+
         .ui-input-text {
             border-color: red !important;
             margin: 10px;
@@ -42,13 +42,23 @@
             font-size: small;
             font-size: medium;
         }
-        
+
+        /* checkbox */
+
+        .ui-checkbox {
+            width: 80%;
+        }
+
+        .ui-checkbox-on:after {
+            background-color: red !important;
+        }
+
         .ui-input-text input {
             margin-left: 8px;
         }
-        /* next-btn */
-        
-        .next-btn {
+
+        /* complete-btn */
+        .complete-btn {
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
             border-radius: 5px !important;
             margin-top: 25px !important;
@@ -64,8 +74,8 @@
             letter-spacing: 2px !important;
             text-shadow: none !important;
         }
+
         /* dots */
-        
         .dot {
             height: 10px;
             width: 10px;
@@ -73,15 +83,16 @@
             border-radius: 50%;
             display: inline-block;
         }
-        
-        #dot1 {
+
+        #dot2 {
             background-color: red;
         }
+
     </style>
 
     <script>
-        $(document).ready(function() {
-            $(".ui-input-text input").focus(function() {
+        $(document).ready(function () {
+            $(".ui-input-text input").focus(function () {
                 $(this).parent().removeClass("ui-focus")
             });
         });
@@ -101,38 +112,25 @@
         <div class="ui-grid-solo form-container">
             <div class="ui-block-a">
                 <div class="form-topic-container">
-                    <h3>Personal Details</h3>
+                    <h3>Card Details</h3>
                 </div>
-                <input type="text" name="fullName" id="fullName" placeholder="Full name">
-                <input type="text" name="email" id="email" placeholder="Email">
-                <input type="text" name="address" id="address" placeholder="Address">
-                <input type="date" name="" id="" placeholder="Birthday">
-                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="text" name="" id="" placeholder="Card Number">
+                <input type="text" name="" id="" placeholder="Name On Card">
+                <input type="text" name="" id="" placeholder="CVC">
+                <input type="password" name="" id="" placeholder="Card Expiry date">
+                <input type="checkbox" name="checkbox-savedetails" id="checkbox-savedetails" checked="">
+                <label for="checkbox-savedetails">Save my card details securely for faster payements. Terms and
+                    Conditions apply.</label>
 
                 <div class="ui-grid-a">
-                    <span class="dot" id="dot1"></span>
-                    <span class="dot" id="dot2"></span>
+                        <span class="dot" id="dot1"></span>
+                        <span class="dot" id="dot2"></span>
                 </div>
 
-                <button onclick="addUserDataToStorage()" class="next-btn"><i class="fas fa-arrow-right"></i></button>
+                <button class="complete-btn">COMPLETE</button>
             </div>
         </div>
     </div>
 </body>
 
 </html>
-
-<script>
-    function addUserDataToStorage() {
-        var obj = {
-            "fullName": $("#fullName").val(),
-            "email": $("#email").val(),
-            "password": $("#password").val(),
-            "address": $("#address").val(),
-            "isRestaurant": false
-        };
-
-        localStorage.setItem("UserObj", JSON.stringify(obj));
-        window.location.href = "addcard.html";
-    }
-</script>
