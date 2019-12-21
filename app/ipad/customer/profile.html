@@ -82,11 +82,21 @@
             margin-top: 25px;
         }
     </style>
+    <script>
+          $(function () {
+            // $("#header-area").load("../../shared/header.html");
+            // $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        });
+    </script>
 
 </head>
 
 <body>
     <div data-role="page">
+        <!-- <div data-role="header" id="header-area">
+        </div>
+        <div data-role="panel" id="side-panel" data-display="overlay"></div> -->
         <div class="profile-section">
             <div class="ui-grid-solo profile-section-header">
                 <h1>Your Profile</h1>
@@ -139,6 +149,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 </body>

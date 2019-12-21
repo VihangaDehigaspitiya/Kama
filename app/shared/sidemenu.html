@@ -28,7 +28,7 @@
 
         .user-info-section h1 {
             margin: 0;
-        }       
+        }
 
         .user-info-section {
             text-align: center;
@@ -65,8 +65,25 @@
         .ui-panel-inner>.ui-listview {
             margin: 0em !important;
         }
+
+        .ui-panel-inner .ui-listview a {
+            text-decoration: none !important;
+            font-weight: 100 !important;
+        }
     </style>
 </head>
+<script>
+    $(window).resize(function (e) {
+        var height = $(window).height();
+        if (height == 375 || height == 812 || height == 667) {
+            $("#edit-card-link").attr("href", "/app/iphone/customer/carddetails.html");
+            $("#settings-link").attr("href", "/app/iphone/customer/settings.html");
+        } else {
+            $("#edit-card-link").attr("href", "/app/ipad/customer/carddetails.html"); 
+            $("#settings-link").attr("href", "/app/ipad/customer/settings.html");
+        }
+    })
+</script>
 
 <body>
     <!-- <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a> -->
@@ -81,14 +98,19 @@
         <ul data-role="listview" class="ui-listview">
             <li class="ui-li-static ui-body-inherit"><i class="fas fa-receipt"></i>User Policy</li>
             <li class="ui-li-static ui-body-inherit"><i class="fas fa-info-circle"></i>About Us</li>
-            <li class="ui-li-static ui-body-inherit"><i class="far fa-credit-card"></i>Payment</li>
-            <li class="ui-li-static ui-body-inherit"><i class="fas fa-cog"></i>Settings</li>
+            <a id="edit-card-link" rel="external" class="ui-li-static ui-body-inherit"
+                href="../customer/carddetails.html">
+                <li><i class="far fa-credit-card"></i>Payment</li>
+            </a>
+            <a id="settings-link" rel="external" class="ui-li-static ui-body-inherit" href="../customer/settings.html">
+                <li><i class="fas fa-cog"></i>Settings</li>
+            </a>
             <!-- <li>Navbar</li> -->
 
         </ul>
         <!-- panel content goes here -->
     </div>
-    <!-- /panel -->
+    <!-- panel -->
 </body>
 
 </html>

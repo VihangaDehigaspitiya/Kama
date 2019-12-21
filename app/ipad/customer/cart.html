@@ -16,7 +16,7 @@
 </head>
 <style>
     .cart-area {
-        margin: 30px 110px 10px 110px;
+        margin: 30px 110px 80px 110px;
     }
 
     .cart-header {
@@ -74,6 +74,10 @@
         margin-bottom: 12px;
     }
 
+    .cart-area .item-section-header a{
+        text-decoration: none !important;
+    }
+
     .cart-area .items p,
     .cart-area .price-section .prices p {
         margin: 0 0 2px 0;
@@ -92,6 +96,10 @@
     .cart-area .payment-section .card-or-cash svg {
         font-size: 30px;
         color: darkblue;
+    }
+
+    .cart-area .payment-section .fa-money-bill-alt{
+        color: green !important;
     }
 
     .cart-area .place-order-section button:focus {
@@ -180,11 +188,11 @@
 
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         .cart-area {
-            margin: 100px 110px 10px 110px;
+            margin: 70px 110px 10px 110px;
         }
 
-        .cart-header {
-            margin-bottom: 20px;
+        .cart-area .cart-header {
+            margin-bottom: 40px;
         }
     }
 </style>
@@ -192,12 +200,37 @@
 <script>
     $(document).ready(function () {
         $(function () {
-            // $("#header-area").load("../header.html");
-            // $("#side-panel").load("../sidemenu.html");
+            $("#header-area").load("../../shared/header.html");
+            $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
         });
 
-        $()
+        // $('input[type=radio][name=payment]').change(function() {
+        //     if(this.id == "cash"){
+        //         console.log(this.id);
+                
+        //         $("#cash-and-card-icon").removeClass('fa-cc-visa')
+        //         $("#cash-and-card-icon").addClass('fa-money-bill-alt')
+        //     }else{
+        //         $("#cash-and-card-icon").removeClass('fa-money-bill-alt')
+        //         $("#cash-and-card-icon").addClass('fa-cc-visa')
+        //     }
+        // });
     });
+
+    function changePaymentMethod(){
+        var radios = document.getElementsByName('payment');
+        for (var i = 0, length = radios.length; i < length; i++){
+            if(radios[i].checked){
+                if(radios[i].id == "cash"){
+                    $("#cash-and-card-icon").html('<i class="fas fa-money-bill-alt"></i>')
+                }else{
+                    $("#cash-and-card-icon").html('<i class="fab fa-cc-visa"></i>') 
+                }
+            }
+        }
+        $('#paymentChaneDialog').popup('close');
+    }
 
     /* payment gateway */
     jQuery(function ($) {
@@ -239,7 +272,8 @@
             </div>
             <div class="ui-grid-a">
                 <div class="ui-block-a">
-                    <a rel="external" href="/app/ipad/customer/locationchange.html"><img src="/assets/images/location-change.png" width="280px" alt=""></a>
+                    <a rel="external" href="/app/ipad/customer/locationchange.html"><img
+                            src="/assets/images/location-change.png" width="280px" alt=""></a>
                     <p><small><i class="far fa-clock"></i> Delivery Time 25-30 Min</small></p>
                 </div>
                 <div class="ui-block-b">
@@ -252,7 +286,7 @@
             <div class="ui-grid-solo ordered-item-list">
                 <div class="item-section-header">
                     <h4>Your Order</h4>
-                    <p><i class="fas fa-plus-circle"></i> Add Item</p>
+                    <a rel="external" href="menu.html"><p><i class="fas fa-plus-circle"></i> Add Item</p></a>
                 </div>
                 <div class="items">
                     <p>2 Chicken Biriyani (Large)</p>
@@ -282,7 +316,7 @@
                     <p><b>LKR <b id="total_amount">1240.00</b></b></p>
                 </div>
                 <div class="card-or-cash">
-                    <p><i class="fab fa-cc-visa"></i></p>
+                    <p id="cash-and-card-icon"><i  class="fab fa-cc-visa"></i></p>
                     <a href="#paymentChaneDialog" data-rel="popup" data-position-to="window" data-transition="pop">
                         <p><b>Change</b></p>
                     </a>
@@ -313,16 +347,19 @@
                         <label for="card">
                             <p>Card</p>
                         </label>
-                        <input type="radio" name="payment" id="card">
+                        <input type="radio" name="payment" id="card" checked>
                     </div>
 
 
                     <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
             <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
-                    <button class="payment-change-btn">CHANGE</button>
+                    <button onclick="changePaymentMethod()" class="payment-change-btn">CHANGE</button>
                 </div>
             </div>
         </div>
+        <div data-role="nav-bar" id="nav-bar-area">
+        </div>
+    </div>
 </body>
 
 </html>
