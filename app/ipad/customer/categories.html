@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/assets/css/card.css" />
 </head>
 <style>
+    .category-page{
+        padding-bottom: 70px !important;
+    }
     .category-section {
         padding: 0 15px 0 15px;
     }
@@ -173,9 +176,10 @@
             $(this).parent().removeClass("ui-focus")
         });
 
-        $(function() {
-            $("#header-area").load("../header.html");
-            $("#side-panel").load("../sidemenu.html");
+        $(function () {
+            $("#header-area").load("../../shared/header.html");
+            $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
         });
     });
 </script>
@@ -352,6 +356,8 @@
                     </a>
                 </li>
             </ul>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 </body>

@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/assets/css/card.css" />
 </head>
 <style>
+    .past-order-content{
+        padding-bottom: 70px;
+    }
     .past-order-card {
         padding: 15px !important;
     }
@@ -84,9 +87,21 @@
         }
     }
 </style>
+<script>
+     $(document).ready(function () {
+        $(function() {
+            $("#header-area").load("../../shared/header.html");
+            $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        });
+    });
+</script>
 
 <body>
     <div data-role="page" class="past-order-content">
+        <div data-role="header" id="header-area">
+        </div>
+        <div data-role="panel" id="side-panel" data-display="overlay"></div>
         <div class="ui-grid-a">
             <div class="ui-block-a past-order-card">
                 <div class="card">
@@ -176,6 +191,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 </body>
