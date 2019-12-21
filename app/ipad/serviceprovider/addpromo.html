@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Add Promotion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
@@ -13,41 +13,113 @@
     <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="/assets/css/card.css" />
 
+
     <style>
-        .add-promo-header {
-            text-align: center;
+        .addpromo-container .ui-grid-solo .ui-block-a {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
         }
-        .add-promo-section {
-            display: flex;
-            justify-content: center;
+
+        .addpromo-container .ui-grid-solo {
+            margin-top: 40px;
         }
-        .add-promo-section .ui-input-text {
-            border-radius: 15px;
+
+        .form-container {
+            margin-top: 50px;
+        }
+
+        .header-container {
+            margin: 10px;
+        }
+
+        /* .ui-grid-solo .ui-block-a .form-topic-container {
+            width: 80%;
+            text-align: left;
+        } */
+
+        .ui-input-text {
             border-color: red !important;
+            margin: 12px;
+            width: 80%;
+            font-size: small;
+            font-size: medium;
+        }
+
+        /* checkbox */
+
+        .ui-checkbox {
+            width: 80%;
+        }
+
+        .ui-checkbox-on:after {
+            background-color: red !important;
+        }
+
+        .ui-input-text input {
+            margin-left: 8px;
+        }
+
+        /* complete-btn */
+        .complete-btn {
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 5px !important;
+            margin-top: 25px !important;
+            width: 80% !important;
+            display: flex !important;
+            justify-content: center !important;
+            color: white !important;
+            font-family: Helvetica;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-size: 16px !important;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+        }
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .addpromo-container .ui-grid-solo {
+                margin-top: 80px;
+            }
         }
     </style>
 
+    <script>
+        $(document).ready(function () {
+            $(".ui-input-text input").focus(function () {
+                $(this).parent().removeClass("ui-focus")
+            });
+        });
+    </script>
+
+</head>
+
 <body>
-    <div data-role="page">
-        <div class="ui-grid-solo add-promo-header">
-            <h1>Add Promotion</h1>
-        </div>
-        <div class="ui-grid-a add-promo-section">
-            <div class="ui-block-a">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="ui-grid-solo">
-                            <input type="text" placeholder="Food">
-                            <input type="text" placeholder="Promotion Details">
-                            <input type="text" placeholder="Expiry Date">
-                            <button>Comlete</button>
-                        </div>
-                    </div>
+    <div data-role="page" class="addpromo-container">
+
+        <div class="ui-grid-solo">
+
+            <div class="ui-grid-solo header-container">
+                <div class="ui-block-a">
+                    <h2>Add Promotion</h2>
                 </div>
             </div>
+
+            <div class="ui-grid-solo form-container">
+                <div class="ui-block-a">
+                    <input type="text" name="food" id="food" placeholder="Food">
+                    <input type="text" name="promotionDetails" id="promotionDetails" placeholder="Promotion Details">
+                    <input type="date" name="expiryDate" id="expiryDate" placeholder="Expiry Date">
+
+                    <button class="complete-btn">COMPLETE</button>
+                </div>
+            </div>
+
         </div>
 
-
+    </div>
 </body>
 
 </html>
