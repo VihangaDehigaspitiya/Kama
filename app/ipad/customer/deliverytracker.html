@@ -21,8 +21,6 @@
         padding-bottom: 10px;
     }
 
-    .driver-select-section {}
-
     .ui-input-search {
         margin-top: 25px !important;
     }
@@ -143,10 +141,6 @@
 
     .ui-li-has-thumb {
         padding: 6px !important;
-    }
-
-    .ui-btn {
-        padding-bottom: 23px !important;
     }
 
     .ui-first-child {
@@ -270,55 +264,89 @@
                 </div>
             </div>
             <div class="ui-grid-solo search-container">
-                <input type="search" name="tracker" id="search" value="" placeholder="Search">
+                <input data-type="search" id="tracker" name="tracker" placeholder="Search">
             </div>
-            <!-- <div data-role="header" data-position="fixed" data-theme="b">
-                <h1>Inbox</h1>
-                <a href="#demo-intro" data-rel="back" data-icon="carat-l" data-iconpos="notext">Back</a>
-                <a href="#" onclick="window.location.reload()" data-icon="back" data-iconpos="notext">Refresh</a>
-            </div>/header -->
-            <div role="main" class="ui-content">
-                <ul id="list" class="touch" data-role="listview" data-icon="false" data-split-icon="delete">
-                    <li>
-                        <a href="#demo-mail">
-                            <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
-                            <h3>Avery Walker</h3>
-                            <p class="topic"><strong>Re: Order Completed</strong></p>
-                            <p>Submit your rating </p>
-                            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
-                        </a>
-                        <a href="#" class="delete">Delete</a>
-                    </li>
-                    <li>
-                        <a href="#demo-mail">
-                            <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
-                            <h3>Avery Walker</h3>
-                            <p>I have arrived</p>
-                            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
-                        </a>
-                        <a href="#" class="delete">Delete</a>
-                    </li>
-                    <li>
-                        <a href="#demo-mail">
-                            <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
-                            <h3>Avery Walker</h3>
-                            <p>5 minutes away from destination</p>
-                            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
-                        </a>
-                        <a href="#" class="delete">Delete</a>
-                    </li>
-                    <li>
-                        <a href="#demo-mail">
-                            <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
-                            <h3>Avery Walker</h3>
-                            <p>Picked up your order at 11.23AM</p>
-                            <p>On the way</p>
-                            <p class="ui-li-aside"><strong>11:23</strong>PM</p>
-                        </a>
-                        <a href="#" class="delete">Delete</a>
-                    </li>
-                </ul>
-            </div><!-- /content -->
+
+            <ul id="list" class="touch" data-role="listview" data-filter="true" data-input="#tracker"
+                data-icon="false" data-split-icon="delete">
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Avery Walker</h3>
+                        <p class="topic"><strong>Re: Order Completed</strong></p>
+                        <p>Submit your rating </p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Avery Walker</h3>
+                        <p>I have arrived</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Avery Walker</h3>
+                        <p>5 minutes away from destination</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Avery Walker</h3>
+                        <p>Picked up your order at 11.23AM</p>
+                        <p>On the way</p>
+                        <p class="ui-li-aside"><strong>11:23</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Muad Arshad</h3>
+                        <p class="topic"><strong>Re: Order Completed</strong></p>
+                        <p>Submit your rating </p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Muad Arshad</h3>
+                        <p>I have arrived</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Muad Arshad</h3>
+                        <p>5 minutes away from destination</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+                <li>
+                    <a href="#demo-mail">
+                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <h3>Muad Arshad</h3>
+                        <p>Picked up your order at 11.23AM</p>
+                        <p>On the way</p>
+                        <p class="ui-li-aside"><strong>11:23</strong>PM</p>
+                    </a>
+                    <a href="#" class="delete">Delete</a>
+                </li>
+            </ul>
             <div id="confirm" class="ui-content" data-role="popup" data-theme="a">
                 <p id="question">Submit your rating</p>
                 <div class="ui-grid-a">
