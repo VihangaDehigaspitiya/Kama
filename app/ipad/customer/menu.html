@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
@@ -57,33 +57,156 @@
     .fa-check-square {
         color: green;
     }
+    
     #fav-icon-active-btn,
-    #fav-icon-inactive-btn{
+    #fav-icon-inactive-btn {
         position: absolute;
         left: 41%;
         top: 28%;
     }
-
+    
+    .menu-section .ui-btn-icon-right:after {
+        content: none !important;
+    }
+    
+    .menu-section a {
+        background: #f9f9f9 !important;
+    }
+    
+    .menu-section .ui-btn:focus,
+    #quatityDialog .ui-btn.ui-btn-b:focus {
+        box-shadow: none !important;
+    }
+    
+    .menu-section a:focus {
+        box-shadow: none !important;
+        border: none !important;
+        color: black !important;
+    }
+    
+    #quatityDialog .quantity-info-section img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+    
+    #quatityDialog .quantity-info-section h2 {
+        margin: 8px 0 5px 0;
+    }
+    
+    #quatityDialog .quantity-info-section p {
+        margin: 0 0 5px 0;
+    }
+    
+    #quatityDialog .quantity-info-section {
+        text-align: center;
+    }
+    
+    #quatityDialog .quantity-info-section .quantity {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+    }
+    
+    #quatityDialog .quantity-info-section .quantity .ui-icon-minus {
+        margin: 13px 20px 0 0;
+    }
+    
+    #quatityDialog .quantity-info-section .quantity h1 {
+        margin: 10px 0 0 0;
+    }
+    
+    #quatityDialog .quantity-info-section .quantity .ui-icon-plus {
+        margin: 13px 0 0 20px;
+    }
+    
+    .add-to-cart-btn {
+        padding: 0 !important;
+        border: none !important;
+        background: white !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        color: #FF825D !important;
+        font-size: 20px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 4px !important;
+    }
+    
+    #quatityDialog {
+        border-radius: 20px;
+    }
+    
+    #quatityDialog-popup {
+        width: 350px !important;
+    }
+    
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         #fav-icon-active-btn,
-        #fav-icon-inactive-btn{
+        #fav-icon-inactive-btn {
             position: absolute;
             left: 36% !important;
             top: 17% !important;
         }
     }
-    
 </style>
 <script>
-    function addFavourites(state){
+    $(document).ready(function() {
+        $(function() {
+            var i = 1;
+            var price = $("#food-price").attr('value');
+
+            $(".ui-icon-plus").click(function() {
+
+                console.log(price)
+                i = i + 1;
+                var total = price * i;
+                $("#numQuantity").text(i);
+                $("#food-price").text(`Rs.${total}`);
+            });
+
+            $(".ui-icon-minus").click(function() {
+                console.log("working minus")
+                i == 1 ? i = 1 : i = i - 1;
+                var total = price * i;
+                $("#numQuantity").text(i);
+                $("#food-price").text(`Rs.${total}`);
+            })
+
+        })
+    });
+
+    function addFavourites(state) {
         console.log(state);
-        if(state == "active"){
-            
+        if (state == "active") {
             document.getElementById("fav-icon-active-btn").style.display = "block";
             document.getElementById("fav-icon-inactive-btn").style.display = "none";
-        }else{
+
+            $.ajax({
+                url: `http://localhost/TodoApplication/index.php/UserController/addFavourites`,
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "restoId": $("#restoId").val()
+                }
+            }).done(function(data) {
+                window.location.href = "home.html"
+            });
+
+        } else {
             document.getElementById("fav-icon-active-btn").style.display = "none";
             document.getElementById("fav-icon-inactive-btn").style.display = "block";
+
+            $.ajax({
+                url: `http://localhost/TodoApplication/index.php/UserController/deleteFavourites`,
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "restoId": $("#restoId").val()
+                }
+            }).done(function(data) {
+                window.location.href = "home.html"
+            });
         }
     }
 </script>
@@ -92,8 +215,8 @@
     <div data-role="page">
         <div class="ui-grid-solo">
             <img src="/assets/images/new-rating-street.jpg" width="100%" alt="">
-            <img  src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')">
-            <img  src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" style="display: none;">
+            <img src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')">
+            <img src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" style="display: none;">
         </div>
         <div class="ui-grid-a resto-info-section">
             <div class="ui-block-a">
@@ -136,11 +259,9 @@
                 </li>
             </ul>
         </div>
-        <div data-role="popup" id="quatityDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
-            style="max-width:400px;">
+        <div data-role="popup" id="quatityDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="max-width:400px;">
             <div>
-                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"
-                    data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
             </div>
             <div role="main" class="ui-content">
                 <div class="quantity-info-section">
@@ -149,21 +270,25 @@
                     <p>Hot Charger</p>
                     <p id="food-price" value="550">Rs.550</p>
                     <div class="quantity">
-                        <a href="#"
-                            class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                        <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
                         <h1 id="numQuantity">1</h1>
-                        <a href="#"
-                            class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                        <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
                     </div>
 
                 </div>
 
                 <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
-                <button class="add-to-cart-btn">ADD TO CART</button>
+                <button class="add-to-cart-btn" onclick="">ADD TO CART</button>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    function addDataToCart() {
+
+    }
+</script>

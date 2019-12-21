@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/card.css" />
+    <style>
+        .favourite-card-section .ui-block-a,
+        .favourite-card-section .ui-block-b,
+        .favourite-card-section .ui-block-c,
+        .favourite-card-section .ui-block-d {
+            padding: 0 10px 0 10px;
+        }
+
+        .favourite-card-section .ui-grid-b .ui-block-b {
+            width: 60%;
+
+        }
+
+
+        .favourite-card {
+            border-radius: 25px;
+        }
+
+        .card-img-top {
+            border-top-left-radius: 25px !important;
+            border-top-right-radius: 25px !important;
+        }
+
+        .favourite-icon {
+            position: absolute;
+            width: 65%;
+            top: 35%;
+            left: 17%;
+        }
+
+        .favourite-info-section h3 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 3px;
+        }
+
+        .favourite-info-section {
+            margin-top: 35px;
+        }
+
+        .favourite-info-section .ui-grid-b .ui-block-a {
+            margin-left: 15px;
+        }
+
+        .favourite-info-section .ui-grid-b p {
+            margin: 0;
+            font-size: 12px;
+            text-shadow: none;
+        }
+
+        .halal-section {
+            margin-top: 3px;
+            margin-left: 15px;
+            font-size: 12px;
+        }
+
+        .favourite-info-section .ui-grid-b small {
+            background-color: #C3CCCF;
+            padding: 4px;
+        }
+
+        .halal-section svg {
+            color: green;
+        }
+
+        .favourite-card-section {
+            padding: 10px;
+        }
+
+        .favourite-card-section-header .back-btn {
+            padding: 35px 0 0 35px;
+        }
+
+        .favourite-card-section-header .email-btn {
+            padding: 35px 35px 0 0;
+        }
+
+        .favourite-card-section-header .back-btn a,
+        .favourite-card-section-header .email-btn a {
+            color: black !important;
+            text-decoration: none;
+        }
+
+        .favourite-card-section-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .favourite-card-section-header h1 {
+            text-align: center;
+        }
+        #paymentChaneDialog div h3{
+            text-align: center;
+            margin-bottom: 0;
+        }
+        #paymentChaneDialog .ui-content{
+            padding-top: 0;
+        }
+        #paymentChaneDialog-popup{
+            width: 439px !important;
+            /* max-width: 0 !important; */
+        }
+
+        #paymentChaneDialog{
+            max-width: 439px !important;
+        }
+    </style>
+    <script>
+        $(function () {
+            // $("#header-area").load("../../shared/header.html");
+            // $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div class="favourite-card-section-header">
+            <div class="back-btn">
+                <a rel="external" href="home.html">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </div>
+            <h1>My Favourites</h1>
+            <div class="email-btn">
+                <a href="#paymentChaneDialog" data-rel="popup" data-position-to="window" data-transition="pop">
+                    <img src="/assets/images/paper-plane-solid.svg" width="30px" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="ui-grid-c favourite-card-section">
+            <div class="ui-block-a">
+                <div class="card favourite-card">
+                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Street Burger</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div class="card favourite-card">
+                    <img src="/assets/images/restos/tacobell.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Taco Bell</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ui-block-c">
+                <div class="card favourite-card">
+                    <img src="/assets/images/restos/arthurs.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Arthur's Pizza</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ui-block-d">
+                <div class="card favourite-card">
+                    <img src="/assets/images/restos/kfc.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>KFC</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="ui-block-e">
+                <div class="card favourite-card">
+                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Bilal</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div> -->
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
+        </div>
+        <div data-role="popup" id="paymentChaneDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
+            style="max-width:400px;">
+            <div>
+                <h3>Success</h3>
+                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"
+                    data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+            </div>
+            <div role="main" class="ui-content">
+                <div class="payment-method-selection-section">
+                    <p>Favourite List is successfully sent to vihanga@gmail.com</p>
+                </div>
+
+
+                <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
+                <!-- <button onclick="changePaymentMethod()" class="payment-change-btn">CHANGE</button> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
