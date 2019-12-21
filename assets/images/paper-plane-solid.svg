@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="173.648" height="173.702" viewBox="0 0 173.648 173.702">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff9f40"/>
+      <stop offset="0.203" stop-color="#ff8c49"/>
+      <stop offset="0.367" stop-color="#ff8a4a"/>
+      <stop offset="0.605" stop-color="#ff7256"/>
+      <stop offset="1" stop-color="#ff406e"/>
+    </linearGradient>
+  </defs>
+  <path id="paper-plane-solid" d="M161.462,1.065,4.247,91.765a8.146,8.146,0,0,0,.746,14.653l36.056,15.128L138.5,35.663a2.034,2.034,0,0,1,2.917,2.815L59.7,138.031v27.305A8.138,8.138,0,0,0,74.12,170.7l21.539-26.22,42.263,17.706a8.163,8.163,0,0,0,11.193-6.173L173.538,9.477A8.142,8.142,0,0,0,161.462,1.065Z" transform="translate(-0.01 0.031)" fill="url(#linear-gradient)"/>
+</svg>
