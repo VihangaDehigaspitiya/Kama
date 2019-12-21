@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
@@ -298,18 +298,20 @@
         display: none !important;
     }
 
-    .promo-section-carousel{
+    .promo-section-carousel {
         margin-top: 64px;
     }
-    .promo-banner-section{
+
+    .promo-banner-section {
         margin-top: 30px;
         padding: 0 15px 0 15px;
-        
+
     }
-    .promo-banner-section img{
+
+    .promo-banner-section img {
         border-radius: 20px;
     }
-    
+
 
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         .favourite-section-landscape {
@@ -335,6 +337,13 @@
         .recommended-section-portrait #carouselRecommendedPortrait .ui-grid-b {
             padding-bottom: 10px !important;
         }
+
+        .ui-footer .ui-title {
+            /* text-decoration: none !important; */
+            font-size: 18px !important;
+            background: white !important;
+            /* text-align: center !important; */
+        }
     }
 
     @media only screen and (min-device-width: 1024px) and (max-device-width: 768px) and (orientation: landscape) {}
@@ -345,10 +354,11 @@
             $(this).parent().removeClass("ui-focus")
         });
 
-        $(function() {
+        $(function () {
             $("#header-area").load("../../shared/header.html");
             $("#side-panel").load("../../shared/sidemenu.html");
             $("#nav-bar-area").load("../../shared/nav-bar.html");
+            $("#footer-area").load("../../shared/footer.html");
         });
 
         // $("#carouselFavourites").carousel();
@@ -384,13 +394,16 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/assets/images/home-promo-carousel/BLOGPromo.jpg" class="d-block" height="300px" width="100%" alt="...">
+                        <img src="/assets/images/home-promo-carousel/BLOGPromo.jpg" class="d-block" height="300px"
+                            width="100%" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="/assets/images/home-promo-carousel/BurgersPromo.jpg" class="d-block" height="300px" width="100%" alt="...">
+                        <img src="/assets/images/home-promo-carousel/BurgersPromo.jpg" class="d-block" height="300px"
+                            width="100%" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="/assets/images/home-promo-carousel/RiceandCurryPromo.jpg" class="d-block" height="300px" width="100%" alt="...">
+                        <img src="/assets/images/home-promo-carousel/RiceandCurryPromo.jpg" class="d-block"
+                            height="300px" width="100%" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselPromotions" role="button" data-slide="prev">
@@ -1683,9 +1696,12 @@
         </div>
         <div data-role="nav-bar" id="nav-bar-area">
         </div>
+
+
+        <div data-role="footer" id="footer-area" data-position="fixed" style="position:absolute">
+        </div>
     </div>
 
 </body>
 
 </html>
-
