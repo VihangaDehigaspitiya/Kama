@@ -15,7 +15,7 @@
 
     <style>
         .profile-section {
-            margin: 30px 110px 10px 110px;
+            margin: 30px 30px 30px 30px;
         }
 
         .profile-section .profile-section-header h1 {
@@ -24,12 +24,14 @@
 
         .profile-section .log-out-section {
             margin-top: 35px;
-            width: 30%;
+            /* width: 30%; */
             text-align: center;
         }
 
         .profile-section .preference-section {
             width: 70%;
+            margin-left: 18%;
+            margin-top: 10%;
         }
 
         .profile-section .preference-section .ui-slider {
@@ -50,7 +52,7 @@
 
         .profile-section .preference-section,
         .profile-section .log-out-section {
-            padding: 20px
+            /* padding: 20px */
         }
 
         .profile-section .log-out-section img {
@@ -87,7 +89,43 @@
         }
 
         .awards img {
-            border:1px solid black;
+            border: 1px solid black;
+        }
+
+        .card_images {
+            /* display: flex; */
+        }
+
+        .logout-btn {
+            display: flex;
+            justify-content: center;
+        }
+
+        .login-btn {
+            /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            padding: 0px !important;
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 25px !important;
+            margin-top: 25px !important;
+            width: 40% !important;
+            display: flex !important;
+            justify-content: center !important;
+            color: white !important;
+            font-family: HelveticaNeue !important;
+            font-style: normal !important;
+            font-weight: lighter !important;
+            font-size: 16px !important;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+            height: 40px;
+        }
+
+        .head {
+            border: 1px solid #a59595 !important;
+            width: 30% !important;
+            border-radius: 8px !important;
+            margin-left: 35% !important;
         }
     </style>
     <script>
@@ -109,15 +147,20 @@
             <div class="ui-grid-solo profile-section-header">
                 <h1>Your Profile</h1>
             </div>
-            <div class="ui-grid-a">
-                <div class="ui-block-a log-out-section">
-                    <div class="card">
-                        <img src="/assets/images/IMG_7960.jpg" height="100px" width="100px" alt="">
-                        <img src="/assets/images/badges/2.png" height="100px" width="100px" alt="">
+            <div class="ui-grid-solo">
+                <div class="ui-block-a log-out-section head">
+                    <div class="card_images">
+                        <img src="/assets/images/IMG_7960.jpg" style="border-radius: 50%;" height="100px" width="100px"
+                            alt="">
+                        <p style="margin: 0%;"><b>Vihana Sangeeth</b></p>
+                        <img src="/assets/images/badges/2.png" height="40px" width="40px" alt="">
                     </div>
-                    <button class="log-out-btn">LOGOUT</button>
+                    <div class="text-info">
+                        <p><b>Rank :</b> Veteran (Level 10)</p>
+                        <p>14,000 Coins</p>
+                    </div>
                 </div>
-                <div class="ui-block-b preference-section">
+                <div class="preference-section">
                     <div class="card">
                         <p class="setting-card-header">Preference</p>
                         <ul data-role="listview">
@@ -160,6 +203,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="ui-grid-solo">
+            <div class="logout-btn">
+                <button class="login-btn">LOGOUT</button>
+            </div>
+            <div class="version-info">
+                <p>Version 4.8.15.16.23.42</p>
+            </div>
+
         </div>
         <div data-role="nav-bar" id="nav-bar-area">
         </div>
