@@ -15,7 +15,7 @@
 </head>
 <style>
     .resto-info-section {
-        margin: 10px 110px 10px 110px;
+        margin: 70px 110px 10px 110px;
         padding-bottom: 10px;
         border-bottom: 2px solid rgba(112, 112, 112, 0.5);
     }
@@ -56,12 +56,43 @@
     .fa-check-square {
         color: green;
     }
+    #fav-icon-active-btn,
+    #fav-icon-inactive-btn{
+        position: absolute;
+        left: 41%;
+        top: 28%;
+    }
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        #fav-icon-active-btn,
+        #fav-icon-inactive-btn{
+            position: absolute;
+            left: 36% !important;
+            top: 17% !important;
+        }
+    }
+    
 </style>
+<script>
+    function addFavourites(state){
+        console.log(state);
+        if(state == "active"){
+            
+            document.getElementById("fav-icon-active-btn").style.display = "block";
+            document.getElementById("fav-icon-inactive-btn").style.display = "none";
+        }else{
+            document.getElementById("fav-icon-active-btn").style.display = "none";
+            document.getElementById("fav-icon-inactive-btn").style.display = "block";
+        }
+    }
+</script>
 
 <body>
     <div data-role="page">
         <div class="ui-grid-solo">
             <img src="/assets/images/new-rating-street.jpg" width="100%" alt="">
+            <img  src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')">
+            <img  src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" style="display: none;">
         </div>
         <div class="ui-grid-a resto-info-section">
             <div class="ui-block-a">
