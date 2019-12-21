@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        .card-details-section {
+            margin: 30px 30px 30px 30px;
+        }
+
+        .card-details-section .card-setails-header {
+            text-align: center;
+        }
+
+        .card-setails-header p {
+            font-size: 24px;
+        }
+
+        .card-details-section .card-type img {
+            width: 9%;
+            padding-left: 13px;
+        }
+
+        .card-details-section .card-type {
+            padding-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .card-details-section .card-details button {
+            text-shadow: none !important;
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            letter-spacing: 2px !important;
+            color: white !important;
+            margin-top: 24px;
+        }
+
+        .card-details-section .card-details button:focus {
+            box-shadow: none !important;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 56px;
+            margin-left: 25px;
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-1 {
+            font-size: 21px;
+            color: #324755;
+        }
+
+        .card {
+            font-size: 14px;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div class="card-details-section">
+            <div class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="topic-header">
+                <p class="header-1"><b>Settings</b></p>
+            </div>
+            <div class="ui-grid-solo card-type">
+                <div class="card">
+                    <img src="/assets/images/card-selection/visa.png" alt="">
+                </div>
+            </div>
+            <div class="ui-grid-solo card-details">
+                <div class="card">
+                    <ul data-role="listview">
+                        <li>Cardholder Name</li>
+                        <li>Card Number</li>
+                        <li>Expire Date</li>
+                        <li>CVV</li>
+                        <li>Address</li>
+                    </ul>
+                </div>
+                <button>SAVE CARD</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
