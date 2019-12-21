@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>User Policy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../../assets//css/carousel.css"> -->
+    <!-- <link rel="stylesheet" href="../../../assets/css/card.css" /> -->
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    .banner {
+        margin-top: 25px;
+        position: relative;
+    }
+
+    .banner-img-top {
+        width: 50%;
+    }
+
+    .card {
+        margin-top: 25px;
+        position: relative;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+    }
+
+    .discover-restaurant-section {
+        background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        text-shadow: none;
+        color: white;
+    }
+
+    .discover-restaurant-info {
+        padding: 28px;
+        width: 100%;
+    }
+
+    .discover-restaurant-info h1 {
+        margin: 0;
+        border-bottom: 1px solid white;
+    }
+
+    .discover-restaurant-info p {
+        margin-top: 8px
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .about-us{
+        padding: 0px 20px 20px 20px;
+        margin: 0px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $(".ui-input-search input").focus(function () {
+            $(this).parent().removeClass("ui-focus")
+        });
+
+        $(function () {
+            $("#header-area").load("../../shared/header.html");
+            $("#hh").load("../../shared/sidemenu.html");
+        });
+        // $(document).ready(function () {
+
+        // });
+    });
+</script>
+
+<body>
+    <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
+    <div data-role="page">
+        <div data-role="header" id="header-area">
+        </div>
+        <div data-role="panel" id="hh" data-display="overlay"></div>
+        <div class="ui-grid-solo discover-restaurant-section">
+            <div class="discover-restaurant-info">
+                <h2>User Policy</h2>
+            </div>
+        </div>
+        <!-- This is the promotion banner -->
+        <div class="ui-grid-solo">
+            <div id="carouselFavourites" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="ui-grid-solo">
+                            <div class="banner text-center">
+                                <img class="banner-img-top" src="../../../assets/images/kaama1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About us text -->
+        <div class="ui-grid-solo">
+            <p class="about-us">
+                THIS PRIVACY POLICY IS IN ADDITION TO AND IS INCORPORATED INTO THE END USER LICENSE AGREEMENT. IT REFERS TO SLEEPRATES’S END-USERS.
+            </p>
+            <p class="about-us">
+                <b>
+                    General
+                </b>
+            </p>
+            <p class="about-us">
+                All terms in capital letters not otherwise defined herein, shall have the meaning ascribed to them in theApplication’s End User Terms of Use as they appear &lt;&lt;&lt;URL&gt;&gt;&gt;
+                This Privacy Policy sets forth our policy and practices with respect to personal information that will beprocessed by us in relation to (i) your browsing through our download page/landing page, if applicable
+                and (ii)your download and use of the Application and Services. Any information that does not constitute personal data, is out of the scope of this Privacy Policy.
+                By clicking on the “I accept” (or similar consent) button or by using our Application, the System, the Services and/or the data, accessing, browsing or otherwise submitting information, to the Application,
+                you acknowledge and consent to the collection, process and use of such information by Kama as set forth below and in the End User License Agreement &lt;&lt;&lt;URL&gt;&gt;&gt;
+            </p>
+            <p class="about-us">
+                <b>
+                    Personal Data that we collect and Process
+                </b>
+            </p>
+            <p class="about-us">
+                We might collect, receive, use and process Personal Data that: <br><br>
+                7.1. You voluntarily provide; and/or <br>
+                7.2. You consent to be collected and processed; and/or <br>
+                7.3. Needs to be processed to meet contractual obligations entered by you, and our customers or us; and/or <br>
+                7.4. We collect through your use of the Application, Application and Services; and/or <br>
+                7.5. Needs processing to comply with legal obligations <br><br>
+                If You do not agree to any of these terms, you may not use, and therefore immediately must cease any use of, the System, the Services, Application and/or the Application. <br><br>
+                You acknowledge and understand, that Kama Application, System and Services are neither a medical device, nor a medical program, and are not intended for the diagnosis and/or treatment of sleep disorders, and no input provided by the Application, System, Application and Services or shall be considered or related to as medical advice. <br> <br>
+                “Non-Personal Data” as used in this Privacy Policy is therefore any information that does not relate to a person and/or cannot be used to identify a person. <br> <br>
+                We may also use Non-Personal data. The limitations and requirements in this Privacy Policy on our gathering, use, disclosure, transfer and storage/retention of Personal Data, do not apply to Non-Personal Data.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
