@@ -222,33 +222,34 @@
 
 <script>
     function login() {
-        $.ajax({
-            url: `http://localhost/TodoApplication/index.php/UserController/login`,
-            method: 'POST',
-            dataType: "json",
-            data: {
-                "userName": $("#email").val(),
-                "password": $("#password").val(),
-            },
+        window.location.href = "customer/home.html";
+        // $.ajax({
+        //     url: `http://localhost/TodoApplication/index.php/UserController/login`,
+        //     method: 'POST',
+        //     dataType: "json",
+        //     data: {
+        //         "userName": $("#email").val(),
+        //         "password": $("#password").val(),
+        //     },
             // headers: {
             //     'Access-Control-Allow-Origin': '*',
             // }
-        }).done(function(data) {
-            console.log(data);
-            if (data.state) {
-                console.log(data);
-                if (data.state.isRestaurant) {
-                    console.log("working")
-                    window.location.href = "serviceprovider/home.html"
-                } else {
-                    window.location.href = "customer/home.html"
-                }
+        // }).done(function(data) {
+        //     console.log(data);
+        //     if (data.state) {
+        //         console.log(data);
+        //         if (data.state.isRestaurant) {
+        //             console.log("working")
+        //             window.location.href = "serviceprovider/home.html"
+        //         } else {
+        //             window.location.href = "customer/home.html"
+        //         }
 
-            } else {
+        //     } else {
 
-            }
+        //     }
 
 
-        });
+        // });
     }
 </script>
