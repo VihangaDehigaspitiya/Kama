@@ -137,8 +137,6 @@
     function registerUser() {
         var string_data = localStorage.getItem("UserObj");
         var data = JSON.parse(string_data);
-        console.log("data", data)
-
 
         $.ajax({
             url: `http://localhost/TodoApplication/index.php/UserController/register`,
@@ -156,6 +154,11 @@
             // }
         }).done(function(data) {
             console.log(data);
+            if (data.state) {
+                window.location.href = "../login.html"
+            } else {
+
+            }
 
         });
     }
