@@ -12,6 +12,7 @@
     <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="../../../assets//css/carousel.css">
+
     <!-- <link rel="stylesheet" href="../../../assets/css/card.css" /> -->
 
 
@@ -242,16 +243,16 @@
         cursor: pointer;
     }
 
-    .ui-flipswitch .ui-btn.ui-flipswitch-on {
+    /* .ui-flipswitch .ui-btn.ui-flipswitch-on {
         width: 27px;
         padding: 0;
         border-width: -7px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         margin: 1px 0px 0px -28px;
-    }
+    } */
 
-    .ui-corner-all {
+    /* .ui-corner-all {
         padding-left: 4em;
         width: 0px !important;
         height: 30px;
@@ -260,7 +261,7 @@
         border: 0px;
         margin: 0px;
         margin-top: 16px;
-    }
+    } */
 
     .ui-flipswitch.ui-flipswitch-active {
         padding-left: 4em;
@@ -273,7 +274,7 @@
         margin-top: 16px;
     }
 
-    .ui-flipswitch .ui-btn.ui-flipswitch-on {
+    /* .ui-flipswitch .ui-btn.ui-flipswitch-on {
         width: 27px;
         padding: 0;
         text-indent: -9.6em;
@@ -285,7 +286,7 @@
         border-radius: 50%;
         overflow: visible;
         margin: 1px 0px 0px -28px;
-    }
+    } */
 
     .login-btn:focus {
         box-shadow: none !important;
@@ -405,6 +406,29 @@
     .scanner-text-wrapper {
         text-align: center;
     }
+
+    .popup-overlay {
+        display: none;
+    }
+
+    .closeBtnContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .close {
+        width: 20% !important;
+        border-radius: 30px !important;
+        background: linear-gradient(180deg, #FF9F40, #FF8C49, #FF8A4A, #FF7256, #FF406E) !important;
+        color: white !important;
+        text-shadow: none !important;
+    }
+
+    @media only screen and (orientation: portrait) {
+        .close {
+            width: 40% !important;
+        }
+    }
 </style>
 <script>
     $(document).ready(function () {
@@ -416,9 +440,33 @@
             $("#header-area").load("../../shared/header.html");
             $("#hh").load("../../shared/sidemenu.html");
         });
-        // $(document).ready(function () {
 
-        // });
+        $(function () {
+            $('#camerawrapper').click(function () {
+                $(".popup-overlay").css("display", "block")
+
+            });
+        });
+
+        $(".close, .popup").on("click", function () {
+            $(".popup-overlay").css("display", "none")
+        });
+
+        // camera function
+        var scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        scanner.addListener('scan', function (content) {
+            console.log("points", content);
+            // window.open(content, '_blank');
+        });
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+            }
+        }).catch(function (e) {
+            console.error(e);
+        });
     });
 </script>
 
@@ -434,7 +482,7 @@
         </div>
         <div class="ui-grid-solo">
             <div class="scanner">
-                <div class="camera-wrapper">
+                <div class="camera-wrapper" id="camerawrapper">
                     <i class="fas fa-camera"></i>
                 </div>
             </div>
@@ -442,6 +490,17 @@
                 <p>Scan your food packet <br>to earn points</p>
             </div>
         </div>
+
+        <div class="ui-grid-solo popup-overlay">
+            <!--Creates the popup content-->
+            <div class="ui-block-a popup-content">
+                <video id="preview"></video>
+                <div class="closeBtnContainer">
+                    <button class="close">Close</button>
+                </div>
+            </div>
+        </div>
+
         <div class="ui-grid-solo">
             <div class="card-wrapper">
                 <div class="card">
@@ -478,6 +537,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../../../assets/js/instascan.min.js"></script>
 </body>
 
 </html>
