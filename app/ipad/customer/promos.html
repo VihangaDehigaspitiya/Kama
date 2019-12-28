@@ -5,43 +5,69 @@
     <meta charset="utf-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../../assets/css/card.css" />
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
     <style>
         .promo-container {
             padding: 10px 120px 10px 120px;
         }
-
+        
         .promo-container .promo-card {
             padding: 20px;
             border-radius: 10px;
+            border: 2px solid orangered;
         }
-
+        
         .promo-container .promo-card .apply-button-container {
             display: flex;
             justify-content: space-between;
         }
-
+        
         .promo-container .promo-card .apply-button-container button {
             width: 20% !important;
-            color: white;
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            color: white !important;
+            text-shadow: none !important;
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+            border-radius: 25px !important;
         }
-
+        
+        .promo-container .promo-card .apply-button-container button:focus {
+            box-shadow: none !important;
+        }
+        
         .promo-container .ui-grid-solo {
             padding-bottom: 10px;
         }
-
+        
         .promo-container .promo-card h3 {
             margin: 0;
         }
-
-        .promo-container .card-container-header {
+        
+        .promo-container .promo-card-container-header {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .promo-container .promo-card-container-header .promo-card-container-header-text {
+            padding: 28px;
+            width: 100%;
             text-align: center;
+        }
+        
+        .promo-container .promo-card-container-header .promo-card-container-header-text h1 {
+            margin: 0;
+        }
+        
+        .promo-container .promo-card-container-header svg {
+            font-size: 2em;
+            padding: 30px 0 0 30px;
         }
     </style>
 </head>
@@ -49,8 +75,11 @@
 <body>
     <div data-role="page" data-title="Promo Codes">
         <div class="promo-container">
-            <div class="card-container-header">
-                <h1>Promotions</h1>
+            <div class="promo-card-container-header">
+                <i class="fas fa-chevron-left"></i>
+                <div class="promo-card-container-header-text">
+                    <h1>Promotions</h1>
+                </div>
             </div>
             <div class="ui-grid-solo">
                 <div class="card promo-card">
@@ -58,36 +87,38 @@
                     <p>Here's your exclusive Promo code LPP127 to get 50LKR on 8 rides</p>
                     <div class="apply-button-container">
                         <h4>LPP127</h4>
-                        <button>Apply</button>
+                        <button onclick="addPromo(50)">Apply</button>
                     </div>
                 </div>
             </div>
             <div class="ui-grid-solo">
                 <div class="card promo-card">
                     <h3>KAMA Promo!</h3>
-                    <p>Here's your exclusive Promo code LPP127 to get 50LKR on 8 rides</p>
-                    <h4>LPP127</h4>
+                    <p>Here's your exclusive Promo code LPP127 to get 150LKR on 8 rides</p>
+                    <div class="apply-button-container">
+                        <h4>LPP127</h4>
+                        <button onclick="addPromo(150)">Apply</button>
+                    </div>
                 </div>
             </div>
             <div class="ui-grid-solo">
                 <div class="card promo-card">
                     <h3>KAMA Promo!</h3>
-                    <p>Here's your exclusive Promo code LPP127 to get 50LKR on 8 rides</p>
-                    <h4>LPP127</h4>
+                    <p>Here's your exclusive Promo code LPP127 to get 200LKR on 8 rides</p>
+                    <div class="apply-button-container">
+                        <h4>LPP127</h4>
+                        <button onclick="addPromo(200)">Apply</button>
+                    </div>
                 </div>
             </div>
             <div class="ui-grid-solo">
                 <div class="card promo-card">
                     <h3>KAMA Promo!</h3>
-                    <p>Here's your exclusive Promo code LPP127 to get 50LKR on 8 rides</p>
-                    <h4>LPP127</h4>
-                </div>
-            </div>
-            <div class="ui-grid-solo">
-                <div class="card promo-card">
-                    <h3>KAMA Promo!</h3>
-                    <p>Here's your exclusive Promo code LPP127 to get 50LKR on 8 rides</p>
-                    <h4>LPP127</h4>
+                    <p>Here's your exclusive Promo code LPP127 to get 75LKR on 8 rides</p>
+                    <div class="apply-button-container">
+                        <h4>LPP127</h4>
+                        <button onclick="addPromo(75)">Apply</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -95,3 +126,8 @@
 </body>
 
 </html>
+<script>
+    function addPromo(amount) {
+        localStorage.setItem("Promotion", amount);
+    }
+</script>

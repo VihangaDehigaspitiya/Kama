@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <style>
+        .nav-bar {
+            display: flex;
+            color: #C3CBCE;
+            border: 1px solid #C3CBCE;
+            position: fixed;
+            bottom: 0;
+            background-color: white;
+            width: 100%;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .nav-bar-active {
+            color: #E94677 !important;
+        }
+        
+        .nav-bar svg {
+            color: #C3CBCE;
+            font-size: 30px;
+            padding: 15px 80px 15px 80px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(function() {
+                var url = window.location.href;
+                if (url.indexOf("home.html") != -1) {
+                    $(".fa-home").addClass('nav-bar-active')
+                } else if (url.indexOf("addpromo.html") != -1) {
+                    $(".fa-gift").addClass('nav-bar-active')
+                } else if (url.indexOf("updatemenu.html") != -1) {
+                    $(".fa-clipboard-list").addClass('nav-bar-active')
+                } else if (url.indexOf("orderque.html") != -1) {
+                    $(".fa-users").addClass('nav-bar-active')
+                } else if (url.indexOf("profile.html") != -1) {
+                    $(".fa-user").addClass('nav-bar-active')
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a id="home-link" rel="external" href="/app/ipad/serviceprovider/home.html"><i class="fas fa-home"></i></a>
+        <a id="past-orders-link" rel="external" href="/app/ipad/serviceprovider/addpromo.html"><i class="fas fa-gift"></i></a>
+        <a id="cart-link" rel="external" href="/app/ipad/serviceprovider/updatemenu.html"><i class="fas fa-clipboard-list"></i></a>
+        <a id="search-link" rel="external" href="/app/ipad/serviceprovider/orderque.html"><i class="fas fa-users"></i></a>
+        <a id="profile-link" rel="external" href="/app/ipad/serviceprovider/profile.html"><i class="fas fa-user"></i></a>
+    </div>
+</body>
+
+</html>

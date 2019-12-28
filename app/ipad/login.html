@@ -30,7 +30,8 @@
             padding: 20px;
         }
         
-        .login-btn:focus {
+        .login-btn:focus,
+        #popupChangeUser .ui-content .ui-grid-a a:focus {
             box-shadow: none !important;
         }
         
@@ -70,7 +71,7 @@
             margin-left: 8px;
         }
         
-        .ui-block-b {
+        .login-container .login-card .ui-block-b {
             margin-top: 100px;
             display: flex;
             align-items: center;
@@ -78,7 +79,7 @@
             flex-direction: column;
         }
         
-        .ui-block-a {
+        .login-container .ui-block-a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -95,7 +96,7 @@
             /* color: #3c8e25; */
         }
         
-        .ui-block-b p {
+        .login-container .login-card .ui-block-b p {
             /* margin: 0; */
             font-family: Helvetica;
             font-style: normal;
@@ -105,14 +106,59 @@
             letter-spacing: 0.5px;
         }
         
-        .ui-block-b p a {
-            cursor: pointer;
-            color: #E85E52;
-            font: caption;
+        .login-container .ui-block-b p a,
+        .portrait-login-container p a {
+            cursor: pointer !important;
+            color: #E85E52 !important;
+            font: caption !important;
         }
         
-        .ui-block-b p a:hover {
-            color: red;
+        .login-container .signup-link,
+        .portrait-login-container .signup-link {
+            text-decoration: none !important;
+        }
+        
+        .login-container .ui-block-b p a:hover,
+        .portrait-login-container p a:hover {
+            color: red !important;
+        }
+        /* popup css */
+        
+        #popupChangeUser-popup {
+            top: 252.5px;
+            left: 334px;
+            width: 400px;
+        }
+        
+        #popupChangeUser .ui-content {
+            padding-top: 25px !important;
+        }
+        
+        #popupChangeUser .ui-block-b {
+            margin: 0 !important;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a a p {
+            margin: 0;
+            color: white !important;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a a {
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 30px !important;
+            text-shadow: none !important;
+            color: white !important;
+            letter-spacing: 1px !important;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a p {
+            text-align: center;
+            color: lightslategrey;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a .button-container {
+            display: flex;
+            justify-content: center;
         }
         /** ipad potrait **/
         
@@ -123,18 +169,13 @@
             .portrait-login-container {
                 display: block !important;
             }
+            .ui-input-text {
+                width: 29% !important;
+            }
         }
     </style>
 
-    <script>
-        $(document).ready(function() {
-            $(".ui-input-text input").focus(function() {
-                $(this).parent().removeClass("ui-focus")
-            });
-        });
-    </script>
 
-    <!-- <script src="/libraries/jquery.mobile-1.4.5/jqu"></script> -->
 </head>
 
 <body>
@@ -155,48 +196,44 @@
                         <i class="fab fa-twitter"></i>
                         <i class="fab fa-google"></i>
                     </div>
-                    <p>Don't have an account? <a rel="external" href="customer/signup.html">Sign up</a></p>
+                    <p>Don't have an account? <a class="signup-link" href="#popupChangeUser" data-rel="popup" data-position-to="window" data-transition="pop" role="button">Sign up</a></p>
 
                 </div>
             </div>
         </div>
-    </div>
 
-    <div data-role="page" class="portrait-login-container" style="display: none;">
 
-        <div class="ui-grid-solo">
-            <div class="ui-block-a">
-                <img src="/assets/images/login_header@2x.png" style="margin-top:-700px;">
-                <img src="/assets/images/kaama_df@2x.png" width="50%" style="position: absolute;">
+        <div class="portrait-login-container" style="display: none;">
+
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <img src="/assets/images/login_header@2x.png" style="margin-top:-700px;">
+                    <img src="/assets/images/kaama_df@2x.png" width="50%" style="position: absolute;">
+                </div>
             </div>
-        </div>
 
-        <div class="ui-grid-solo">
-            <div class="ui-block-a" style="height: 381px;">
-                <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+            <div class="ui-grid-solo">
+                <div class="ui-block-a" style="height: 381px;">
                     <input type="text" name="email" id="email" placeholder="Username" style="font-size: medium;">
-                </div>
-                <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
                     <input type="password" name="password" id="password" placeholder="Password" style="font-size: medium;">
+                    <button onclick="login()" class="login-btn ui-btn ui-shadow ui-corner-all">LOGIN</button>
+                    <p>Or Sign up with</p>
+                    <div class="icon-container">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <p>Don't have an account? <a class="signup-link" href="#popupChangeUser" data-rel="popup" data-position-to="window" data-transition="pop" role="button">Sign up</a></p>
                 </div>
-                <button onclick="login()" class="login-btn ui-btn ui-shadow ui-corner-all">LOGIN</button>
-                <p>Or Sign up with</p>
-                <div class="icon-container">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-google"></i>
+            </div>
+
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <img src="/assets/images/login_footer.png">
                 </div>
-                <p>Don't have an account? <a rel="external" href="customer/signup.html">Sign up</a></p>
             </div>
-        </div>
 
-        <div class="ui-grid-solo">
-            <div class="ui-block-a">
-                <img src="/assets/images/login_footer.png">
-            </div>
-        </div>
-
-        <!-- <div class="ui-grid-a">
+            <!-- <div class="ui-grid-a">
             <div class="ui-block-a">
                 <img src="/assets/images/kaama_df@2x.png" width="60%">
             </div>
@@ -214,42 +251,70 @@
 
             </div>
         </div> -->
-    </div>
 
+
+        </div>
+        <div data-role="popup" id="popupChangeUser" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="max-width:400px;">
+            <div>
+                <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+            </div>
+            <div role="main" class="ui-content">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <p>Service provider sign up to register your homre business</p>
+                        <div class="button-container">
+                            <a href="/app/ipad/serviceprovider/signup.html" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" rel="external">
+                                <p>Service Provider</p> Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <p>Customer sign up to browsw through restaurants</p>
+                        <div class="button-container">
+                            <a href="/app/ipad/customer/signup.html" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" rel="external">
+                                <p>Customer</p> Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
 
 <script>
+    $(document).ready(function() {
+        $(".ui-input-text input").focus(function() {
+            $(this).parent().removeClass("ui-focus")
+        });
+    });
+
+
     function login() {
-        window.location.href = "customer/home.html";
-        // $.ajax({
-        //     url: `http://localhost/TodoApplication/index.php/UserController/login`,
-        //     method: 'POST',
-        //     dataType: "json",
-        //     data: {
-        //         "userName": $("#email").val(),
-        //         "password": $("#password").val(),
-        //     },
-            // headers: {
-            //     'Access-Control-Allow-Origin': '*',
-            // }
-        // }).done(function(data) {
-        //     console.log(data);
-        //     if (data.state) {
-        //         console.log(data);
-        //         if (data.state.isRestaurant) {
-        //             console.log("working")
-        //             window.location.href = "serviceprovider/home.html"
-        //         } else {
-        //             window.location.href = "customer/home.html"
-        //         }
+        console.log("Working");
+        $.ajax({
+            url: `http://localhost/Kama/index.php/UserController/login`,
+            method: 'POST',
+            dataType: "json",
+            data: {
+                "userName": $("#email").val(),
+                "password": $("#password").val(),
+            },
+        }).done(function(data) {
+            console.log(data);
+            if (data.state) {
+                console.log(data);
+                if (data.data.isRestaurant == 1) {
+                    window.location.href = "serviceprovider/home.html"
+                } else {
+                    window.location.href = "customer/home.html"
+                }
+                localStorage.setItem("UserId", data.data.id);
+            } else {
 
-        //     } else {
-
-        //     }
+            }
 
 
-        // });
+        });
     }
 </script>

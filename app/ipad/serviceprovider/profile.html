@@ -130,19 +130,24 @@
     </style>
     <script>
         $(function() {
-            $("#header-area").load("../../shared/header.html");
-            $("#side-panel").load("../../shared/sidemenu.html");
-            $("#nav-bar-area").load("../../shared/nav-bar.html");
+            $("#header-area-sp").load("../../shared/header-sp.html");
+            $("#side-panel-sp").load("../../shared/sidemenu-sp.html");
+            $("#nav-bar-area").load("../../shared/nav-bar-sp.html");
         });
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "/app/ipad/login.html";
+        }
     </script>
 
 </head>
 
 <body>
     <div data-role="page">
-        <div data-role="header" id="header-area">
+        <div data-role="header" id="header-area-sp">
         </div>
-        <div data-role="panel" id="side-panel" data-display="overlay"></div>
+        <div data-role="panel" id="side-panel-sp" data-display="overlay"></div>
         <div class="profile-section">
             <!-- <div class="ui-grid-solo profile-section-header">
                 <h1>Your Profile</h1>
@@ -205,7 +210,7 @@
         </div>
         <div class="ui-grid-solo">
             <div class="logout-btn">
-                <button class="login-btn">LOGOUT</button>
+                <button onclick="logout()" class="login-btn">LOGOUT</button>
             </div>
             <div class="version-info">
                 <p>Version 4.8.15.16.23.42</p>

@@ -21,17 +21,19 @@
             /* width: 100%; */
             /* height: 100%; */
         }
-
+        
         .loader-container img {
             display: block;
         }
     </style>
 
     <script>
-        $(document).ready(function () {
-            $(function () {
-                setTimeout(function () {
-                    window.location.href = "../ipad/customer/home.html";
+        $(document).ready(function() {
+            localStorage.removeItem("FoodList");
+            localStorage.removeItem("Promotion");
+            $(function() {
+                setTimeout(function() {
+                    location.href = "../ipad/customer/home.html";
                 }, 1000);
             });
 

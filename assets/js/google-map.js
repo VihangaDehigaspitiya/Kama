@@ -1,9 +1,16 @@
 function initialize() {
 
+    var geocoder = new google.maps.Geocoder();
     var directionsRenderer = new google.maps.DirectionsRenderer;
     var directionsService = new google.maps.DirectionsService;
     var lat = 6.053519;
     var long = 80.220978;
+
+    geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+        }
+    });
 
     var mapOptions, map, marker, searchBox, city,
         infoWindow = '',
@@ -14,9 +21,9 @@ function initialize() {
         element = document.getElementById('map-canvas');
     // city = document.querySelector('.reg-input-city');
 
-  
 
-   
+
+
 
     mapOptions = {
         // How far the maps zooms in.
@@ -60,7 +67,7 @@ function initialize() {
         map: map,
         icon: "/assets/images/map-markers/resto.png",
         draggable: false
-    }); 
+    });
 
 
     resto_info = new google.maps.InfoWindow({
@@ -70,7 +77,7 @@ function initialize() {
     resto_info.open(map, resto_marker);
 
     directionsRenderer.setMap(map);
-    directionsRenderer.setOptions( { suppressMarkers: true } );
+    directionsRenderer.setOptions({ suppressMarkers: true });
 
     calculateAndDisplayRoute(directionsService, directionsRenderer, lat, long);
 
@@ -143,7 +150,7 @@ function initialize() {
         lat = marker.getPosition().lat();
         long = marker.getPosition().lng();
 
-        var geocoder = new google.maps.Geocoder();
+
         geocoder.geocode({ latLng: marker.getPosition() }, function(result, status) {
             if ('OK' === status) { // This line can also be written like if ( status == google.maps.GeocoderStatus.OK ) {
                 address = result[0].formatted_address;
@@ -183,7 +190,7 @@ function initialize() {
 
         calculateAndDisplayRoute(directionsService, directionsRenderer, lat, long);
 
-        
+
     });
 
 
@@ -193,18 +200,18 @@ function initialize() {
 function calculateAndDisplayRoute(directionsService, directionsRenderer, destLat, destLong) {
     console.log("Working")
     directionsService.route({
-      origin: {lat: 6.889254590927385, lng: 79.8543631684197},  // Haight.
-      destination: {lat: destLat, lng: destLong},  // Ocean Beach.
-      // Note that Javascript allows us to access the constant
-      // using square brackets and a string value as its
-      // "property."
-      travelMode: 'DRIVING'
+        origin: { lat: 6.889254590927385, lng: 79.8543631684197 }, // Haight.
+        destination: { lat: destLat, lng: destLong }, // Ocean Beach.
+        // Note that Javascript allows us to access the constant
+        // using square brackets and a string value as its
+        // "property."
+        travelMode: 'DRIVING'
     }, function(response, status) {
         console.log(response)
-      if (status == 'OK') {
-        directionsRenderer.setDirections(response);
-      } else {
-        console.log('Directions request failed due to ');
-      }
+        if (status == 'OK') {
+            directionsRenderer.setDirections(response);
+        } else {
+            console.log('Directions request failed due to ');
+        }
     });
-  }
+}

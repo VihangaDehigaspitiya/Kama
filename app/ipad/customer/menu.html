@@ -20,40 +20,40 @@
         padding-bottom: 10px;
         border-bottom: 2px solid rgba(112, 112, 112, 0.5);
     }
-
+    
     .menu-section {
         margin: 10px 110px 10px 110px;
     }
-
+    
     .menu-section h2 {
         text-align: center;
     }
-
+    
     .ui-page-theme-a,
     .ui-body-inherit {
         background-color: #f9f9f9 !important;
     }
-
+    
     .resto-info-1 p,
     .resto-info-2 p {
         margin: 0 !important;
     }
-
+    
     .resto-info-1 p small,
     .resto-info-2 p small {
         font-size: 12px !important;
         color: #707070 !important;
     }
-
+    
     .resto-info-1 h2,
     .resto-info-2 h2 {
         margin: 6px 0 6px 0;
     }
-
+    
     .fa-star {
         color: gold;
     }
-
+    
     .fa-check-square {
         color: green;
     }
@@ -153,59 +153,98 @@
 <script>
     $(document).ready(function() {
         $(function() {
-            var i = 1;
-            var price = $("#food-price").attr('value');
+                $.ajax({
+                    url: `http://localhost/Kama/index.php/UserController/checkFavourites`,
+                    method: 'GET',
+                    dataType: "json",
+                    data: {
+                        "restaurantId": localStorage.getItem("RestaurantId"),
+                        "userId": localStorage.getItem("UserId")
+                    }
+                }).done(function(data) {
+                    $("#resto-image-container").html("");
+                    if (data) {
+                        $("#resto-image-container").append(`
+                            <img src="/assets/images/new-rating-street.jpg" width="100%" alt="">
+                            <img src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')">
+                            <img src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" style="display: none;">
+                        `)
+                    } else {
+                        $("#resto-image-container").append(`
+                            <img src="/assets/images/new-rating-street.jpg" width="100%" alt="">
+                            <img src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')" style="display: none;">
+                            <img src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" >
+                        `)
+                    }
+                });
 
-            $(".ui-icon-plus").click(function() {
-
-                console.log(price)
-                i = i + 1;
-                var total = price * i;
-                $("#numQuantity").text(i);
-                $("#food-price").text(`Rs.${total}`);
-            });
-
-            $(".ui-icon-minus").click(function() {
-                console.log("working minus")
-                i == 1 ? i = 1 : i = i - 1;
-                var total = price * i;
-                $("#numQuantity").text(i);
-                $("#food-price").text(`Rs.${total}`);
             })
+            // $(function() {
+            //     var i = 1;
+            //     var price = $("#food-price").attr('value');
 
-        })
+        //     $("#plus-btn").click(function() {
+
+        //         console.log(price)
+        //         i = i + 1;
+        //         var total = price * i;
+        //         $("#numQuantity").text(i);
+        //         $("#food-price").text(`Rs.${total}`);
+        //     });
+
+        //     $("#minus-btn").click(function() {
+        //         console.log("working minus")
+        //         i == 1 ? i = 1 : i = i - 1;
+        //         var total = price * i;
+        //         $("#numQuantity").text(i);
+        //         $("#food-price").text(`Rs.${total}`);
+        //     })
+
+        // })
     });
+
+
+
+
+
 
     function addFavourites(state) {
         console.log(state);
         if (state == "active") {
-            document.getElementById("fav-icon-active-btn").style.display = "block";
-            document.getElementById("fav-icon-inactive-btn").style.display = "none";
+
 
             $.ajax({
-                url: `http://localhost/TodoApplication/index.php/UserController/addFavourites`,
+                url: `http://localhost/Kama/index.php/UserController/addFavourites`,
                 method: 'POST',
                 dataType: "json",
                 data: {
-                    "restoId": $("#restoId").val()
+                    "restoId": localStorage.getItem("RestaurantId"),
+                    "userId": localStorage.getItem("UserId")
                 }
             }).done(function(data) {
-                window.location.href = "home.html"
+                console.log("add", data);
+                document.getElementById("fav-icon-active-btn").style.display = "block";
+                document.getElementById("fav-icon-inactive-btn").style.display = "none";
+                // window.location.href = "home.html"
             });
 
         } else {
-            document.getElementById("fav-icon-active-btn").style.display = "none";
-            document.getElementById("fav-icon-inactive-btn").style.display = "block";
+
 
             $.ajax({
-                url: `http://localhost/TodoApplication/index.php/UserController/deleteFavourites`,
+                url: `http://localhost/Kama/index.php/UserController/removeFavourites`,
                 method: 'POST',
                 dataType: "json",
                 data: {
-                    "restoId": $("#restoId").val()
+                    "restoId": localStorage.getItem("RestaurantId"),
+                    "userId": localStorage.getItem("UserId")
                 }
             }).done(function(data) {
-                window.location.href = "home.html"
+                console.log("remove", data);
+                document.getElementById("fav-icon-active-btn").style.display = "none";
+                document.getElementById("fav-icon-inactive-btn").style.display = "block";
+
+                // window.location.href = "home.html"
             });
         }
     }
@@ -213,10 +252,8 @@
 
 <body>
     <div data-role="page">
-        <div class="ui-grid-solo">
-            <img src="/assets/images/new-rating-street.jpg" width="100%" alt="">
-            <img src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')">
-            <img src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" style="display: none;">
+        <div class="ui-grid-solo" id="resto-image-container">
+
         </div>
         <div class="ui-grid-a resto-info-section">
             <div class="ui-block-a">
@@ -240,7 +277,7 @@
             <h2>Menu</h2>
             <ul data-role="listview">
                 <li>
-                    <a href="#quatityDialog" id="ttt" data-rel="popup" data-position-to="window" data-transition="pop">
+                    <a href="#quatityDialog" onclick="openFoddPopup('Chicke Cheese Koththu', '650')" id="ttt" data-rel="popup" data-position-to="window" data-transition="pop">
                         <p>Chicke Cheese Koththu</p>
                         <p>Rs.650</p>
                     </a>
@@ -263,23 +300,21 @@
             <div>
                 <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
             </div>
-            <div role="main" class="ui-content">
-                <div class="quantity-info-section">
-                    <img src="/assets/images/street-fav.png" alt="">
-                    <h2>Street Burger</h2>
-                    <p>Hot Charger</p>
-                    <p id="food-price" value="550">Rs.550</p>
-                    <div class="quantity">
-                        <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
-                        <h1 id="numQuantity">1</h1>
-                        <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+            <div id="pop-up-body">
+                <!-- <div role="main" class="ui-content">
+                    <div class="quantity-info-section">
+                        <img src="/assets/images/street-fav.png" alt="">
+                        <h2>Street Burger</h2>
+                        <p>${food}</p>
+                        <p id="food-price" value="${price}">Rs.${price}</p>
+                        <div class="quantity">
+                            <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                            <h1 id="numQuantity">1</h1>
+                            <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                        </div>
                     </div>
-
-                </div>
-
-                <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
-                <button class="add-to-cart-btn" onclick="">ADD TO CART</button>
+                    <button class="add-to-cart-btn" onclick="addDataToCart()">ADD TO CART</button>
+                </div> -->
             </div>
         </div>
     </div>
@@ -288,7 +323,88 @@
 </html>
 
 <script>
-    function addDataToCart() {
+    console.log(JSON.parse(localStorage.getItem("FoodList")))
+    var foodList = [];
 
+    function addDataToCart(food) {
+        var cartItems = JSON.parse(localStorage.getItem("FoodList"));
+        if (cartItems != null) {
+            foodList = cartItems;
+        }
+
+        var foodObj = {
+            "Food": food,
+            "TotalPrice": $("#food-price").val(),
+            "Quantity": $("#numQuantity").text()
+        }
+
+        foodList.push(foodObj);
+        localStorage.setItem("FoodList", JSON.stringify(foodList));
+        // $('#paymentChaneDialog').popup('close');
+        console.log("Food", food);
+        console.log("Price", $("#food-price").val());
+        console.log("Quantity", $("#numQuantity").text());
+    }
+
+    function openFoddPopup(food, price) {
+        $("#pop-up-body").html('');
+        $("#pop-up-body").append(`
+                <div role="main" class="ui-content">
+                    <div class="quantity-info-section">
+                        <img src="/assets/images/street-fav.png" alt="">
+                        <h2>Street Burger</h2>
+                        <p>${food}</p>
+                        <p id="food-price" value="${price}">Rs.${price}</p>
+                        <div class="quantity">
+                            <a href="#" role="button" id="minus-btn" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                            <h1 id="numQuantity">1</h1>
+                            <a href="#" role="button" id="plus-btn" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn ui-btn ui-shadow ui-corner-all" onclick="addDataToCart('${food}', '${price}')">ADD TO CART</button>
+                </div>
+        `);
+
+        $(function() {
+            $.ajax({
+                url: `http://localhost/Kama/index.php/UserController/getMenu`,
+                method: 'GET',
+                dataType: "json",
+                data: {
+                    "restaurantId": localStorage.getItem("RestaurantId")
+                }
+            }).done(function(data) {
+                console.log("Menu", data)
+            });
+
+        })
+
+
+
+
+        $(function() {
+            var i = 1;
+            var price = $("#food-price").attr('value');
+            $("#food-price").val(price);
+
+            $("#plus-btn").click(function() {
+
+                console.log(price)
+                i = i + 1;
+                var total = price * i;
+                $("#numQuantity").text(i);
+                $("#food-price").text(`Rs.${total}`);
+                $("#food-price").val(total);
+            });
+
+            $("#minus-btn").click(function() {
+                console.log("working minus")
+                i == 1 ? i = 1 : i = i - 1;
+                var total = price * i;
+                $("#numQuantity").text(i);
+                $("#food-price").text(`Rs.${total}`);
+                $("#food-price").val(total);
+            })
+        })
     }
 </script>
