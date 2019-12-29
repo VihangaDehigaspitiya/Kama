@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
     <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
     <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -74,31 +73,187 @@
             margin: auto;
             width: 80%;
         }
-        /* .w3-round-xlarge {
-            border-radius: 16px
+        /* login css */
+        
+        .login-card .ui-block-a {
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            height: 500px !important;
         }
         
-        .w3-container:after,
-        .w3-container:before {
-            content: "";
-            display: table;
-            clear: both
+        .login-card {
+            width: 65%;
+            border-radius: 30px;
+            overflow: hidden !important;
         }
         
-        .w3-light-grey {
-            color: #000!important;
-            background-color: #f1f1f1!important
+        .login-card .ui-block-b {
+            padding: 20px;
         }
         
-        .w3-blue {
-            background-color: blue;
+        .login-btn:focus,
+        #popupChangeUser .ui-content .ui-grid-a a:focus {
+            box-shadow: none !important;
         }
         
-        .w3-container,
-        .w3-panel {
-            padding: 0.01em 16px
-        } */
+        .login-btn {
+            /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 25px !important;
+            margin-top: 25px !important;
+            width: 30% !important;
+            display: flex !important;
+            justify-content: center !important;
+            color: white !important;
+            font-family: Helvetica;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-size: 16px !important;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+        }
+        
+        .login-container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+        }
+        
+        .ui-input-text {
+            border-color: red !important;
+            border-radius: 20px;
+            width: 50%;
+            font-size: small;
+        }
+        
+        .ui-input-text input {
+            margin-left: 8px;
+        }
+        
+        .login-container .login-card .ui-block-b {
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: column;
+        }
+        
+        .login-container .ui-block-a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .icon-container svg {
+            margin-right: 20px !important;
+            color: salmon;
+            /* background: -webkit-gradient(linear, left top, right top, color-stop(.5, blue), color-stop(1, orange)); */
+            /* background: gradient(linear, left top, right top, color-stop(0.5, blue), color-stop(1, orange)) !important; */
+            /* fill: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            /* color: transparent !important; */
+            /* color: #3c8e25; */
+        }
+        
+        .login-container .login-card .ui-block-b p {
+            /* margin: 0; */
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            color: rgba(167, 167, 167, 1);
+            letter-spacing: 0.5px;
+        }
+        
+        .login-container .ui-block-b p a,
+        .portrait-login-container p a {
+            cursor: pointer !important;
+            color: #E85E52 !important;
+            font: caption !important;
+        }
+        
+        .login-container .signup-link,
+        .portrait-login-container .signup-link {
+            text-decoration: none !important;
+        }
+        
+        .login-container .ui-focus,
+        .portrait-login-container .ui-focus {
+            box-shadow: none !important;
+        }
+        
+        .login-container .ui-block-b p a:hover,
+        .portrait-login-container p a:hover {
+            color: red !important;
+        }
+        /* popup css */
+        
+        #popupChangeUser-popup {
+            top: 252.5px;
+            left: 334px;
+            width: 400px;
+        }
+        
+        #popupChangeUser .ui-content {
+            padding-top: 25px !important;
+        }
+        
+        #popupChangeUser .ui-block-b {
+            margin: 0 !important;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a a p {
+            margin: 0;
+            color: white !important;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a a {
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 30px !important;
+            text-shadow: none !important;
+            color: white !important;
+            letter-spacing: 1px !important;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a p {
+            text-align: center;
+            color: lightslategrey;
+        }
+        
+        #popupChangeUser .ui-content .ui-grid-a .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .login-card {
+                display: none !important;
+            }
+            .portrait-login-container {
+                display: block !important;
+            }
+            .ui-input-text {
+                width: 29% !important;
+            }
+        }
     </style>
+    <script>
+        $(document).ready(function() {
+
+            $(function() {
+                setTimeout(function() {
+                    $.mobile.changePage("login.html", {
+                        transition: "slide"
+                    });
+                }, 5000);
+            });
+
+            $(".ui-input-text input").focus(function() {
+                $(this).parent().removeClass("ui-focus")
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -112,8 +267,36 @@
                 </div>
             </div>
         </div>
-
 </body>
 
 
 </html>
+<script>
+    function login() {
+        console.log("Working");
+        $.ajax({
+            url: `http://localhost/Kama/index.php/UserController/login`,
+            method: 'POST',
+            dataType: "json",
+            data: {
+                "userName": $("#email").val(),
+                "password": $("#password").val(),
+            },
+        }).done(function(data) {
+            console.log(data);
+            if (data.state) {
+                console.log(data);
+                if (data.data.isRestaurant == 1) {
+                    window.location.href = "serviceprovider/home.html"
+                } else {
+                    window.location.href = "customer/home.html"
+                }
+                localStorage.setItem("UserId", data.data.id);
+            } else {
+
+            }
+
+
+        });
+    }
+</script>

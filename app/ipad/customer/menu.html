@@ -62,7 +62,7 @@
     #fav-icon-inactive-btn {
         position: absolute;
         left: 41%;
-        top: 28%;
+        top: 20%;
     }
     
     .menu-section .ui-btn-icon-right:after {
@@ -71,6 +71,9 @@
     
     .menu-section a {
         background: #f9f9f9 !important;
+        text-decoration: none !important;
+        color: black !important;
+        font-size: 17px !important;
     }
     
     .menu-section .ui-btn:focus,
@@ -178,6 +181,33 @@
                     }
                 });
 
+                $(function() {
+                    $.ajax({
+                        url: `http://localhost/Kama/index.php/UserController/getMenuForServiceProvider`,
+                        method: 'GET',
+                        dataType: "json",
+                        data: {
+                            "restaurantId": localStorage.getItem("RestaurantId")
+                        }
+                    }).done(function(data) {
+                        console.log(data);
+                        if (data.length > 0) {
+                            $("#menu-items").html("");
+                            data.forEach(element => {
+                                $("#menu-items").append(`
+                                <li class="ui-li-static ui-body-inherit">
+                                    <a href="#quatityDialog" onclick="openFoddPopup('${element.food}', '${element.price}')"  data-rel="popup" data-position-to="window" data-transition="pop">
+                                        <p>${element.food}</p>
+                                        <p>Rs.${element.price}</p>
+                                    </a>
+                                </li>
+                                `)
+                            });
+                        }
+
+                    })
+                })
+
             })
             // $(function() {
             //     var i = 1;
@@ -275,7 +305,7 @@
         </div>
         <div class="ui-grid-solo menu-section">
             <h2>Menu</h2>
-            <ul data-role="listview">
+            <ul data-role="listview" id="menu-items">
                 <li>
                     <a href="#quatityDialog" onclick="openFoddPopup('Chicke Cheese Koththu', '650')" id="ttt" data-rel="popup" data-position-to="window" data-transition="pop">
                         <p>Chicke Cheese Koththu</p>

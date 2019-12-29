@@ -126,29 +126,6 @@
         }
     </style>
     <script>
-        $(document).ready(function() {
-            $(function() {
-                // $("#header-area").load("../../shared/header.html");
-                // $("#side-panel").load("../../shared/sidemenu.html");
-                $("#nav-bar-area").load("../../shared/nav-bar.html");
-            });
-
-            $(function() {
-                $.ajax({
-                    url: `http://localhost/Kama/index.php/UserController/getFavourites`,
-                    method: 'GET',
-                    dataType: "json",
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    }
-                }).done(function(data) {
-                    console.log("Favourites", data);
-
-                })
-            })
-        })
-
-
         function testLisk() {
             localStorage.setItem("RestaurantId", '941621fb-c01f-402a-8e4b-bff8705f259c');
             window.location.href = "menu.html"
@@ -296,3 +273,35 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function() {
+        $(function() {
+            // $("#header-area").load("../../shared/header.html");
+            // $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        });
+
+        $(function() {
+            $.ajax({
+                url: `http://localhost/Kama/index.php/UserController/getFavouriteList`,
+                method: 'GET',
+                dataType: "json",
+                data: {
+                    "userId": localStorage.getItem("UserId")
+                }
+            }).done(function(data) {
+                console.log("fsv", data);
+
+                // var blocks = ['ui-block-a', 'ui-block-b', 'ui-block-c', 'ui-block-d']
+                // var i = 0;
+                // data.forEach(element => {
+                //     if (i > 3) {
+                //         i = 0;
+                //     }
+                //     i++;
+            });
+
+        })
+    })
+</script>

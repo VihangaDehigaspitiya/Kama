@@ -11,7 +11,7 @@
     <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
     <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <link rel="stylesheet" href="/assets/css/card.css" />
 </head>
 <style>
@@ -305,22 +305,22 @@
 
             $('#placeOrderBtn').on('click', function(e) {
 
-                // if (paymentMethod) {
-                e.preventDefault();
-                console.log(e);
-                handler.open({
-                    name: 'KAMA PAYMENTS',
-                    currency: 'LKR',
-                    // description: $('#item_name').val(),
-                    amount: $('#total_amount').text() * 100
-                });
+                if (paymentMethod == "card") {
+                    e.preventDefault();
+                    console.log(e);
+                    handler.open({
+                        name: 'KAMA PAYMENTS',
+                        currency: 'LKR',
+                        // description: $('#item_name').val(),
+                        amount: $('#total_amount').text() * 100
+                    });
 
-                $(window).on('popstate', function() {
-                    handler.close();
-                });
-                // } else {
-                //     window.location.href = "../../shared/successpaymentloader.html";
-                // }
+                    $(window).on('popstate', function() {
+                        handler.close();
+                    });
+                } else {
+                    window.location.href = "../../shared/successpaymentloader.html";
+                }
             });
         });
     });
