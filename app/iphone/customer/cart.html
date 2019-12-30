@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>KAMA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
@@ -18,38 +18,38 @@
     .cart-area {
         padding: 15px 15px;
     }
-
+    
     .cart-header {
         text-align: center;
     }
-
+    
     .cart-header h2 {
         margin: 0;
     }
-
+    
     .cart-header p {
         margin-top: 7px;
     }
-
+    
     .cart-area .ui-grid-a {
         border-bottom: 1px solid rgba(112, 112, 112, 0.5);
     }
-
+    
     .cart-area .ui-grid-a .ui-block-a p {
         margin-top: 3px;
     }
-
+    
     .cart-area .ui-grid-a .ui-block-b p {
         width: 100%;
         margin: 0;
         padding-top: 8px;
         font-size: 14px;
     }
-
+    
     .cart-area .ui-grid-a .ui-block-b h3 {
         margin-bottom: 0;
     }
-
+    
     .cart-area .item-section-header,
     .cart-area .items,
     .cart-area .price-section .prices,
@@ -58,41 +58,41 @@
         display: flex;
         justify-content: space-between;
     }
-
+    
     .cart-area .item-section-header p {
         color: green;
         cursor: pointer;
     }
-
+    
     .cart-area .item-section-header p,
     .cart-area .item-section-header h4 {
         margin-bottom: 12px;
     }
-
+    
     .cart-area .items p,
     .cart-area .price-section .prices p {
         margin: 0 0 2px 0;
     }
-
+    
     .cart-area .ordered-item-list,
     .cart-area .price-section {
         border-bottom: 1px solid rgba(112, 112, 112, 0.5);
         padding-bottom: 20px;
     }
-
+    
     .cart-area .payment-section .card-or-cash p {
         margin-top: 0;
     }
-
+    
     .cart-area .payment-section .card-or-cash svg {
         font-size: 30px;
         color: darkblue;
     }
-
+    
     .cart-area .place-order-section button:focus {
         box-shadow: none !important;
     }
-
+    
     .cart-area .place-order-section button {
         text-shadow: none !important;
         display: flex;
@@ -100,40 +100,40 @@
         background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
         letter-spacing: 2px !important;
     }
-
+    
     .cart-area .place-order-section button .btn-text {
         width: 100%;
         margin-left: 75px;
         font-size: 25px;
     }
-
+    
     .cart-area .place-order-section button .price-text {
         font-size: 15px;
         padding-top: 7px;
         font-weight: 100;
     }
-
+    
     .cart-area .place-order-section button p {
         margin: 0;
         color: white;
     }
-
+    
     #paymentChaneDialog {
         border-radius: 20px;
     }
-
+    
     .payment-method-selection-section {
         display: flex;
         border-bottom: 1px solid rgba(112, 112, 112, 0.5);
         ;
         padding: 0px 30px 0 30px;
     }
-
+    
     .payment-method-selection-section label {
         background: white !important;
         border: none;
     }
-
+    
     .ui-radio .ui-btn.ui-radio-on:after {
         background-image: none;
         background-color: #fff;
@@ -144,20 +144,20 @@
         border-radius: 50%;
         /* border-image: linear-gradient(90deg, #FF9F40 0%, #E60CA5 100%) !important; */
     }
-
+    
     .ui-radio .ui-btn.ui-radio-off:after {
         width: 37px;
         height: 37px;
         border-radius: 50%;
     }
-
+    
     .payment-method-selection-section label p {
         margin-top: 49px;
         margin-left: 22px;
         font-size: 20px;
         color: #FF825D;
     }
-
+    
     .payment-change-btn {
         padding: 0 !important;
         border: none !important;
@@ -168,35 +168,35 @@
         font-size: 20px !important;
         letter-spacing: 2px !important;
     }
-
+    
     .payment-section .card-or-cash a {
         text-decoration: none;
     }
-
+    
     .m-0 {
         margin: 0 0;
     }
-
+    
     .btn-text {
         /* width: 100%; */
         /* margin-left: 70px; */
         font-size: 18px !important;
         text-align: center;
     }
-
+    
     .price-text {
         font-size: 12px !important;
         padding-top: 9px !important;
         padding-right: 6px !important;
         font-weight: 100 !important;
     }
-
+    
     .btn-wrapper_1 {
         display: flex;
         justify-content: center;
         padding-left: 14px;
     }
-
+    
     .btn-wrapper_2 {
         display: flex;
         justify-content: flex-end;
@@ -204,36 +204,37 @@
         top: 7px;
         right: -1px;
     }
-
+    
     .items {
         font-size: 0.9em;
     }
-
+    
     .promos {
         font-size: 0.83em;
     }
-
+    
     .prices {
         font-size: 0.9em;
     }
-
+    
     .total {
         font-size: 0.83em;
     }
-
+    
     .pad {
         padding: 0 10px;
     }
 </style>
 
 <script>
-    $(document).ready(function () {
-        $(function () {
+    $(document).ready(function() {
+        $(function() {
             $("#header-area").load("../../shared/header.html");
             $("#side-panel").load("../../shared/sidemenu.html");
             $("#nav-bar-area").load("../../shared/nav-bar.html");
         });
     });
+
     function changePaymentMethod() {
         var radios = document.getElementsByName('payment');
         for (var i = 0, length = radios.length; i < length; i++) {
@@ -249,18 +250,18 @@
     }
 
     /* payment gateway */
-    jQuery(function ($) {
+    jQuery(function($) {
         var $form = $('#frmBooking');
         var handler = StripeCheckout.configure({
             key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
-            token: function (token) {
+            token: function(token) {
                 if (token.id) {
                     window.location.href = "../../shared/successpaymentloader.html"
                 }
             }
         })
 
-        $('#placeOrderBtn').on('click', function (e) {
+        $('#placeOrderBtn').on('click', function(e) {
             e.preventDefault();
             handler.open({
                 name: 'KAMA PAYMENTS',
@@ -269,7 +270,7 @@
                 amount: $('#total_amount').text() * 100
             });
 
-            $(window).on('popstate', function () {
+            $(window).on('popstate', function() {
                 handler.close();
             });
         });
@@ -289,8 +290,7 @@
             <div class="ui-grid-a">
                 <div class="pad">
                     <div class="ui-block-a">
-                        <a rel="external" href="/app/ipad/customer/locationchange.html"><img
-                                src="/assets/images/location-change.png" width="160px" alt=""></a>
+                        <a rel="external" href="/app/ipad/customer/locationchange.html"><img src="/assets/images/location-change.png" width="160px" alt=""></a>
                         <p><small><i class="far fa-clock"></i> Delivery Time 25-30 Min</small></p>
                     </div>
                 </div>
@@ -356,12 +356,9 @@
                 </form>
             </div>
 
-            <div data-role="popup" id="paymentChaneDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true"
-                style="max-width:400px;">
+            <div data-role="popup" id="paymentChaneDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="max-width:400px;">
                 <div>
-                    <a role="button" href="#"
-                        class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"
-                        data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+                    <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
                 </div>
                 <div role="main" class="ui-content">
                     <div class="payment-method-selection-section">

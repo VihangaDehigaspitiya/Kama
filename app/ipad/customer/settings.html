@@ -44,6 +44,11 @@
             padding: 30px 0 0 30px;
         }
         
+        .app-setting-section .app-setting-section-header a {
+            text-decoration: none !important;
+            color: black !important;
+        }
+        
         .app-setting-section .setting-card {
             background-color: rgba(0, 0, 0, 0.02);
             border: 1px solid rgba(0, 0, 0, 0.125);
@@ -75,7 +80,7 @@
     <div data-role="page">
         <div class="app-setting-section">
             <div class="ui-grid-solo app-setting-section-header">
-                <i class="fas fa-chevron-left"></i>
+                <a data-rel="back"><i class="fas fa-chevron-left"></i></a>
                 <div class="app-setting-section-header-text">
                     <h1>Settings</h1>
                 </div>

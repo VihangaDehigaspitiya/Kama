@@ -20,15 +20,15 @@
         
         .nav-bar svg {
             color: #C3CBCE;
-            font-size: 30px;
-            padding: 15px 80px 15px 80px;
+            font-size: 22px;
+            padding: 15px 25px 15px 25px;
         }
         
-        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (orientation: landscape) {
             .nav-bar svg {
                 color: #C3CBCE;
-                font-size: 30px;
-                padding: 15px 50px 15px 50px !important
+                font-size: 25px !important;
+                padding: 10px 60px 10px 60px !important;
             }
         }
     </style>
@@ -49,18 +49,19 @@
                     $(".fa-user").addClass('nav-bar-active')
                 }
             });
+
         });
     </script>
 </head>
 
 <body>
     <div class="nav-bar">
-        <a id="home-link" rel="external" href="/app/ipad/customer/home.html"><i class="fas fa-home"></i></a>
-        <a id="past-orders-link" rel="external" href="/app/ipad/customer/pastorders.html"><i
+        <a id="home-link" rel="external" href="/app/iphone/customer/home.html"><i class="fas fa-home"></i></a>
+        <a id="past-orders-link" rel="external" href="/app/iphone/customer/pastorders.html"><i
                 class="fas fa-receipt"></i></a>
-        <a id="cart-link" rel="external" href="/app/ipad/customer/cart.html"><i class="fas fa-cart-plus"></i></a>
-        <a id="search-link" rel="external" href="/app/ipad/customer/categories.html"><i class="fas fa-search"></i></a>
-        <a id="profile-link" rel="external" href="/app/ipad/customer/profile.html"><i class="fas fa-user"></i></a>
+        <a id="cart-link" rel="external" href="/app/iphone/customer/cart.html"><i class="fas fa-cart-plus"></i></a>
+        <a id="search-link" rel="external" href="/app/iphone/customer/categories.html"><i class="fas fa-search"></i></a>
+        <a id="profile-link" rel="external" href="/app/iphone/customer/profile.html"><i class="fas fa-user"></i></a>
     </div>
 </body>
 

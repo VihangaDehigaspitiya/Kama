@@ -102,6 +102,11 @@
         padding: 30px 0 0 30px;
     }
     
+    .challange-section-header a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+    
     @media only screen and (orientation: portrait) {
         .closeBtn {
             width: 40% !important;
@@ -153,7 +158,7 @@
 <body>
     <div data-role="page">
         <div class="ui-grid-solo challange-section-header">
-            <i class="fas fa-chevron-left"></i>
+            <a data-rel="back"><i class="fas fa-chevron-left"></i></a>
             <div class="topic-header">
                 <h1>Challenges</h1>
             </div>

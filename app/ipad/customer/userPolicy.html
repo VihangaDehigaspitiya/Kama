@@ -3,15 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>User Policy</title>
+    <title>KAMA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
     <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- <link rel="stylesheet" href="../../../assets//css/carousel.css"> -->
-    <!-- <link rel="stylesheet" href="../../../assets/css/card.css" /> -->
 </head>
 <style>
     .banner {
@@ -63,6 +61,11 @@
         padding: 30px 0 0 30px;
     }
     
+    .discover-restaurant-section-header a {
+        text-decoration: none !important;
+        color: white !important;
+    }
+    
     .discover-restaurant-section-header-text {
         padding: 28px;
         width: 100%;
@@ -81,11 +84,8 @@
 <body>
     <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
     <div data-role="page">
-        <div data-role="header" id="header-area">
-        </div>
-        <div data-role="panel" id="hh" data-display="overlay"></div>
         <div class="ui-grid-solo discover-restaurant-section-header">
-            <i class="fas fa-chevron-left"></i>
+            <a data-rel="back"><i class="fas fa-chevron-left"></i></a>
             <div class="discover-restaurant-section-header-text">
                 <h1>User Policy</h1>
             </div>

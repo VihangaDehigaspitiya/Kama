@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>KAMA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
@@ -13,13 +13,13 @@
     <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="../../../assets/css/card.css" />
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             /* 1. Visualizing things on Hover - See next part for action on click */
-            $('#stars li').on('mouseover', function () {
+            $('#stars li').on('mouseover', function() {
                 var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
 
                 // Now highlight all the stars that's not after the current hovered star
-                $(this).parent().children('li.star').each(function (e) {
+                $(this).parent().children('li.star').each(function(e) {
                     if (e < onStar) {
                         $(this).addClass('hover');
                     } else {
@@ -27,15 +27,15 @@
                     }
                 });
 
-            }).on('mouseout', function () {
-                $(this).parent().children('li.star').each(function (e) {
+            }).on('mouseout', function() {
+                $(this).parent().children('li.star').each(function(e) {
                     $(this).removeClass('hover');
                 });
             });
 
 
             /* 2. Action to perform on click */
-            $('#stars li').on('click', function () {
+            $('#stars li').on('click', function() {
                 var onStar = parseInt($(this).data('value'), 10); // The star currently selected
                 var stars = $(this).parent().children('li.star');
 
@@ -52,19 +52,18 @@
 
     <style>
         /** iphone landscape **/
-        @media only screen and (min-device-width : 667px) and (max-device-width : 667px) and (orientation : landscape) {
+        
+        @media only screen and (min-device-width: 667px) and (max-device-width: 667px) and (orientation: landscape) {
             .rating-stars p {
                 margin: 2px;
             }
-
             .rating-card {
                 margin-bottom: 2em !important;
-                margin-top: 8rem !important; 
+                margin-top: 8rem !important;
                 width: 67% !important;
             }
-
         }
-
+        
         .rating-card {
             margin-top: 10rem;
             position: absolute;
@@ -72,7 +71,7 @@
             padding: 15px;
             text-align: center;
         }
-
+        
         .rating-card-section,
         .review-btn-section {
             display: flex;
@@ -80,7 +79,7 @@
             justify-content: center;
             flex-direction: column;
         }
-
+        
         .ui-mobile label {
             display: inline;
             margin: 0 0 .4em;
@@ -92,7 +91,7 @@
             font-size: 12px;
             color: #707070;
         }
-
+        
         .review-submit-btn {
             background: linear-gradient(90deg, #FF9F40, #FF8C49, #FF8A4A, #FF7256, #FF406E) !important;
             width: 276px !important;
@@ -105,59 +104,56 @@
             letter-spacing: 2px !important;
             border-radius: 4px !important;
         }
-
+        
         .review-submit-btn:focus {
             box-shadow: none !important;
         }
-
+        
         .rating-card b {
             font-size: 27px;
         }
-
+        
         .ui-controlgroup-label
         /* Rating Star Widgets Style */
-
+        
         .rating-stars ul {
             list-style-type: none;
             padding: 0;
             -moz-user-select: none;
             -webkit-user-select: none;
         }
-
+        
         .rating-stars ul>li.star {
             display: inline-block !important;
         }
-
         /* Idle State of the stars */
-
+        
         .rating-stars ul>li.star>svg {
             font-size: 1.5em !important;
             /* Change the size of the stars */
             color: #ccc !important;
             /* Color on idle state */
         }
-
         /* Hover state of the stars */
-
+        
         .rating-stars ul>li.star.hover>svg {
             color: #FFCC36 !important;
         }
-
+        
         .rating-stars {
             display: flex;
             justify-content: center;
         }
-
+        
         .rating-stars ul {
             padding-left: 0px;
         }
-
         /* Selected state of the stars */
-
+        
         .rating-stars ul>li.star.selected>svg {
             color: #FF912C !important;
         }
-
+        
         .banner-img {
             height: 188px;
         }
