@@ -20,8 +20,7 @@
             position: absolute;
             color: white;
             text-align: right;
-            padding-right: 15px;
-            width: 100%;
+            width: 97%;
             margin-top: 195px;
             text-shadow: none;
             opacity: 0.8;
@@ -36,6 +35,7 @@
             color: white;
             margin-top: 130px;
             padding-left: 15px;
+            text-shadow: none;
         }
         
         .order-location {
@@ -46,6 +46,10 @@
             text-shadow: none;
             opacity: 0.8;
         }
+        
+        .orderque-section {
+            padding-bottom: 70px;
+        }
         /* ipad portrait */
         
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -55,14 +59,24 @@
             }
         }
     </style>
+    <script>
+        $(document).ready(function() {
+            $("#header-area-sp").load("../../shared/header-sp.html");
+            $("#side-panel-sp").load("../../shared/sidemenu-sp.html");
+            $("#nav-bar-area").load("../../shared/nav-bar-sp.html");
+        });
+    </script>
 </head>
 
 <body>
     <div data-role="page">
-        <div class="ui-grid-a">
+        <div data-role="header" id="header-area-sp">
+        </div>
+        <div data-role="panel" id="side-panel-sp" data-display="overlay"></div>
+        <div class="ui-grid-a orderque-section">
             <div class="ui-block-a orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -70,7 +84,7 @@
             </div>
             <div class="ui-block-b orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -78,7 +92,7 @@
             </div>
             <div class="ui-block-a orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -86,7 +100,7 @@
             </div>
             <div class="ui-block-b orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -94,7 +108,7 @@
             </div>
             <div class="ui-block-a orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -102,7 +116,7 @@
             </div>
             <div class="ui-block-b orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -110,7 +124,7 @@
             </div>
             <div class="ui-block-a orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
@@ -118,12 +132,14 @@
             </div>
             <div class="ui-block-b orderque-card">
                 <div class="card">
-                    <img src="/assets/images/new-rating-street.jpg" height="230px" alt="">
+                    <img src="/assets/images/rating-street.jpg" height="230px" alt="">
                     <h2 class="ordered-food">Hot Charger</h2>
                     <p class="order-location">Wellawatte</p>
                     <p class="order-time">30 Minutes Ago</p>
                 </div>
             </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 </body>

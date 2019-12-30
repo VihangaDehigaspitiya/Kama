@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        .profile-section {
+            padding: 30px 100px 30px 100px;
+        }
+        
+        .profile-section .profile-section-header h1 {
+            text-align: center;
+        }
+        
+        .profile-section .log-out-section {
+            margin-top: 35px;
+            /* width: 30%; */
+            text-align: center;
+        }
+        
+        .profile-section .preference-section,
+        .profile-section .profile-pic-container {
+            padding: 20px;
+        }
+        
+        .profile-section .profile-pic-container img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-a {
+            width: 40%;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b {
+            padding: 25px 0 0 37px;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b p {
+            font-size: 23px;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b svg {
+            color: gold;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b h1 {
+            font-size: 2.5em;
+        }
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .profile-section .profile-pic-container img {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            .profile-section .profile-pic-container .ui-grid-a .ui-block-b h1 {
+                font-size: 2em !important;
+            }
+            .profile-section .profile-pic-container .ui-grid-a .ui-block-b p {
+                font-size: 18px;
+            }
+            .profile-section .profile-pic-container .ui-grid-a .ui-block-b {
+                padding: 15px 0 0 15px;
+            }
+        }
+        
+        .profile-section .preference-section .ui-slider {
+            border-radius: 50px !important;
+            width: 58px !important;
+        }
+        
+        .profile-section .preference-section li {
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+        
+        .profile-section .preference-section li p {
+            padding-top: 4px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .profile-section .preference-section,
+        .profile-section .log-out-section {
+            /* padding: 20px */
+        }
+        
+        .profile-section .log-out-section img {
+            /* border-radius: 50%; */
+        }
+        
+        .profile-section .preference-section .setting-card-header {
+            padding: 0 0 0 16px;
+        }
+        
+        .profile-section .log-out-section .log-out-btn {
+            text-shadow: none !important;
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            letter-spacing: 2px !important;
+            color: white !important;
+            border-radius: 30px;
+        }
+        
+        .profile-section .preference-section .ui-btn-active {
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        }
+        
+        .profile-section .preference-section .ui-btn:focus,
+        .profile-section .log-out-section .log-out-btn:focus {
+            box-shadow: none !important;
+        }
+        
+        .profile-section .logout-btn-container {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 40px;
+        }
+        
+        .profile-section .logout-btn {
+            /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            padding: 0px !important;
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 25px !important;
+            width: 40% !important;
+            display: flex !important;
+            justify-content: center !important;
+            color: white !important;
+            font-family: HelveticaNeue !important;
+            font-style: normal !important;
+            font-weight: lighter !important;
+            font-size: 16px !important;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+            height: 40px;
+        }
+        /* .head {
+            border: 1px solid #a59595 !important;
+            width: 30% !important;
+            border-radius: 8px !important;
+            margin-left: 35% !important;
+        } */
+    </style>
+    <script>
+        $(function() {
+            $("#header-area-sp").load("../../shared/header-sp.html");
+            $("#side-panel-sp").load("../../shared/sidemenu-sp.html");
+            $("#nav-bar-area").load("../../shared/nav-bar-sp.html");
+        });
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "/app/ipad/login.html";
+        }
+    </script>
+
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header" id="header-area-sp">
+        </div>
+        <div data-role="panel" id="side-panel-sp" data-display="overlay"></div>
+        <div class="profile-section">
+            <div class="ui-grid-solo profile-pic-container">
+                <div class="card">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <img src="/assets/images/street-fav.png" alt="">
+                        </div>
+                        <div class="ui-block-b">
+                            <h1>Street Burger</h1>
+                            <p>34 Ramya Rd, Colombo 00400</p>
+                            <p><i class="fas fa-star"></i> 4.5(500+)</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo preference-section">
+                <div class="card">
+                    <p class="setting-card-header">Preference</p>
+                    <ul data-role="listview">
+                        <li>
+                            <p>Push Notification</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Allow access to My Contacts</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Allow location settings</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Show Advertiesements</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Help Topics</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ui-grid-solo logout-btn-container">
+                <button onclick="logout()" class="logout-btn">LOGOUT</button>
+            </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
+        </div>
+    </div>
+</body>
+
+</html>

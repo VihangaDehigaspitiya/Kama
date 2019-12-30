@@ -5,38 +5,26 @@
     <meta charset="utf-8">
     <title>About Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- <link rel="stylesheet" href="../../../assets//css/carousel.css"> -->
     <!-- <link rel="stylesheet" href="../../../assets/css/card.css" /> -->
-
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 </head>
 <style>
     .banner {
         margin-top: 25px;
         position: relative;
+        text-align: center;
     }
-
+    
     .banner-img-top {
         width: 35%;
     }
-
+    
     .card {
         margin-top: 25px;
         position: relative;
@@ -47,63 +35,63 @@
         word-wrap: break-word;
         background-color: #fff;
     }
-
+    
     .discover-restaurant-section {
         background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
         text-shadow: none;
         color: white;
+        display: flex;
     }
-
+    
     .discover-restaurant-info {
         padding: 28px;
         width: 100%;
         text-align: center;
     }
-
+    
     .discover-restaurant-info h1 {
         margin: 0;
         /* border-bottom: 1px solid white; */
     }
-
+    
     .discover-restaurant-info p {
         margin-top: 8px
     }
-
+    
     img {
         max-width: 100%;
         max-height: 100%;
     }
-
+    
+    .about-us-video-section {
+        text-align: center;
+        padding: 30px 0 30px 0;
+    }
+    
     .about-us {
-        padding: 0px 20px 20px 20px;
+        padding: 0px 30px 20px 30px;
         margin: 0px;
         font-size: 22px;
+        text-align: justify;
+    }
+    
+    .discover-restaurant-section svg {
+        font-size: 2em;
+        padding: 30px 0 0 30px;
+    }
+    
+    .discover-restaurant-section a {
+        text-decoration: none !important;
+        color: white !important;
     }
 </style>
 
-<script>
-    $(document).ready(function () {
-        $(".ui-input-search input").focus(function () {
-            $(this).parent().removeClass("ui-focus")
-        });
-
-        $(function () {
-            $("#header-area").load("../../shared/header.html");
-            $("#hh").load("../../shared/sidemenu.html");
-        });
-        // $(document).ready(function () {
-
-        // });
-    });
-</script>
 
 <body>
     <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
     <div data-role="page">
-        <div data-role="header" id="header-area">
-        </div>
-        <div data-role="panel" id="hh" data-display="overlay"></div>
         <div class="ui-grid-solo discover-restaurant-section">
+            <a data-rel="back"><i class="fas fa-chevron-left"></i></a>
             <div class="discover-restaurant-info">
                 <h1>About Us</h1>
             </div>
@@ -113,12 +101,13 @@
             <div id="carouselFavourites" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="ui-grid-solo">
-                            <div class="banner text-center" style="text-align: center;">
-                                <img class="banner-img-top" src="../../../assets/images/kaama1.png" alt="">
+                        <!-- <div class="ui-grid-solo">
+                            <div class="banner">
+                                <img class="banner-img-top" src="/assets/images/kaama1.png" alt="">
                             </div>
-                            <iframe id="player" type="text/html" style="margin-left:3em;" width="650px" height="350px"
-                                src="https://www.youtube.com/embed/1hoSr0KlIkE" frameborder="0"></iframe>
+                        </div> -->
+                        <div class="ui-grid-solo about-us-video-section">
+                            <iframe id="player" type="text/html" width="650px" height="350px" src="https://www.youtube.com/embed/1hoSr0KlIkE" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
@@ -128,12 +117,9 @@
         <!-- About us text -->
         <div class="ui-grid-solo">
             <p class="about-us">
-                Kama was a dream of 4 students who wanted to make a name in the food industry in the country, integrated
-                with the most appropriate technology. Kama comes with the promise of delivering the best home-made food
-                to the doorstep of any home-food craver. The 24-hour door-to-door food experience connects an array of
-                servicers with its users, all year. We have made the network stronger, last-longer with more than 50
-                restaurants and restaurant chains to place orders for food covering all of Colombo district. With a
-                star-class customer service, Kama will provide the best services to showcase the audience of millions.
+                Kama was a dream of 4 students who wanted to make a name in the food industry in the country, integrated with the most appropriate technology. Kama comes with the promise of delivering the best home-made food to the doorstep of any home-food craver. The
+                24-hour door-to-door food experience connects an array of servicers with its users, all year. We have made the network stronger, last-longer with more than 50 restaurants and restaurant chains to place orders for food covering all of Colombo
+                district. With a star-class customer service, Kama will provide the best services to showcase the audience of millions.
             </p>
             <p class="about-us">
                 <b>
@@ -141,9 +127,7 @@
                 </b>
             </p>
             <p class="about-us">
-                If you have a complaint about Sleeprate’ privacy practices you should write to us at:
-                Support@sleeprate.com. We will take reasonable steps to work with you to attempt to resolve your
-                complaint.
+                If you have a complaint about Sleeprate’ privacy practices you should write to us at: Support@sleeprate.com. We will take reasonable steps to work with you to attempt to resolve your complaint.
             </p>
         </div>
     </div>

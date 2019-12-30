@@ -20,6 +20,21 @@
             border-radius: 20px;
         }
         
+        .change-location-area .change-location-area-header {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .change-location-area .change-location-area-header svg {
+            font-size: 2em;
+            padding: 30px 0 0 30px;
+        }
+        
+        .change-location-area .change-location-area-header .change-location-area-header-text {
+            width: 100%;
+            text-align: center;
+        }
+        
         .change-location-area .map-area {
             margin-top: 20px;
         }
@@ -51,8 +66,11 @@
 
 <body>
     <div class="change-location-area">
-        <div class="ui-grid-solo location-settings">
-            <h2>Location Settings</h2>
+        <div class="ui-grid-solo change-location-area-header">
+            <i class="fas fa-chevron-left"></i>
+            <div class="change-location-area-header-text">
+                <h1>Location Settings</h1>
+            </div>
         </div>
         <div class="ui-grid-solo">
             <input id="pickup-location" class="controls" type="text" placeholder="PickUp" size="104" value="Street Burger" disabled>

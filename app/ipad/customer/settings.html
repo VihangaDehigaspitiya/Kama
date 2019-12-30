@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
-    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
     <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
     <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
     <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -26,8 +25,28 @@
             padding: 10px !important;
         }
         
-        .app-setting-section .ui-grid-solo {
+        .app-setting-section .app-setting-section-header {
+            display: flex;
+        }
+        
+        .app-setting-section .app-setting-section-header .app-setting-section-header-text {
+            padding: 28px;
+            width: 100%;
             text-align: center;
+        }
+        
+        .app-setting-section .app-setting-section-header .app-setting-section-header-text h1 {
+            margin: 0;
+        }
+        
+        .app-setting-section .app-setting-section-header svg {
+            font-size: 2em;
+            padding: 30px 0 0 30px;
+        }
+        
+        .app-setting-section .app-setting-section-header a {
+            text-decoration: none !important;
+            color: black !important;
         }
         
         .app-setting-section .setting-card {
@@ -48,21 +67,23 @@
             margin-bottom: 0;
             color: #324755 !important;
         }
-
+        
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
             .setting-card-section p {
                 font-size: 14px !important;
             }
         }
-
     </style>
 </head>
 
 <body>
     <div data-role="page">
         <div class="app-setting-section">
-            <div class="ui-grid-solo">
-                <h1>Settings</h1>
+            <div class="ui-grid-solo app-setting-section-header">
+                <a data-rel="back"><i class="fas fa-chevron-left"></i></a>
+                <div class="app-setting-section-header-text">
+                    <h1>Settings</h1>
+                </div>
             </div>
             <div class="ui-grid-b">
                 <div class="ui-block-a setting-card-section">

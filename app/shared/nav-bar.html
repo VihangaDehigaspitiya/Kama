@@ -13,17 +13,17 @@
             justify-content: center;
             padding: 0;
         }
-
+        
         .nav-bar-active {
             color: #E94677 !important;
         }
-
+        
         .nav-bar svg {
             color: #C3CBCE;
             font-size: 30px;
             padding: 15px 80px 15px 80px;
         }
-
+        
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
             .nav-bar svg {
                 color: #C3CBCE;
@@ -31,26 +31,10 @@
                 padding: 15px 50px 15px 50px !important
             }
         }
-
-        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (orientation: portrait) {
-            .nav-bar svg {
-                color: #C3CBCE;
-                font-size: 20px !important;
-                padding: 13px 25px 13px 25px !important;
-            }
-        }
-
-        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (orientation: landscape) {
-            .nav-bar svg {
-                color: #C3CBCE;
-                font-size: 25px !important;
-                padding: 10px 60px 10px 60px !important;
-            }
-        }
     </style>
     <script>
-        $(document).ready(function () {
-            $(function () {
+        $(document).ready(function() {
+            $(function() {
                 var url = window.location.href;
                 if (url.indexOf("home.html") != -1) {
                     console.log("home")
@@ -65,48 +49,7 @@
                     $(".fa-user").addClass('nav-bar-active')
                 }
             });
-
-            $(function () {
-                var height = $(window).height();
-                if (height == 375 || height == 812 || height == 667) {
-                    console.log("iphone")
-                    $("#home-link").attr("href", "/app/iphone/customer/home.html");
-                    $("#past-orders-link").attr("href", "/app/iphone/customer/pastorders.html");
-                    $("#cart-link").attr("href", "/app/iphone/customer/cart.html");
-                    $("#search-link").attr("href", "/app/iphone/customer/categories.html");
-                    $("#profile-link").attr("href", "/app/iphone/customer/profile.html");
-                } else {
-                    $("#home-link").attr("href", "/app/ipad/customer/home.html");
-                    $("#past-orders-link").attr("href", "/app/ipad/customer/pastorders.html");
-                    $("#cart-link").attr("href", "/app/ipad/customer/cart.html");
-                    $("#search-link").attr("href", "/app/ipad/customer/categories.html");
-                    $("#profile-link").attr("href", "/app/ipad/customer/profile.html");
-                }
-
-            });
-
         });
-
-
-        $(window).resize(function (e) {
-            var height = $(window).height();
-            if (height == 375 || height == 812 || height == 667) {
-                console.log("iphone")
-                $("#home-link").attr("href", "/app/iphone/customer/home.html");
-                $("#past-orders-link").attr("href", "/app/iphone/customer/pastorders.html");
-                $("#cart-link").attr("href", "/app/iphone/customer/cart.html");
-                $("#search-link").attr("href", "/app/iphone/customer/categories.html");
-                $("#profile-link").attr("href", "/app/iphone/customer/profile.html");
-            } else {
-                $("#home-link").attr("href", "/app/ipad/customer/home.html");
-                $("#past-orders-link").attr("href", "/app/ipad/customer/pastorders.html");
-                $("#cart-link").attr("href", "/app/ipad/customer/cart.html");
-                $("#search-link").attr("href", "/app/ipad/customer/categories.html");
-                $("#profile-link").attr("href", "/app/ipad/customer/profile.html");
-            }
-
-        });
-
     </script>
 </head>
 

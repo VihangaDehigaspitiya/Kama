@@ -15,30 +15,31 @@
 
 
     <style>
-        .addpromo-container .ui-grid-solo .ui-block-a {
+        .ui-grid-solo .ui-block-a {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             flex-direction: column !important;
         }
-
-        .addpromo-container .ui-grid-solo {
-            margin-top: 40px;
-        }
-
+        
         .form-container {
-            margin-top: 50px;
+            margin-top: 25px;
         }
-
-        .header-container {
-            margin: 10px;
+        
+        .addpromo-header-container {
+            display: flex;
         }
-
-        /* .ui-grid-solo .ui-block-a .form-topic-container {
-            width: 80%;
-            text-align: left;
-        } */
-
+        
+        .addpromo-header-container .addpromo-header-container-text {
+            padding: 28px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .addpromo-header-container .addpromo-header-container-text h1 {
+            margin: 0;
+        }
+        
         .ui-input-text {
             border-color: red !important;
             margin: 12px;
@@ -46,22 +47,8 @@
             font-size: small;
             font-size: medium;
         }
-
-        /* checkbox */
-
-        .ui-checkbox {
-            width: 80%;
-        }
-
-        .ui-checkbox-on:after {
-            background-color: red !important;
-        }
-
-        .ui-input-text input {
-            margin-left: 8px;
-        }
-
         /* complete-btn */
+        
         .complete-btn {
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
             border-radius: 5px !important;
@@ -78,7 +65,7 @@
             letter-spacing: 2px !important;
             text-shadow: none !important;
         }
-
+        
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
             .addpromo-container .ui-grid-solo {
                 margin-top: 80px;
@@ -87,38 +74,42 @@
     </style>
 
     <script>
-        $(document).ready(function () {
-            $(".ui-input-text input").focus(function () {
+        $(document).ready(function() {
+            $(".ui-input-text input").focus(function() {
                 $(this).parent().removeClass("ui-focus")
             });
+            $("#header-area-sp").load("../../shared/header-sp.html");
+            $("#side-panel-sp").load("../../shared/sidemenu-sp.html");
+            $("#nav-bar-area").load("../../shared/nav-bar-sp.html");
         });
     </script>
 
 </head>
 
 <body>
-    <div data-role="page" class="addpromo-container">
-
+    <div data-role="page">
+        <div data-role="header" id="header-area-sp">
+        </div>
+        <div data-role="panel" id="side-panel-sp" data-display="overlay"></div>
         <div class="ui-grid-solo">
-
-            <div class="ui-grid-solo header-container">
-                <div class="ui-block-a">
-                    <h2>Add Promotion</h2>
+            <div class="ui-grid-solo addpromo-header-container">
+                <div class="addpromo-header-container-text">
+                    <h1>Promotion Details</h1>
                 </div>
             </div>
 
             <div class="ui-grid-solo form-container">
                 <div class="ui-block-a">
-                    <input type="text" name="food" id="food" placeholder="Food">
+                    <input type="text" name="food" id="food" placeholder="Promotion Code">
                     <input type="text" name="promotionDetails" id="promotionDetails" placeholder="Promotion Details">
                     <input type="date" name="expiryDate" id="expiryDate" placeholder="Expiry Date">
 
                     <button class="complete-btn">COMPLETE</button>
                 </div>
             </div>
-
         </div>
-
+        <div data-role="nav-bar" id="nav-bar-area">
+        </div>
     </div>
 </body>
 

@@ -18,6 +18,7 @@
     <style>
         .indicate-card-section {
             margin: 18px;
+            padding-bottom: 10px;
         }
         
         .indicate-card {
@@ -44,15 +45,16 @@
             margin-top: -25px;
         }
         
-        .indicate-card-section svg {
-            font-size: 70px;
-            padding: 15px;
-            color: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%);
+        .indicate-card-section img {
+            padding: 10px 10px 15px 10px;
         }
         
-        .weekly-income-section,
-        .daily-income-section {
+        .weekly-income-section {
             padding: 20px;
+        }
+        
+        .daily-income-section {
+            padding: 20px 20px 85px 20px;
         }
         
         .weekly-income-card,
@@ -81,28 +83,52 @@
             padding-left: 25px;
         }
         
-        .indicate-card div {
+        .indicate-card .indicate-card-text {
             padding: 5px 0 0 45px;
+            color: #204252;
         }
-        /* .fa {
-            background: -webkit-gradient(linear, left top, left bottom, from(#f00), to(#333));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        } */
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .indicate-card-section .ui-block-a,
+            .indicate-card-section .ui-block-b,
+            .indicate-card-section .ui-block-c,
+            .indicate-card-section .ui-block-d {
+                width: 50% !important;
+                padding: 0 0 20px 20px !important;
+            }
+            .indicate-card-section {
+                margin: 0 !important;
+                padding: 30px 30px 30px 10px !important;
+                /* padding: 10px !important; */
+            }
+            .indicate-card-section img {
+                /* width: 20% !important; */
+            }
+        }
     </style>
+    <script>
+        $(document).ready(function() {
+            $("#header-area-sp").load("../../shared/header-sp.html");
+            $("#side-panel-sp").load("../../shared/sidemenu-sp.html");
+            $("#nav-bar-area").load("../../shared/nav-bar-sp.html");
+        });
+    </script>
 </head>
 
 
 <body>
     <div data-role="page">
+        <div data-role="header" id="header-area-sp">
+        </div>
+        <div data-role="panel" id="side-panel-sp" data-display="overlay"></div>
         <div class="ui-grid-a">
-            <img src="/assets/images/sp_home.jpg" alt="">
+            <img src="/assets/images/sp_home.png" width="100%" alt="">
         </div>
         <div class="ui-grid-c indicate-card-section">
             <div class="ui-block-a">
                 <div class="card indicate-card">
-                    <i class="fas fa-glass-cheers"></i>
-                    <div>
+                    <img src="/assets/images/service_provider/glass-cheers-solid.svg" width="50%" alt="">
+                    <div class="indicate-card-text">
                         <h1>100</h1>
                         <p>Orders</p>
                     </div>
@@ -110,8 +136,8 @@
             </div>
             <div class="ui-block-b">
                 <div class="card indicate-card">
-                    <i class="fas fa-money-check-alt"></i>
-                    <div>
+                    <img src="/assets/images/service_provider/money-check-alt-solid.svg" width="52%" alt="">
+                    <div class="indicate-card-text">
                         <h1>1200</h1>
                         <p>Income</p>
                     </div>
@@ -119,8 +145,8 @@
             </div>
             <div class="ui-block-c">
                 <div class="card indicate-card">
-                    <i class="fas fa-chart-line"></i>
-                    <div>
+                    <img src="/assets/images/service_provider/chart-line-solid.svg" width="46%" alt="">
+                    <div class="indicate-card-text">
                         <h1>89</h1>
                         <p>Daily Avg</p>
                     </div>
@@ -128,8 +154,8 @@
             </div>
             <div class="ui-block-d">
                 <div class="card indicate-card">
-                    <i class="fas fa-thumbs-up"></i>
-                    <div>
+                    <img src="/assets/images/service_provider/thumbs-up-solid.svg" width="37%" alt="">
+                    <div class="indicate-card-text">
                         <h1>100</h1>
                         <p>Likes</p>
                     </div>
@@ -160,6 +186,8 @@
                 <p>Based on per day income</p>
                 <canvas id="daily-income"></canvas>
             </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 

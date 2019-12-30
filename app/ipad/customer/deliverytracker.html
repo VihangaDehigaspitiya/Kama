@@ -5,80 +5,64 @@
     <meta charset="utf-8">
     <title>Delivery Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
-    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="../../../assets/css/card.css" />
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
 </head>
 <style>
-    .header-section {
-        border-bottom: 1px solid rgba(112, 112, 112, 0.26);
-        padding-top: 10px;
-        padding-bottom: 10px;
+    .driver-select-section {
+        margin: 30px 110px 10px 110px;
     }
-
+    
     .ui-input-search {
         margin-top: 25px !important;
     }
-
-    .header-section h2 {
+    /* .header-section h2 {
         text-align: center;
-    }
-
+    } */
     /* .ui-radio .ui-btn.ui-radio-on:after+label {
         background-color: red !important;
     } */
-
+    
     .ui-radio label.ui-radio-off {
         background: white !important;
     }
-
+    
     .ui-radio label.ui-radio-on {
         border: 2px solid #E94677 !important;
     }
-
+    
     .driver-details {
         margin-left: 150px;
         width: 100%;
     }
-
+    
     .driver-details h3 {
         margin-bottom: 0px;
     }
-
+    
     .driver-details p {
         margin-top: 5px;
         color: #707070;
     }
-
+    
     .ui-radio label {
         display: flex !important;
     }
-
+    
     .ui-radio img {
         border-radius: 50%;
     }
-
+    
     .ui-btn-icon-left:after {
         content: none !important;
     }
-
-    .back-btn {
-        position: absolute;
-        top: 25px;
-        margin-left: 25px;
-    }
-
-    .topic-header {
-        display: flex;
-        justify-content: center;
-    }
-
     /* Left transition */
+    
     li.left {
         -webkit-transition: -webkit-transform 250ms ease;
         -webkit-transform: translateX(-100%);
@@ -89,8 +73,8 @@
         transition: transform 250ms ease;
         transform: translateX(-100%);
     }
-
     /* Right transition */
+    
     li.right {
         -webkit-transition: -webkit-transform 250ms ease;
         -webkit-transform: translateX(100%);
@@ -101,35 +85,36 @@
         transition: transform 250ms ease;
         transform: translateX(100%);
     }
-
     /* Border bottom for the previous button during the transition*/
+    
     li.left a.ui-btn,
     li.right a.ui-btn {
         border-top-width: 0;
         border-left-width: 1px;
         border-right-width: 1px;
     }
-
+    
     li a.ui-btn.border-bottom {
         border-bottom-width: 1px;
     }
-
     /* Hide the delete button on touch devices */
+    
     ul.touch li.ui-li-has-alt a.delete {
         display: none;
     }
-
+    
     ul.touch li.ui-li-has-alt a.ui-btn {
         margin-right: 0;
+        height: 77px;
     }
-
     /* Styling for the popup */
+    
     #confirm p {
         text-align: center;
         font-size: inherit;
         margin-bottom: .75em;
     }
-
+    
     .user-img {
         margin-top: 11px !important;
         margin-left: 6px;
@@ -138,61 +123,52 @@
         width: 120px;
         height: 120px;
     }
-
-    .ui-li-has-thumb {
+    /* .ui-li-has-thumb {
         padding: 6px !important;
     }
-
+    
     .ui-first-child {
         height: 93px;
     }
-
+    
     .ui-first-child a {
         border-top: 0px !important;
-    }
-
-    .ui-input-has-clear {
-        width: 90%;
-        border-radius: 5px;
-        padding-right: 0px !important;
-    }
-
+    } */
+    
     .ui-popup-active {
         max-width: none !important;
         top: 35% !important;
         left: 23% !important;
         width: 55% !important;
     }
-
-    .search-container {
+    /* .search-container {
         display: flex;
         justify-content: center;
+    } */
+    
+    .driver-select-section .header-section {
+        display: flex;
     }
-
-    /** iphone landscape **/
-    @media only screen and (min-device-width : 667px) and (max-device-width : 667px) and (orientation : landscape) {
-        .ui-popup-active {
-            max-width: none !important;
-            top: 26% !important;
-            left: 22% !important;
-            width: 57% !important;
-        }
-
-        .driver-select-section {
-            padding: 10px 20px 10px 20px;
-        }
-
+    
+    .driver-select-section .header-section svg {
+        font-size: 2em;
+        padding: 30px 0 0 30px;
+    }
+    
+    .driver-select-section .header-section .topic-header {
+        width: 100%;
+        text-align: center;
     }
 </style>
 <script>
-    // $(document).ready(function () {
-    //     $(".ui-input-search input").focus(function () {
-    //         $(this).parent().removeClass("ui-focus")
-    //     });
-    // });
-    $(document).on("pagecreate", "#demo-page", function () {
+    $(document).ready(function() {
+        $(".ui-input-search input").focus(function() {
+            $(this).parent().removeClass("ui-focus")
+        });
+    });
+    $(document).on("pagecreate", "#demo-page", function() {
         // Swipe to remove list item
-        $(document).on("swipeleft swiperight", "#list li", function (event) {
+        $(document).on("swipeleft swiperight", "#list li", function(event) {
             var listitem = $(this),
                 // These are the classnames used for the CSS transition
                 dir = event.type === "swipeleft" ? "left" : "right",
@@ -205,11 +181,12 @@
             // Remove the class that is used to hide the delete button on touch devices
             $("#list").removeClass("touch");
             // Click delete split-button to remove list item
-            $(".delete").on("click", function () {
+            $(".delete").on("click", function() {
                 var listitem = $(this).parent("li");
                 confirmAndDelete(listitem);
             });
         }
+
         function confirmAndDelete(listitem, transition) {
             // Highlight the list item that will be removed
             listitem.children(".ui-btn").addClass("ui-btn-active");
@@ -219,14 +196,14 @@
             // Show the confirmation popup
             $("#confirm").popup("open");
             // Proceed when the user confirms
-            $("#confirm #yes").on("click", function () {
+            $("#confirm #yes").on("click", function() {
                 // Remove with a transition
                 if (transition) {
                     listitem
-                        // Add the class for the transition direction
+                    // Add the class for the transition direction
                         .addClass(transition)
                         // When the transition is done...
-                        .on("webkitTransitionEnd transitionend otransitionend", function () {
+                        .on("webkitTransitionEnd transitionend otransitionend", function() {
                             // ...the list item will be removed
                             listitem.remove();
                             // ...the list will be refreshed and the temporary class for border styling removed
@@ -244,7 +221,7 @@
                 }
             });
             // Remove active state and unbind when the cancel button is clicked
-            $("#confirm #cancel").on("click", function () {
+            $("#confirm #cancel").on("click", function() {
                 listitem.children(".ui-btn").removeClass("ui-btn-active");
                 $("#confirm #yes").off();
             });
@@ -256,24 +233,21 @@
     <div data-role="page" id="demo-page" data-title="Delivery Tracker" data-url="demo-page">
         <div class="driver-select-section">
             <div class="ui-grid-solo header-section">
-                <div class="back-btn">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
+                <i class="fas fa-chevron-left"></i>
                 <div class="topic-header">
-                    <p class="header-1"><b>Delivery Tracker</b></p>
+                    <h1>Delivery Tracker</h1>
                 </div>
             </div>
-            <div class="ui-grid-solo search-container">
+            <div class="ui-grid-solo">
                 <input data-type="search" id="tracker" name="tracker" placeholder="Search">
             </div>
 
-            <ul id="list" class="touch" data-role="listview" data-filter="true" data-input="#tracker"
-                data-icon="false" data-split-icon="delete">
+            <ul id="list" class="touch" data-role="listview" data-filter="true" data-input="#tracker" data-icon="false" data-split-icon="delete">
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Avery Walker</h3>
-                        <p class="topic"><strong>Re: Order Completed</strong></p>
+                        <!-- <p class="topic"><strong>Re: Order Completed</strong></p> -->
                         <p>Submit your rating </p>
                         <p class="ui-li-aside"><strong>4:48</strong>PM</p>
                     </a>
@@ -281,7 +255,7 @@
                 </li>
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Avery Walker</h3>
                         <p>I have arrived</p>
                         <p class="ui-li-aside"><strong>4:48</strong>PM</p>
@@ -290,7 +264,7 @@
                 </li>
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Avery Walker</h3>
                         <p>5 minutes away from destination</p>
                         <p class="ui-li-aside"><strong>4:48</strong>PM</p>
@@ -299,10 +273,10 @@
                 </li>
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Avery Walker</h3>
                         <p>Picked up your order at 11.23AM</p>
-                        <p>On the way</p>
+                        <!-- <p>On the way</p>-->
                         <p class="ui-li-aside"><strong>11:23</strong>PM</p>
                     </a>
                     <a href="#" class="delete">Delete</a>
@@ -310,9 +284,9 @@
 
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Muad Arshad</h3>
-                        <p class="topic"><strong>Re: Order Completed</strong></p>
+                        <!-- <p class="topic"><strong>Re: Order Completed</strong></p> -->
                         <p>Submit your rating </p>
                         <p class="ui-li-aside"><strong>4:48</strong>PM</p>
                     </a>
@@ -320,7 +294,7 @@
                 </li>
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Muad Arshad</h3>
                         <p>I have arrived</p>
                         <p class="ui-li-aside"><strong>4:48</strong>PM</p>
@@ -329,7 +303,7 @@
                 </li>
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Muad Arshad</h3>
                         <p>5 minutes away from destination</p>
                         <p class="ui-li-aside"><strong>4:48</strong>PM</p>
@@ -338,9 +312,9 @@
                 </li>
                 <li>
                     <a href="#demo-mail">
-                        <img class="user-img" src="../../../assets/images/IMG_7960.jpg" alt="">
+                        <img class="user-img" src="/assets/images/IMG_7960.jpg" alt="">
                         <h3>Muad Arshad</h3>
-                        <p>Picked up your order at 11.23AM</p>
+                        <!-- <p>Picked up your order at 11.23AM</p> -->
                         <p>On the way</p>
                         <p class="ui-li-aside"><strong>11:23</strong>PM</p>
                     </a>
@@ -351,13 +325,14 @@
                 <p id="question">Submit your rating</p>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
-                        <a id="yes" href="rating.html" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">Yes</a>
+                        <a id="yes" rel="external" href="rating.html" class="ui-btn ui-corner-all ui-mini ui-btn-a">Yes</a>
                     </div>
                     <div class="ui-block-b">
                         <a id="cancel" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">Cancel</a>
                     </div>
                 </div>
-            </div><!-- /popup -->
+            </div>
+            <!-- /popup -->
 
         </div>
     </div>
