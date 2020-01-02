@@ -26,7 +26,7 @@
         }
         
         .progress-bar2 {
-            height: 18px;
+            height: 10px;
             border-radius: 30px;
             background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
             transition: 0.4s linear;
@@ -57,15 +57,13 @@
             /* flex-direction: column;*/
         }
         
-        @media (min-height: 1024px) {
-            .logo-container {
-                margin-top: 40% !important;
-            }
+        .logo-container {
+            margin-top: 9%;
         }
         
-        @media (min-height: 768px) {
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
             .logo-container {
-                margin-top: 12%;
+                margin-top: 32% !important;
             }
         }
         
@@ -259,7 +257,7 @@
 <body>
     <div data-role="page" class="loading-container">
         <div class="logo-container">
-            <img src="/assets/images/kaama_df@2x.png" style="margin: auto;" alt="" width="60%">
+            <img src="/assets/images/kaama_df@2x.png" style="margin: auto;" alt="" width="50%">
         </div>
         <div class="progress-bar-container">
             <div class="progress2 progress-moved">
@@ -289,7 +287,9 @@
                 if (data.data.isRestaurant == 1) {
                     window.location.href = "../shared/sploginloader.html"
                 } else {
+
                     window.location.href = "../shared/customerloginloader.html"
+                    localStorage.setItem("Points", 1000);
                 }
                 localStorage.setItem("Email", data.data.email);
                 localStorage.setItem("UserId", data.data.id);

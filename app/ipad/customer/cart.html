@@ -188,12 +188,21 @@
         text-decoration: none;
     }
     
+    .cart-area .cart-empty-label {
+        height: 510px;
+        text-align: center;
+        padding-top: 30%;
+    }
+    
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         .cart-area {
             margin: 70px 110px 10px 110px;
         }
         .cart-area .cart-header {
             margin-bottom: 40px;
+        }
+        .cart-area .cart-empty-label {
+            padding-top: 63% !important;
         }
     }
 </style>
@@ -205,6 +214,9 @@
             $("#header-area").load("../../shared/header.html");
             $("#side-panel").load("../../shared/sidemenu.html");
             $("#nav-bar-area").load("../../shared/nav-bar.html");
+
+            var address = localStorage.getItem("Address");
+            $("#deliver-address").text(`${address}`);
         });
 
         $(function() {
@@ -254,7 +266,7 @@
 
 
             } else {
-                $(".cart-area").html('<p>Empty</p>');
+                $(".cart-area").html('<p class="cart-empty-label">Empty</p>');
             }
         });
 
@@ -273,21 +285,6 @@
             }
             $('#paymentChaneDialog').popup('close');
         })
-
-
-        // $('input[type=radio][name=payment]').change(function() {
-        //     if(this.id == "cash"){
-        //         console.log(this.id);
-
-        //         $("#cash-and-card-icon").removeClass('fa-cc-visa')
-        //         $("#cash-and-card-icon").addClass('fa-money-bill-alt')
-        //     }else{
-        //         $("#cash-and-card-icon").removeClass('fa-money-bill-alt')
-        //         $("#cash-and-card-icon").addClass('fa-cc-visa')
-        //     }
-        // });
-
-
 
 
         /* payment gateway */
@@ -324,20 +321,6 @@
             });
         });
     });
-
-    // function changePaymentMethod() {
-    //     var radios = document.getElementsByName('payment');
-    //     for (var i = 0, length = radios.length; i < length; i++) {
-    //         if (radios[i].checked) {
-    //             if (radios[i].id == "cash") {
-    //                 $("#cash-and-card-icon").html('<i class="fas fa-money-bill-alt"></i>')
-    //             } else {
-    //                 $("#cash-and-card-icon").html('<i class="fab fa-cc-visa"></i>')
-    //             }
-    //         }
-    //     }
-    //     $('#paymentChaneDialog').popup('close');
-    // }
 </script>
 
 <body>
@@ -358,8 +341,8 @@
                     <p><small><i class="far fa-clock"></i> Delivery Time 25-30 Min</small></p>
                 </div>
                 <div class="ui-block-b">
-                    <h3>Longden Place Colombo 7</h3>
-                    <p>30/64,E,longdon Place, Colombo, Sri Lanka</p>
+                    <h3 id="deliver-address">Longden Place Colombo 7</h3>
+                    <p>Sri Lanka</p>
                     <p>Deliver to door</p>
                 </div>
             </div>

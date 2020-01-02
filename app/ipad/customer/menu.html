@@ -16,7 +16,7 @@
 </head>
 <style>
     .resto-info-section {
-        margin: 70px 110px 10px 110px;
+        margin: 70px 110px 75px 110px;
         padding-bottom: 10px;
         border-bottom: 2px solid rgba(112, 112, 112, 0.5);
     }
@@ -149,52 +149,55 @@
         #fav-icon-inactive-btn {
             position: absolute;
             left: 36% !important;
-            top: 17% !important;
+            top: 14% !important;
         }
     }
 </style>
 <script>
     $(document).ready(function() {
         $(function() {
-                $.ajax({
-                    url: `http://localhost/Kama/index.php/UserController/checkFavourites`,
-                    method: 'GET',
-                    dataType: "json",
-                    data: {
-                        "restaurantId": localStorage.getItem("RestaurantId"),
-                        "userId": localStorage.getItem("UserId")
-                    }
-                }).done(function(data) {
-                    $("#resto-image-container").html("");
-                    if (data) {
-                        $("#resto-image-container").append(`
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        })
+        $(function() {
+            $.ajax({
+                url: `http://localhost/Kama/index.php/UserController/checkFavourites`,
+                method: 'GET',
+                dataType: "json",
+                data: {
+                    "restaurantId": localStorage.getItem("RestaurantId"),
+                    "userId": localStorage.getItem("UserId")
+                }
+            }).done(function(data) {
+                $("#resto-image-container").html("");
+                if (data) {
+                    $("#resto-image-container").append(`
                             <img src="/assets/images/rating-street.jpg" width="100%" alt="">
                             <img src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')">
                             <img src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" style="display: none;">
                         `)
-                    } else {
-                        $("#resto-image-container").append(`
+                } else {
+                    $("#resto-image-container").append(`
                             <img src="/assets/images/rating-street.jpg" width="100%" alt="">
                             <img src="/assets/images/fav-icon-active.png" id="fav-icon-active-btn" alt="" onclick="addFavourites('inactive')" style="display: none;">
                             <img src="/assets/images/fav-icon-inactive.png" id="fav-icon-inactive-btn" onclick="addFavourites('active')" alt="" >
                         `)
-                    }
-                });
+                }
+            });
 
-                $(function() {
-                    $.ajax({
-                        url: `http://localhost/Kama/index.php/UserController/getMenuForServiceProvider`,
-                        method: 'GET',
-                        dataType: "json",
-                        data: {
-                            "restaurantId": localStorage.getItem("RestaurantId")
-                        }
-                    }).done(function(data) {
-                        console.log(data);
-                        if (data.length > 0) {
-                            $("#menu-items").html("");
-                            data.forEach(element => {
-                                $("#menu-items").append(`
+            $(function() {
+                $.ajax({
+                    url: `http://localhost/Kama/index.php/UserController/getMenuForServiceProvider`,
+                    method: 'GET',
+                    dataType: "json",
+                    data: {
+                        "restaurantId": localStorage.getItem("RestaurantId")
+                    }
+                }).done(function(data) {
+                    console.log(data);
+                    if (data.length > 0) {
+                        $("#menu-items").html("");
+                        data.forEach(element => {
+                            $("#menu-items").append(`
                                 <li class="ui-li-static ui-body-inherit">
                                     <a href="#quatityDialog" onclick="openFoddPopup('${element.food}', '${element.price}')"  data-rel="popup" data-position-to="window" data-transition="pop">
                                         <p>${element.food}</p>
@@ -202,35 +205,13 @@
                                     </a>
                                 </li>
                                 `)
-                            });
-                        }
+                        });
+                    }
 
-                    })
                 })
-
             })
-            // $(function() {
-            //     var i = 1;
-            //     var price = $("#food-price").attr('value');
 
-        //     $("#plus-btn").click(function() {
-
-        //         console.log(price)
-        //         i = i + 1;
-        //         var total = price * i;
-        //         $("#numQuantity").text(i);
-        //         $("#food-price").text(`Rs.${total}`);
-        //     });
-
-        //     $("#minus-btn").click(function() {
-        //         console.log("working minus")
-        //         i == 1 ? i = 1 : i = i - 1;
-        //         var total = price * i;
-        //         $("#numQuantity").text(i);
-        //         $("#food-price").text(`Rs.${total}`);
-        //     })
-
-        // })
+        })
     });
 
 
@@ -331,21 +312,10 @@
                 <a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
             </div>
             <div id="pop-up-body">
-                <!-- <div role="main" class="ui-content">
-                    <div class="quantity-info-section">
-                        <img src="/assets/images/street-fav.png" alt="">
-                        <h2>Street Burger</h2>
-                        <p>${food}</p>
-                        <p id="food-price" value="${price}">Rs.${price}</p>
-                        <div class="quantity">
-                            <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-minus ui-btn-icon-notext ui-btn-b ui-mini"></a>
-                            <h1 id="numQuantity">1</h1>
-                            <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini"></a>
-                        </div>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="addDataToCart()">ADD TO CART</button>
-                </div> -->
+
             </div>
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
         </div>
     </div>
 </body>
@@ -370,7 +340,7 @@
 
         foodList.push(foodObj);
         localStorage.setItem("FoodList", JSON.stringify(foodList));
-        // $('#paymentChaneDialog').popup('close');
+        $('#quatityDialog').popup('close');
         console.log("Food", food);
         console.log("Price", $("#food-price").val());
         console.log("Quantity", $("#numQuantity").text());
@@ -394,21 +364,6 @@
                     <button class="add-to-cart-btn ui-btn ui-shadow ui-corner-all" onclick="addDataToCart('${food}', '${price}')">ADD TO CART</button>
                 </div>
         `);
-
-        $(function() {
-            $.ajax({
-                url: `http://localhost/Kama/index.php/UserController/getMenu`,
-                method: 'GET',
-                dataType: "json",
-                data: {
-                    "restaurantId": localStorage.getItem("RestaurantId")
-                }
-            }).done(function(data) {
-                console.log("Menu", data)
-            });
-
-        })
-
 
 
 

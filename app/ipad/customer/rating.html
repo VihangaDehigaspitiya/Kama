@@ -78,6 +78,10 @@
             color: #707070;
         }
         
+        .ui-mobile .active-labels {
+            border: 1px #E94677 solid;
+        }
+        
         .review-submit-btn {
             background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important;
             width: 30% !important;
@@ -164,19 +168,26 @@
                 <p>What did you think?</p>
                 <div>
                     <p>
-                        <label for="">Food is still worm</label>
-                        <label for="">Food arrived cold</label>
+                        <label for="" onclick="selectComment('active','1')" id="1">Food is still worm</label>
+                        <label for="" onclick="selectComment('Inactive','1')" id="active1" class="active-labels" style="display: none;">Food is still worm</label>
+                        <label for="" onclick="selectComment('active','2')" id="2">Food arrived cold</label>
+                        <label for="" onclick="selectComment('Inactive','2')" id="active2" class="active-labels" style="display: none;">Food arrived cold</label>
                     </p>
                     <p>
-                        <label for="">Food taste spoilt</label>
-                        <label for="">Perfectly cooked</label>
+                        <label for="" onclick="selectComment('active','3')" id="3">Food taste spoilt</label>
+                        <label for="" onclick="selectComment('Inactive','3')" id="active3" class="active-labels" style="display: none;">Food taste spoilt</label>
+                        <label for="" onclick="selectComment('active','4')" id="4">Perfectly cooked</label>
+                        <label for="" onclick="selectComment('Inactive','4')" id="active4" class="active-labels" style="display: none;">Perfectly cooked</label>
                     </p>
                     <p>
-                        <label for="">Perfect texture</label>
-                        <label for="">Meat was row</label>
+                        <label for="" onclick="selectComment('active','5')" id="5">Perfect texture</label>
+                        <label for="" onclick="selectComment('Inactive','5')" id="active5" class="active-labels" style="display: none;">Perfect texture</label>
+                        <label for="" onclick="selectComment('active','6')" id="6">Meat was row</label>
+                        <label for="" onclick="selectComment('Inactive','6')" id="active6" class="active-labels" style="display: none;">Meat was row</label>
                     </p>
                     <p>
-                        <label for="">Delicious</label>
+                        <label for="" onclick="selectComment('active','7')" id="7">Delicious</label>
+                        <label for="" onclick="selectComment('Inactive','7')" id="active7" class="active-labels" style="display: none;">Delicious</label>
                     </p>
                 </div>
                 <div class="review-btn-section">
@@ -190,6 +201,16 @@
 
 </html>
 <script>
+    function selectComment(state, id) {
+        if (state == "active") {
+            document.getElementById(id).style.display = "none";
+            document.getElementById(`${state}${id}`).style.display = "initial";
+        } else {
+            document.getElementById(`active${id}`).style.display = "none";
+            document.getElementById(id).style.display = "initial";
+        }
+    }
+
     function testLink() {
         window.location.href = "home.html"
     }

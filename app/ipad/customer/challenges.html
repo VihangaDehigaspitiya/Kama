@@ -142,6 +142,9 @@
         });
         scanner.addListener('scan', function(content) {
             console.log("points", content);
+            var points = localStorage.getItem("Points");
+            var totalPoints = points + parseInt(content);
+            localStorage.setItem("Points", totalPoints)
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {

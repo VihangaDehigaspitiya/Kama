@@ -1,3 +1,5 @@
+var changeAddress = localStorage.getItem("Address");
+
 function initialize() {
 
     var geocoder = new google.maps.Geocoder();
@@ -23,7 +25,7 @@ function initialize() {
             // city = document.querySelector('.reg-input-city');
 
 
-
+            addressEl.value = changeAddress;
 
 
             mapOptions = {
@@ -102,6 +104,8 @@ function initialize() {
                     bounds = new google.maps.LatLngBounds(),
                     i, place, lat, long, resultArray,
                     addresss = places[0].formatted_address;
+                changeAddress = addresss;
+                console.log("TypeAddress", addresss)
 
                 for (i = 0; place = places[i]; i++) {
                     bounds.extend(place.geometry.location);
@@ -171,6 +175,9 @@ function initialize() {
                             }
                         }
                         addressEl.value = address;
+                        changeAddress = address;
+                        console.log("Address", address);
+
                         // latEl.value = lat;
                         // longEl.value = long;
 
@@ -202,11 +209,13 @@ function initialize() {
             console.log("not working");
 
         }
+
     });
+}
 
-
-
-
+function changeLocation() {
+    localStorage.setItem("Address", changeAddress);
+    location.href = "/app/ipad/customer/cart.html";
 }
 
 

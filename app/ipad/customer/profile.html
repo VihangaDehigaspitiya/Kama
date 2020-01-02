@@ -15,48 +15,41 @@
 
     <style>
         .profile-section {
-            margin: 30px 30px 30px 30px;
-        }
-        
-        .profile-section .profile-section-header h1 {
-            text-align: center;
-        }
-        
-        .profile-section .log-out-section {
-            margin-top: 35px;
-            /* width: 30%; */
-            text-align: center;
-        }
-        
-        .profile-section .preference-section {
-            width: 70%;
-            margin-left: 18%;
-            margin-top: 10%;
-        }
-        
-        .profile-section .preference-section .ui-slider {
-            border-radius: 50px !important;
-            width: 58px !important;
-        }
-        
-        .profile-section .preference-section li {
-            display: flex !important;
-            justify-content: space-between !important;
-        }
-        
-        .profile-section .preference-section li p {
-            padding-top: 4px;
-            font-size: 16px;
-            font-weight: 700;
+            padding: 30px 100px 30px 100px;
         }
         
         .profile-section .preference-section,
-        .profile-section .log-out-section {
-            /* padding: 20px */
+        .profile-section .profile-pic-container {
+            padding: 20px;
         }
         
-        .profile-section .log-out-section img {
-            /* border-radius: 50%; */
+        .profile-section .profile-pic-container img {
+            border-radius: 50%;
+        }
+        
+        .profile-section .profile-pic-container .badge-image {
+            position: absolute;
+            width: 75px;
+            left: 5%;
+            top: 13%;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-a {
+            width: 40%;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b svg {
+            color: gold;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b {
+            padding: 25px 0 0 37px;
+        }
+        
+        .profile-section .profile-pic-container .ui-grid-a .ui-block-b p {
+            font-size: 23px;
         }
         
         .profile-section .preference-section .setting-card-header {
@@ -80,33 +73,17 @@
             box-shadow: none !important;
         }
         
-        .profile-section .ui-grid-a {
-            margin-top: 25px;
-        }
-        
-        .awards {
-            display: flex;
-        }
-        
-        .awards img {
-            border: 1px solid black;
-        }
-        
-        .card_images {
-            /* display: flex; */
-        }
-        
-        .logout-btn {
+        .profile-section .logout-btn-container {
             display: flex;
             justify-content: center;
+            padding-bottom: 40px;
         }
         
-        .login-btn {
+        .profile-section .logout-btn {
             /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
             padding: 0px !important;
             background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
             border-radius: 25px !important;
-            margin-top: 25px !important;
             width: 40% !important;
             display: flex !important;
             justify-content: center !important;
@@ -121,11 +98,36 @@
             height: 40px;
         }
         
-        .head {
-            border: 1px solid #a59595 !important;
-            width: 30% !important;
-            border-radius: 8px !important;
-            margin-left: 35% !important;
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .profile-section .profile-pic-container img {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            .profile-section .profile-pic-container .ui-grid-a .ui-block-b h1 {
+                font-size: 2em !important;
+            }
+            .profile-section .profile-pic-container .ui-grid-a .ui-block-b p {
+                font-size: 18px;
+            }
+            .profile-section .profile-pic-container .ui-grid-a .ui-block-b {
+                padding: 15px 0 0 15px;
+            }
+        }
+        
+        .profile-section .preference-section .ui-slider {
+            border-radius: 50px !important;
+            width: 58px !important;
+        }
+        
+        .profile-section .preference-section li {
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+        
+        .profile-section .preference-section li p {
+            padding-top: 4px;
+            font-size: 16px;
+            font-weight: 700;
         }
     </style>
     <script>
@@ -133,7 +135,14 @@
             $("#header-area").load("../../shared/header.html");
             $("#side-panel").load("../../shared/sidemenu.html");
             $("#nav-bar-area").load("../../shared/nav-bar.html");
+
+            var coins = localStorage.getItem("Points");
+            $("#coins-section-label").text(`${coins} coins`)
         });
+
+        function logout() {
+            localStorage.clear();
+        }
     </script>
 
 </head>
@@ -144,75 +153,68 @@
         </div>
         <div data-role="panel" id="side-panel" data-display="overlay"></div>
         <div class="profile-section">
-            <!-- <div class="ui-grid-solo profile-section-header">
-                <h1>Your Profile</h1>
-            </div> -->
-            <div class="ui-grid-solo">
-                <div class="ui-block-a log-out-section head">
-                    <div class="card_images">
-                        <img src="/assets/images/IMG_7960.jpg" style="border-radius: 50%;" height="100px" width="100px" alt="">
-                        <p style="margin: 0%;"><b>Vihana Sangeeth</b></p>
-                        <img src="/assets/images/badges/2.png" height="40px" width="40px" alt="">
-                    </div>
-                    <div class="text-info">
-                        <p><b>Rank :</b> Veteran (Level 10)</p>
-                        <p>14,000 Coins</p>
-                    </div>
-                </div>
-                <div class="preference-section">
-                    <div class="card">
-                        <p class="setting-card-header">Preference</p>
-                        <ul data-role="listview">
-                            <li>
-                                <p>Push Notification</p>
-                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
-                            </li>
-                            <li>
-                                <p>Allow access to My Contacts</p>
-                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
-                            </li>
-                            <li>
-                                <p>Allow location settings</p>
-                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
-                            </li>
-                            <li>
-                                <p>Show Advertiesements</p>
-                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
-                            </li>
-                            <li>
-                                <p>Help Topics</p>
-                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
-                            </li>
-                        </ul>
+            <div class="ui-grid-solo profile-pic-container">
+                <div class="card">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <img src="/assets/images/IMG_7960.jpg" height="200px" width="200px" alt=" ">
+                            <img src="/assets/images/badges/2.png" class="badge-image" alt=" ">
+                        </div>
+                        <div class="ui-block-b ">
+                            <h1>Vihanga Dehigaspitiya</h1>
+                            <p><b>Rank :</b> Veteran (Level 10)</p>
+                            <p id="coins-section-label"><i class="fas fa-coins"></i> 14,000 Coins</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="ui-grid-solo">
-            <div class="logout-btn">
-                <button class="login-btn">LOGOUT</button>
+            <div class="ui-grid-solo preference-section">
+                <div class="card">
+                    <p class="setting-card-header">Preference</p>
+                    <ul data-role="listview">
+                        <li>
+                            <p>Push Notification</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Allow access to My Contacts</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Allow location settings</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Show Advertiesements</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                        <li>
+                            <p>Help Topics</p>
+                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="version-info">
-                <p>Version 4.8.15.16.23.42</p>
+            <div class="ui-grid-solo logout-btn-container">
+                <button onclick="logout()" class="logout-btn">LOGOUT</button>
             </div>
-
         </div>
-        <div data-role="nav-bar" id="nav-bar-area">
+        <div data-role="nav-bar " id="nav-bar-area">
         </div>
     </div>
 </body>
