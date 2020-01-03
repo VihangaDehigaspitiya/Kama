@@ -126,8 +126,8 @@
         }
     </style>
     <script>
-        function testLisk() {
-            localStorage.setItem("RestaurantId", '941621fb-c01f-402a-8e4b-bff8705f259c');
+        function testLisk(id) {
+            localStorage.setItem("RestaurantId", id);
             window.location.href = "menu.html"
         }
     </script>
@@ -292,9 +292,9 @@
                         }
                         if (i == 0) {
                             $(".favourite-card-section").append(`
-                            <div class="ui-block-a" onclick="testLisk()">
+                            <div class="ui-block-a" onclick="testLisk('${element.id}')">
                                 <div class="card favourite-card">
-                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/Restaurants/${element.favImageUrl}" class="card-img-top" alt="">
                                     <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>${element.name}</h3>
@@ -314,9 +314,9 @@
                             `)
                         } else if (i == 1) {
                             $(".favourite-card-section").append(`
-                            <div class="ui-block-b" onclick="testLisk()">
+                            <div class="ui-block-b" onclick="testLisk('${element.id}')">
                                 <div class="card favourite-card">
-                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/Restaurants/${element.favImageUrl}" class="card-img-top" alt="">
                                     <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>${element.name}</h3>
@@ -336,9 +336,9 @@
                             `)
                         } else if (i == 2) {
                             $(".favourite-card-section").append(`
-                            <div class="ui-block-c" onclick="testLisk()">
+                            <div class="ui-block-c" onclick="testLisk('${element.id}')">
                                 <div class="card favourite-card">
-                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/Restaurants/${element.favImageUrl}" class="card-img-top" alt="">
                                     <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>${element.name}</h3>
@@ -358,9 +358,9 @@
                             `)
                         } else {
                             $(".favourite-card-section").append(`
-                            <div class="ui-block-d" onclick="testLisk()">
+                            <div class="ui-block-d" onclick="testLisk('${element.id}')">
                                 <div class="card favourite-card">
-                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/Restaurants/${element.favImageUrl}" class="card-img-top" alt="">
                                     <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
                                     <div class="favourite-info-section">
                                         <h3>${element.name}</h3>
@@ -406,7 +406,7 @@
                 formattedStr = formattedStr + `<div class="row">
                 <div class="col-md-3">
                     <div class="card">
-                        <img height="150px" class="card-img-top" src="https://image.shutterstock.com/image-photo/fresh-tasty-burger-isolated-on-260nw-705104968.jpg">
+                        <img height="150px" class="card-img-top" src="${element.otherImage}">
                         <div style="margin-top:10px">
                             <h3>${element.name}<h3>
                         </div>
@@ -416,7 +416,7 @@
                 if (i == 2) {
                     formattedStr = formattedStr + `<div class="col-md-3">
                     <div class="card">
-                        <img height="150px" class="card-img-top" src="https://image.shutterstock.com/image-photo/fresh-tasty-burger-isolated-on-260nw-705104968.jpg">
+                        <img height="150px" class="card-img-top" src="${element.otherImage}">
                         <div style="margin-top:10px">
                             <h3>${element.name}<h3>
                         </div>
@@ -426,7 +426,7 @@
                 } else {
                     formattedStr = formattedStr + `<div class="col-md-3">
                     <div class="card">
-                        <img height="150px" class="card-img-top" src="https://image.shutterstock.com/image-photo/fresh-tasty-burger-isolated-on-260nw-705104968.jpg">
+                        <img height="150px" class="card-img-top" src="${element.otherImage}">
                         <div style="margin-top:10px">
                             <h3>${element.name}<h3>
                         </div>
