@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../../assets//css/carousel.css"> -->
+    <!-- <link rel="stylesheet" href="../../../assets/css/card.css" /> -->
+</head>
+<style>
+    .banner {
+        margin-top: 25px;
+        position: relative;
+        text-align: center;
+    }
+    
+    .banner-img-top {
+        width: 35%;
+    }
+    
+    .card {
+        margin-top: 25px;
+        position: relative;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+    }
+    
+    .discover-restaurant-section {
+        background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        text-shadow: none;
+        color: white;
+        display: flex;
+    }
+    
+    .discover-restaurant-info {
+        padding: 28px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .discover-restaurant-info h1 {
+        margin: 0;
+        /* border-bottom: 1px solid white; */
+    }
+    
+    .discover-restaurant-info p {
+        margin-top: 8px
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .about-us-video-section {
+        text-align: center;
+        padding: 30px 0 30px 0;
+    }
+    
+    .about-us {
+        padding: 0px 30px 20px 30px;
+        margin: 0px;
+        font-size: 22px;
+        text-align: justify;
+    }
+    
+    .discover-restaurant-section svg {
+        font-size: 2em;
+        padding: 30px 0 0 30px;
+    }
+</style>
+
+
+<body>
+    <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
+    <div data-role="page">
+        <div class="ui-grid-solo discover-restaurant-section">
+            <i class="fas fa-chevron-left"></i>
+            <div class="discover-restaurant-info">
+                <h1>About Us</h1>
+            </div>
+        </div>
+        <!-- This is the promotion banner -->
+        <div class="ui-grid-solo">
+            <div id="carouselFavourites" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- <div class="ui-grid-solo">
+                            <div class="banner">
+                                <img class="banner-img-top" src="/assets/images/kaama1.png" alt="">
+                            </div>
+                        </div> -->
+                        <div class="ui-grid-solo about-us-video-section">
+                            <iframe id="player" type="text/html" width="650px" height="350px" src="https://www.youtube.com/embed/1hoSr0KlIkE" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About us text -->
+        <div class="ui-grid-solo">
+            <p class="about-us">
+                Kama was a dream of 4 students who wanted to make a name in the food industry in the country, integrated with the most appropriate technology. Kama comes with the promise of delivering the best home-made food to the doorstep of any home-food craver. The
+                24-hour door-to-door food experience connects an array of servicers with its users, all year. We have made the network stronger, last-longer with more than 50 restaurants and restaurant chains to place orders for food covering all of Colombo
+                district. With a star-class customer service, Kama will provide the best services to showcase the audience of millions.
+            </p>
+            <p class="about-us">
+                <b>
+                    Dispute Resolution
+                </b>
+            </p>
+            <p class="about-us">
+                If you have a complaint about Sleeprate’ privacy practices you should write to us at: Support@sleeprate.com. We will take reasonable steps to work with you to attempt to resolve your complaint.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        .profile-section {
+            margin: 30px 30px 30px 30px;
+        }
+        
+        .profile-section .profile-section-header h1 {
+            text-align: center;
+        }
+        
+        .profile-section .log-out-section {
+            margin-top: 35px;
+            /* width: 30%; */
+            text-align: center;
+        }
+        
+        .profile-section .preference-section {
+            width: 70%;
+            margin-left: 18%;
+            margin-top: 10%;
+        }
+        
+        .profile-section .preference-section .ui-slider {
+            border-radius: 50px !important;
+            width: 58px !important;
+        }
+        
+        .profile-section .preference-section li {
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+        
+        .profile-section .preference-section li p {
+            padding-top: 4px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .profile-section .preference-section,
+        .profile-section .log-out-section {
+            /* padding: 20px */
+        }
+        
+        .profile-section .log-out-section img {
+            /* border-radius: 50%; */
+        }
+        
+        .profile-section .preference-section .setting-card-header {
+            padding: 0 0 0 16px;
+        }
+        
+        .profile-section .log-out-section .log-out-btn {
+            text-shadow: none !important;
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            letter-spacing: 2px !important;
+            color: white !important;
+            border-radius: 30px;
+        }
+        
+        .profile-section .preference-section .ui-btn-active {
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+        }
+        
+        .profile-section .preference-section .ui-btn:focus,
+        .profile-section .log-out-section .log-out-btn:focus {
+            box-shadow: none !important;
+        }
+        
+        .profile-section .ui-grid-a {
+            margin-top: 25px;
+        }
+        
+        .awards {
+            display: flex;
+        }
+        
+        .awards img {
+            border: 1px solid black;
+        }
+        
+        .card_images {
+            /* display: flex; */
+        }
+        
+        .logout-btn {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .login-btn {
+            /* background: linear-gradient(180deg, #FF9F40 0%, #E60CA5 100%) !important; */
+            padding: 0px !important;
+            background: linear-gradient(180deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            border-radius: 25px !important;
+            margin-top: 25px !important;
+            width: 40% !important;
+            display: flex !important;
+            justify-content: center !important;
+            color: white !important;
+            font-family: HelveticaNeue !important;
+            font-style: normal !important;
+            font-weight: lighter !important;
+            font-size: 16px !important;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 2px !important;
+            text-shadow: none !important;
+            height: 40px;
+        }
+        
+        .head {
+            border: 1px solid #a59595 !important;
+            width: 30% !important;
+            border-radius: 8px !important;
+            margin-left: 35% !important;
+        }
+    </style>
+    <script>
+        $(function() {
+            $("#header-area").load("../../shared/header.html");
+            $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header" id="header-area">
+        </div>
+        <div data-role="panel" id="side-panel" data-display="overlay"></div>
+        <div class="profile-section">
+            <!-- <div class="ui-grid-solo profile-section-header">
+                <h1>Your Profile</h1>
+            </div> -->
+            <div class="ui-grid-solo">
+                <div class="ui-block-a log-out-section head">
+                    <div class="card_images">
+                        <img src="/assets/images/IMG_7960.jpg" style="border-radius: 50%;" height="100px" width="100px" alt="">
+                        <p style="margin: 0%;"><b>Vihana Sangeeth</b></p>
+                        <img src="/assets/images/badges/2.png" height="40px" width="40px" alt="">
+                    </div>
+                    <div class="text-info">
+                        <p><b>Rank :</b> Veteran (Level 10)</p>
+                        <p>14,000 Coins</p>
+                    </div>
+                </div>
+                <div class="preference-section">
+                    <div class="card">
+                        <p class="setting-card-header">Preference</p>
+                        <ul data-role="listview">
+                            <li>
+                                <p>Push Notification</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Allow access to My Contacts</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Allow location settings</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Show Advertiesements</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>Help Topics</p>
+                                <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-solo">
+            <div class="logout-btn">
+                <button class="login-btn">LOGOUT</button>
+            </div>
+            <div class="version-info">
+                <p>Version 4.8.15.16.23.42</p>
+            </div>
+
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
+        </div>
+    </div>
+</body>
+
+</html>

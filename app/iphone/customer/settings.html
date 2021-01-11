@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>KAMA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../../assets//css/carousel.css">
+    <!-- <link rel="stylesheet" href="../../../assets/css/card.css" /> -->
+
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script> -->
+</head>
+<style>
+    .card {
+        background-color: rgba(0, 0, 0, 0.02);
+        width: 163px;
+        height: 120px;
+        margin: 10px;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+    
+    .card :active {
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-text-2 {
+        margin: 0;
+        font-size: 10px;
+        margin-left: 2px;
+    }
+    
+    .card-info {
+        display: flex;
+    }
+    
+    .extra-info {
+        display: flex;
+    }
+    
+    .extra-info svg {
+        color: #5AC955;
+        font-size: 10px;
+        margin-top: 2px;
+        margin-right: 2px;
+    }
+    
+    .extra-info p {
+        font-size: 10px;
+    }
+    
+    .favourite-icon {
+        position: absolute;
+        width: 65%;
+        top: 27%;
+        left: 17%;
+    }
+    
+    .topic-header {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .header-1 {
+        font-size: 21px;
+        color: #324755;
+    }
+    
+    .header-2 {
+        margin-bottom: 0px;
+        font-size: 12px;
+        margin-top: 31px;
+        margin-right: 5px;
+    }
+    /* .card-title {} */
+    
+    .card-title {
+        color: #204252;
+    }
+    
+    .card-text-1 {
+        color: white;
+        width: 150px;
+    }
+    
+    .card-img-overlay {
+        margin-top: 94px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1.25rem;
+    }
+    
+    .nav-bar {
+        display: flex;
+        color: #C3CBCE;
+        border: 1px solid #C3CBCE;
+        POSITION: fixed;
+        top: 600px;
+        background-color: white;
+    }
+    
+    .nav-bar svg {
+        font-size: 25px;
+        margin: 25px;
+    }
+    
+    .back-btn {
+        position: absolute;
+        top: 25px;
+        margin-left: 25px;
+    }
+    
+    .block {
+        display: flex;
+        justify-content: center;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $(".ui-input-search input").focus(function() {
+            $(this).parent().removeClass("ui-focus")
+        });
+
+        $(function() {
+            $("#header-area").load("../../shared/header.html");
+            $("#hh").load("../../shared/sidemenu.html");
+        });
+        // $(document).ready(function () {
+
+        // });
+    });
+</script>
+
+<body>
+    <!-- <div data-role="side-bar" id="side-bar-area"></div> -->
+    <div data-role="page">
+
+        <!-- This is the favorites carousel -->
+        <div class="ui-grid-solo">
+            <div class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="topic-header">
+                <p class="header-1"><b>Settings</b></p>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Notifications.svg" alt="">
+                            <h5 class="card-title">Notification</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">All</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Settings – 2.svg" alt="">
+                            <h5 class="card-title">General</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">Compress photo..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-a block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Profile – 2.svg" alt="">
+                            <h5 class="card-title">Account</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">vimukthiapplied@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Pencil – 2.svg" alt="">
+                            <h5 class="card-title">Name</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">Vimukthi Gune</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-a block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Block.svg" alt="">
+                            <h5 class="card-title">Block</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">None</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Lock – 2.svg" alt="">
+                            <h5 class="card-title">Privacy</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">Only me</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-a block">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/images/settings/Help.svg" alt="">
+                            <h5 class="card-title">Block</h5>
+                            <div class="card-info">
+                                <p class="card-text-2">None</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Challenges List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css">
+</head>
+<style>
+    .card-wrapper {
+        padding: 15px;
+    }
+    /* .topic-header {
+        display: flex;
+        justify-content: center;
+    } */
+    /* .header-1 {
+        font-size: 21px;
+        color: #324755;
+    } */
+    /* .back-btn {
+        position: absolute;
+        top: 25px;
+        margin-left: 25px;
+    } */
+    
+    .user-img img {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .ui-block-a {
+        text-align: center;
+    }
+    
+    .ui-block-b {
+        text-align: center;
+    }
+    
+    .challange-info p {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+    
+    .scanner {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .camera-wrapper {
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 24px;
+        font-size: 40px;
+    }
+    
+    .scanner-text-wrapper {
+        text-align: center;
+    }
+    
+    .popup-overlay {
+        display: none;
+    }
+    
+    .closeBtnContainer {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .closeBtn {
+        width: 20% !important;
+        border-radius: 30px !important;
+        background: linear-gradient(180deg, #FF9F40, #FF8C49, #FF8A4A, #FF7256, #FF406E) !important;
+        color: white !important;
+        text-shadow: none !important;
+    }
+    
+    .challange-section-header .topic-header {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .challange-section-header {
+        display: flex;
+    }
+    
+    .challange-section-header svg {
+        font-size: 2em;
+        padding: 30px 0 0 30px;
+    }
+    
+    .challange-section-header a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+    
+    @media only screen and (orientation: portrait) {
+        .closeBtn {
+            width: 40% !important;
+        }
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $(".ui-input-search input").focus(function() {
+            $(this).parent().removeClass("ui-focus")
+        });
+
+        $(function() {
+            $("#header-area").load("../../shared/header.html");
+            $("#hh").load("../../shared/sidemenu.html");
+        });
+
+        // camera open & close function
+        $(function() {
+            $('#camerawrapper').click(function() {
+                $(".popup-overlay").css("display", "block")
+
+            });
+        });
+
+        $(".closeBtn, .popup").on("click", function() {
+            $(".popup-overlay").css("display", "none")
+        });
+
+        // camera scan function
+        var scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
+        });
+        scanner.addListener('scan', function(content) {
+            console.log("points", content);
+        });
+        Instascan.Camera.getCameras().then(function(cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+            }
+        }).catch(function(e) {
+            console.error(e);
+        });
+    });
+</script>
+
+<body>
+    <div data-role="page">
+        <div class="ui-grid-solo challange-section-header">
+            <a data-rel="back"><i class="fas fa-chevron-left"></i></a>
+            <div class="topic-header">
+                <h1>Challenges</h1>
+            </div>
+        </div>
+        <div class="ui-grid-solo">
+            <div class="scanner">
+                <div class="camera-wrapper" id="camerawrapper">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </div>
+            <div class="scanner-text-wrapper">
+                <p>Scan your food packet <br>to earn points</p>
+            </div>
+        </div>
+
+        <div class="ui-grid-solo popup-overlay">
+            <!--Creates the popup content-->
+            <div class="ui-block-a popup-content">
+                <video id="preview"></video>
+                <div class="closeBtnContainer">
+                    <button class="closeBtn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-grid-solo">
+
+            <div class="ui-grid-a user-img">
+                <div class="ui-block-a">
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="challange-info">
+                                <img src="../../../assets/images/badges/top10.png" alt="">
+                                <p>Top 10 Challenges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="challange-info">
+                                <img src="../../../assets/images/badges/daily.png" alt="">
+                                <p>Weekly Challenges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-a user-img">
+                <div class="ui-block-a">
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="challange-info">
+                                <img src="../../../assets/images/badges/restaurant.png" alt="">
+                                <p>Restaurant Challenges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="challange-info">
+                                <img src="../../../assets/images/badges/restaurant.png" alt="">
+                                <p>Top 10 Challenges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+    <script src="/assets/js/instascan.min.js"></script>
+</body>
+
+</html>

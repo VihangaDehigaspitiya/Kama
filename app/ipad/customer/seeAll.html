@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>KAMA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+    <style>
+        .favourite-card-section .ui-block-a,
+        .favourite-card-section .ui-block-b,
+        .favourite-card-section .ui-block-c,
+        .favourite-card-section .ui-block-d {
+            padding: 0 10px 15px 10px;
+        }
+        
+        .favourite-card-section .ui-grid-b .ui-block-b {
+            width: 60%;
+        }
+        
+        .favourite-card {
+            border-radius: 25px;
+        }
+        
+        .card-img-top {
+            border-top-left-radius: 25px !important;
+            border-top-right-radius: 25px !important;
+        }
+        
+        .favourite-icon {
+            position: absolute;
+            width: 65%;
+            top: 35%;
+            left: 17%;
+        }
+        
+        .favourite-info-section h3 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .favourite-info-section {
+            margin-top: 35px;
+        }
+        
+        .favourite-info-section .ui-grid-b .ui-block-a {
+            margin-left: 15px;
+        }
+        
+        .favourite-info-section .ui-grid-b p {
+            margin: 0;
+            font-size: 12px;
+            text-shadow: none;
+        }
+        
+        .halal-section {
+            margin-top: -8px;
+            margin-left: 25px;
+            font-size: 12px;
+        }
+        
+        .favourite-info-section .ui-grid-b small {
+            background-color: #C3CCCF;
+            padding: 4px;
+        }
+        
+        .halal-section svg {
+            color: green;
+        }
+        
+        .favourite-card-section {
+            padding: 10px 10px 65px 10px;
+        }
+        
+        .favourite-card-section-header .back-btn {
+            padding: 35px 0 0 35px;
+        }
+        
+        .favourite-card-section-header .back-btn svg {
+            font-size: 2em;
+        }
+        
+        .favourite-card-section-header .email-btn {
+            padding: 35px 35px 0 0;
+        }
+        
+        .favourite-card-section-header .back-btn a,
+        .favourite-card-section-header .email-btn a {
+            color: black !important;
+            text-decoration: none;
+        }
+        
+        .favourite-card-section-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .favourite-card-section-header h1 {
+            text-align: center;
+        }
+        
+        #paymentChaneDialog div h3 {
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        #paymentChaneDialog .ui-content {
+            padding-top: 0;
+        }
+        
+        #paymentChaneDialog-popup {
+            width: 439px !important;
+            /* max-width: 0 !important; */
+        }
+        
+        #paymentChaneDialog {
+            max-width: 439px !important;
+        }
+    </style>
+    <script>
+        function testLisk() {
+            localStorage.setItem("RestaurantId", '941621fb-c01f-402a-8e4b-bff8705f259c');
+            window.location.href = "menu.html"
+        }
+    </script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div class="favourite-card-section-header">
+            <div class="back-btn">
+                <a rel="external" href="home.html">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </div>
+            <h1>My Favourites</h1>
+            <div class="email-btn">
+                <a onclick="sendEmal()">
+                    <img src="/assets/images/paper-plane-solid.svg" width="30px" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="ui-grid-c favourite-card-section">
+            <!-- <div class="ui-block-a" onclick="testLisk()">
+                <div class="card favourite-card">
+                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Street Burger</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div class="card favourite-card">
+                    <img src="/assets/images/restos/tacobell.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Taco Bell</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ui-block-c">
+                <div class="card favourite-card">
+                    <img src="/assets/images/restos/arthurs.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>Arthur's Pizza</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ui-block-d">
+                <div class="card favourite-card">
+                    <img src="/assets/images/restos/kfc.png" class="card-img-top" alt="">
+                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                    <div class="favourite-info-section">
+                        <h3>KFC</h3>
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a">
+                                <p><small>25-35 Min</small></p>
+                            </div>
+                            <div class="ui-block-b">
+                                <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                            </div>
+                        </div>
+                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                Halal</small></p>
+                    </div>
+
+                </div>
+            </div> -->
+        </div>
+        <div data-role="nav-bar" id="nav-bar-area">
+        </div>
+        <div data-role="popup" id="paymentChaneDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="max-width:400px;">
+            <div>
+                <h3>Success</h3>
+                <a role="button" onclick="removeEmailConfirmation()" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right" data-transition="fade" data-rel="back" data-direction="reverse">Close</a>
+            </div>
+            <div role="main" class="ui-content">
+                <div class="payment-method-selection-section">
+                    <p>Favourite List is successfully sent to vihanga@gmail.com</p>
+                </div>
+
+
+                <!-- <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a> -->
+                <!-- <button onclick="changePaymentMethod()" class="payment-change-btn">CHANGE</button> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var favouriteList = [];
+    $(document).ready(function() {
+        $(function() {
+            setTimeout(function() {
+                if (localStorage.getItem("IsEmailSent")) {
+                    $('#paymentChaneDialog').popup('open');
+                }
+            }, 1000);
+        });
+
+        $(function() {
+            // $("#header-area").load("../../shared/header.html");
+            // $("#side-panel").load("../../shared/sidemenu.html");
+            $("#nav-bar-area").load("../../shared/nav-bar.html");
+        });
+
+        $(function() {
+            $.ajax({
+                url: `http://localhost/Kama/index.php/UserController/getFavouriteList`,
+                method: 'GET',
+                dataType: "json",
+                data: {
+                    "userId": localStorage.getItem("UserId")
+                }
+            }).done(function(data) {
+                favouriteList = data;
+                console.log(data);
+
+                if (data.length > 0) {
+                    $(".favourite-card-section").html("")
+                    var i = 0;
+                    data.forEach(element => {
+                        if (i > 3) {
+                            i = 0;
+                        }
+                        if (i == 0) {
+                            $(".favourite-card-section").append(`
+                            <div class="ui-block-a" onclick="testLisk()">
+                                <div class="card favourite-card">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <div class="favourite-info-section">
+                                        <h3>${element.name}</h3>
+                                        <div class="ui-grid-b">
+                                            <div class="ui-block-a">
+                                                <p><small>${element.deliveryTime} Min</small></p>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <p><small><i class="fas fa-star"></i> ${element.rating}(500+)</small></p>
+                                            </div>
+                                        </div>
+                                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                                Halal</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            `)
+                        } else if (i == 1) {
+                            $(".favourite-card-section").append(`
+                            <div class="ui-block-b" onclick="testLisk()">
+                                <div class="card favourite-card">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <div class="favourite-info-section">
+                                        <h3>${element.name}</h3>
+                                        <div class="ui-grid-b">
+                                            <div class="ui-block-a">
+                                                <p><small>${element.deliveryTime} Min</small></p>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <p><small><i class="fas fa-star"></i> ${element.rating}(500+)</small></p>
+                                            </div>
+                                        </div>
+                                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                                Halal</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            `)
+                        } else if (i == 2) {
+                            $(".favourite-card-section").append(`
+                            <div class="ui-block-c" onclick="testLisk()">
+                                <div class="card favourite-card">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <div class="favourite-info-section">
+                                        <h3>${element.name}</h3>
+                                        <div class="ui-grid-b">
+                                            <div class="ui-block-a">
+                                                <p><small>${element.deliveryTime} Min</small></p>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <p><small><i class="fas fa-star"></i> ${element.rating}(500+)</small></p>
+                                            </div>
+                                        </div>
+                                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                                Halal</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            `)
+                        } else {
+                            $(".favourite-card-section").append(`
+                            <div class="ui-block-d" onclick="testLisk()">
+                                <div class="card favourite-card">
+                                    <img src="/assets/images/street-fav.png" class="card-img-top" alt="">
+                                    <img src="/assets/images/fav-icon.png" class="favourite-icon" alt="">
+                                    <div class="favourite-info-section">
+                                        <h3>${element.name}</h3>
+                                        <div class="ui-grid-b">
+                                            <div class="ui-block-a">
+                                                <p><small>${element.deliveryTime} Min</small></p>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <p><small><i class="fas fa-star"></i> ${element.rating}(500+)</small></p>
+                                            </div>
+                                        </div>
+                                        <p class="halal-section"><small><i class="fas fa-check-square"></i>
+                                                Halal</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            `)
+                        }
+                        i++;
+                    });
+                }
+
+
+            })
+
+        })
+    })
+
+    function removeEmailConfirmation() {
+        localStorage.removeItem("IsEmailSent");
+    }
+
+
+    function sendEmal() {
+
+        var formattedStr = "";
+        var i = 0;
+        favouriteList.forEach(element => {
+            if (i > 2) {
+                i = 0;
+            }
+            if (i == 0) {
+                formattedStr = formattedStr + `<div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img height="150px" class="card-img-top" src="https://image.shutterstock.com/image-photo/fresh-tasty-burger-isolated-on-260nw-705104968.jpg">
+                        <div style="margin-top:10px">
+                            <h3>${element.name}<h3>
+                        </div>
+                    </div>
+                </div>`;
+            } else {
+                if (i == 2) {
+                    formattedStr = formattedStr + `<div class="col-md-3">
+                    <div class="card">
+                        <img height="150px" class="card-img-top" src="https://image.shutterstock.com/image-photo/fresh-tasty-burger-isolated-on-260nw-705104968.jpg">
+                        <div style="margin-top:10px">
+                            <h3>${element.name}<h3>
+                        </div>
+                    </div>
+                </div>
+                </div>`
+                } else {
+                    formattedStr = formattedStr + `<div class="col-md-3">
+                    <div class="card">
+                        <img height="150px" class="card-img-top" src="https://image.shutterstock.com/image-photo/fresh-tasty-burger-isolated-on-260nw-705104968.jpg">
+                        <div style="margin-top:10px">
+                            <h3>${element.name}<h3>
+                        </div>
+                    </div>
+                </div>`
+                }
+            }
+            i++
+        });
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "kamauiux@gmail.com",
+            Password: "kama12345678",
+            To: localStorage.getItem("Email"),
+            From: "kamauiux@gmail.com",
+            Subject: "Favourite Restaurants",
+            Body: `
+            <head>
+                <style>
+                    .row {
+                        display: -ms-flexbox;
+                        display: flex;
+                        -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                        margin-right: -15px;
+                        margin-left: -15px;
+                        padding-bottom:15px;
+                    }
+                    .col-md-3 {
+                        -ms-flex: 0 0 25%;
+                        flex: 0 0 25%;
+                        max-width: 25%;
+                        position: relative;
+                        width: 100%;
+                        padding-right: 15px;
+                        padding-left: 15px;
+                    }
+                    .card-img-top {
+                        width: 100%;
+                        border-top-left-radius: calc(0.25rem - 1px);
+                        border-top-right-radius: calc(0.25rem - 1px);
+                    }
+                    .card {
+                        position: relative;
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                        flex-direction: column;
+                        min-width: 0;
+                        word-wrap: break-word;
+                        background-color: #fff;
+                        background-clip: border-box;
+                        border: 1px solid rgba(0, 0, 0, 0.125);
+                        border-radius: 0.25rem;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                        transition: 0.3s;
+                    }
+                    h3{
+                        text-align:center;
+                    }
+
+                </style>
+            </head>
+            ${formattedStr}`,
+        }).then(function() {
+            message => console.log(message);
+            localStorage.setItem("IsEmailSent", true)
+            window.location.href = "../../shared/circleloading.html"
+        });
+
+
+    }
+</script>

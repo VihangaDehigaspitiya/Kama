@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>KAMA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../../../libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="../../../libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="../../../libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="../../../libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/card.css" />
+</head>
+<style>
+    .resto-info-section {
+        margin: 10px 20px 10px 20px;
+        padding-bottom: 10px;
+    }
+    
+    .menu-section {
+        margin: 10px 10px 10px 10px;
+    }
+    
+    .menu-section h2 {
+        text-align: center;
+    }
+    
+    .ui-page-theme-a,
+    .ui-body-inherit {
+        background-color: #f9f9f9 !important;
+    }
+    
+    .resto-info-1 p,
+    .resto-info-2 p {
+        margin: 0 !important;
+    }
+    
+    .resto-info-1 p small,
+    .resto-info-2 p small {
+        font-size: 12px !important;
+        color: #707070 !important;
+    }
+    
+    .resto-info-1 h2,
+    .resto-info-2 h2 {
+        margin: 6px 0 6px 0;
+    }
+    
+    .fa-star {
+        color: gold;
+    }
+    
+    .fa-check-square {
+        color: green;
+    }
+    
+    .topic-header p {
+        font-size: 20px;
+    }
+    
+    .block {
+        padding: 10px;
+        border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+    }
+    
+    .block-2 {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        border-right: 1px solid rgba(112, 112, 112, 0.5);
+    }
+    
+    .block-3 {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    .show-block-2 {
+        display: none;
+    }
+    /** iphone landscape **/
+    
+    @media only screen and (min-device-width: 667px) and (max-device-width: 667px) and (orientation: landscape) {
+        .show-block-1 {
+            display: none;
+        }
+        .show-block-2 {
+            display: block;
+        }
+        .menu-section {
+            margin: 10px 35px 10px 35px;
+        }
+    }
+</style>
+
+<body>
+    <div data-role="page">
+        <div class="ui-grid-solo">
+            <img src="../../../assets/images/new-rating-street.jpg" width="100%" alt="">
+        </div>
+        <div class="ui-grid-solo resto-info-section show-block-1">
+            <div class="ui-block-a block">
+                <div class="resto-info-1">
+                    <div class="topic-header">
+                        <p><b>Street Burger</b></p>
+                    </div>
+                    <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                    <p><small><i class="far fa-clock"></i> 25-35 Min</small></p>
+                    <p><small><i class="fas fa-check-square"></i> Halal</small></p>
+                </div>
+            </div>
+            <div class="ui-block-a block">
+                <div class="resto-info-2">
+                    <div class="topic-header">
+                        <p><b>Restaurent Info</b></p>
+                    </div>
+                    <p><small><i class="fab fa-facebook-square"></i> www.facebook.com/stburger</small></p>
+                    <p><small><i class="fas fa-map-marker-alt"></i> 97 Galle Rd, Colombo, Sri Lanka</small></p>
+                    <p><small><i class="fas fa-phone-square-alt"></i> 0775654123</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a resto-info-section show-block-2">
+            <div class="ui-block-a block-2">
+                <div class="resto-info-1">
+                    <div class="topic-header">
+                        <p><b>Street Burger</b></p>
+                    </div>
+                    <p><small><i class="fas fa-star"></i> 4.5(500+)</small></p>
+                    <p><small><i class="far fa-clock"></i> 25-35 Min</small></p>
+                    <p><small><i class="fas fa-check-square"></i> Halal</small></p>
+                </div>
+            </div>
+            <div class="ui-block-b block-3">
+                <div class="resto-info-2">
+                    <div class="topic-header">
+                        <p><b>Restaurent Info</b></p>
+                    </div>
+                    <p><small><i class="fab fa-facebook-square"></i> www.facebook.com/stburger</small></p>
+                    <p><small><i class="fas fa-map-marker-alt"></i> 97 Galle Rd, Colombo, Sri Lanka</small></p>
+                    <p><small><i class="fas fa-phone-square-alt"></i> 0775654123</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-solo menu-section">
+            <h2>Menu</h2>
+            <ul data-role="listview">
+                <li>
+                    <p>Chicken Cheese Koththu</p>
+                    <p>Rs.650</p>
+                </li>
+                <li>
+                    <p> Cheese Koththu</p>
+                    <p>Rs.550</p>
+                </li>
+                <li>
+                    <p>Egg & Cheese Koththu</p>
+                    <p>Rs.350</p>
+                </li>
+                <li>
+                    <p>Fried Rice</p>
+                    <p>Rs.350</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

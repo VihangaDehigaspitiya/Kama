@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Change Location</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="/libraries/fontawesome-free-5.11.2-web/css/all.min.css" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="/libraries/fontawesome-free-5.11.2-web/js/all.min.js"></script>
+    <script src="/libraries/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <script src="/libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+
+    <style>
+        .change-location-area .ui-input-text {
+            border-color: red !important;
+            border-radius: 20px;
+        }
+        
+        .change-location-area .change-location-area-header {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .change-location-area .change-location-area-header svg {
+            font-size: 2em;
+            padding: 30px 0 0 30px;
+        }
+        
+        .change-location-area .change-location-area-header .change-location-area-header-text {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .change-location-area .map-area {
+            margin-top: 20px;
+        }
+        
+        .change-location-area {
+            margin: 30px 120px 10px 120px;
+        }
+        
+        .change-location-area .location-settings {
+            text-align: center;
+        }
+        
+        .change-location-area .change-btn-section button {
+            margin-top: 20px;
+            text-shadow: none !important;
+            background: linear-gradient(90deg, #FF9F40 0%, #FF8C49 17.63%, #FF8A4A 35.61%, #FF7256 53.65%, #FF406E 100%) !important;
+            letter-spacing: 2px !important;
+            color: white !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".ui-input-text input").focus(function() {
+                $(this).parent().removeClass("ui-focus")
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="change-location-area">
+        <div class="ui-grid-solo change-location-area-header">
+            <i class="fas fa-chevron-left"></i>
+            <div class="change-location-area-header-text">
+                <h1>Location Settings</h1>
+            </div>
+        </div>
+        <div class="ui-grid-solo">
+            <input id="pickup-location" class="controls" type="text" placeholder="PickUp" size="104" value="Street Burger" disabled>
+            <input id="map-search" class="controls" type="text" placeholder="DropOff" size="104">
+        </div>
+        <div class="ui-grid-solo map-area">
+            <div id="map-canvas" style="width:100%;height:500px;"></div>
+        </div>
+        <div class="ui-grid-solo change-btn-section">
+            <button>Change Location</button>
+        </div>
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>
+<script src="/assets/js/google-map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIB2Z2ujLR7Wg8qGUETZ8Ekv2Rtco4yQ&libraries=places&callback=initialize"></script>

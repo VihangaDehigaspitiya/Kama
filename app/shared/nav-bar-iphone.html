@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <style>
+        .nav-bar {
+            display: flex;
+            color: #C3CBCE;
+            border: 1px solid #C3CBCE;
+            position: fixed;
+            bottom: 0;
+            background-color: white;
+            width: 100%;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .nav-bar-active {
+            color: #E94677 !important;
+        }
+        
+        .nav-bar svg {
+            color: #C3CBCE;
+            font-size: 22px;
+            padding: 15px 25px 15px 25px;
+        }
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (orientation: landscape) {
+            .nav-bar svg {
+                color: #C3CBCE;
+                font-size: 25px !important;
+                padding: 10px 60px 10px 60px !important;
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(function() {
+                var url = window.location.href;
+                if (url.indexOf("home.html") != -1) {
+                    console.log("home")
+                    $(".fa-home").addClass('nav-bar-active')
+                } else if (url.indexOf("pastorders.html") != -1) {
+                    $(".fa-receipt").addClass('nav-bar-active')
+                } else if (url.indexOf("cart.html") != -1) {
+                    $(".fa-cart-plus").addClass('nav-bar-active')
+                } else if (url.indexOf("categories.html") != -1) {
+                    $(".fa-search").addClass('nav-bar-active')
+                } else if (url.indexOf("profile.html") != -1) {
+                    $(".fa-user").addClass('nav-bar-active')
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a id="home-link" rel="external" href="/app/iphone/customer/home.html"><i class="fas fa-home"></i></a>
+        <a id="past-orders-link" rel="external" href="/app/iphone/customer/pastorders.html"><i
+                class="fas fa-receipt"></i></a>
+        <a id="cart-link" rel="external" href="/app/iphone/customer/cart.html"><i class="fas fa-cart-plus"></i></a>
+        <a id="search-link" rel="external" href="/app/iphone/customer/categories.html"><i class="fas fa-search"></i></a>
+        <a id="profile-link" rel="external" href="/app/iphone/customer/profile.html"><i class="fas fa-user"></i></a>
+    </div>
+</body>
+
+</html>
